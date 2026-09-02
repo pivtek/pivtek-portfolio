@@ -3,163 +3,186 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pivtek — Software Engineering · Applications web & mobiles sur mesure</title>
+<title>Pivtek — Développement d'applications web & mobiles sur mesure · Lyon</title>
+<meta name="description" content="Pivtek développe des sites web, applications mobiles et outils métier sur mesure pour PME et startups. Lyon, France.">
 <link rel="icon" type="image/svg+xml" href="pivtek-icon.svg">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
-
   :root{
-    --bg:#0A0E14;
-    --surface:#111720;
-    --line:#1E293B;
-    --ink:#E2E8F0;
-    --muted:#64748B;
-    --muted2:#475569;
-    --blue:#2563EB;
-    --blue-dark:#1E40AF;
-    --blue-light:#3B82F6;
-    --blue-glow:rgba(37,99,235,.15);
-    --green:#10B981;
-    --green-glow:rgba(16,185,129,.12);
+    --bg:#090c10;--surface:#0f1318;--surface2:#151b23;--line:#1c2430;--ink:#e6edf3;--muted:#7d8590;--muted2:#484f58;
+    --blue:#2563EB;--blue-dark:#1d4ed8;--blue-light:#60a5fa;--blue-glow:rgba(37,99,235,.1);
+    --green:#10b981;--green-glow:rgba(16,185,129,.08);--amber:#f59e0b;--amber-glow:rgba(245,158,11,.08);
+    --gradient:linear-gradient(135deg,#2563EB,#7c3aed);
   }
-
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
-  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   ::selection{background:var(--blue);color:#fff}
-  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 28px}
 
-  .topbar{height:3px;background:linear-gradient(90deg,var(--blue),var(--blue-light),var(--blue))}
-
-  /* ---- NAV ---- */
-  nav{display:flex;justify-content:space-between;align-items:center;padding:20px 24px;max-width:1080px;margin:0 auto}
+  /* ---- TOP ---- */
+  .topbar{height:2px;background:var(--gradient)}
+  nav{display:flex;justify-content:space-between;align-items:center;padding:22px 28px;max-width:1100px;margin:0 auto}
   .logo{display:flex;align-items:center;gap:14px;text-decoration:none}
-  .logo svg{width:44px;height:44px}
-  .logo-text{font-size:22px;font-weight:900;letter-spacing:3px;color:var(--ink)}
-  .logo-text span{color:var(--blue)}
-  .navlinks{display:flex;gap:24px;font-size:13px;font-weight:500;letter-spacing:.04em;text-transform:uppercase}
+  .logo svg{width:40px;height:40px}
+  .logo-text{font-size:20px;font-weight:900;letter-spacing:4px;color:var(--ink)}
+  .logo-text span{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .navlinks{display:flex;gap:28px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
   .navlinks a{color:var(--muted);text-decoration:none;transition:color .2s}
-  .navlinks a:hover{color:var(--blue-light)}
-  @media(max-width:700px){.navlinks{display:none}}
+  .navlinks a:hover{color:var(--ink)}
+  @media(max-width:800px){.navlinks{display:none}}
 
   /* ---- HERO ---- */
-  .hero{padding:80px 0 40px;position:relative}
-  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;color:var(--blue-light);text-transform:uppercase;margin-bottom:22px;display:flex;align-items:center;gap:12px}
-  .eyebrow::before{content:"";width:34px;height:1px;background:var(--blue)}
-  h1{font-size:clamp(36px,6.5vw,68px);font-weight:900;line-height:1;letter-spacing:-.02em;margin-bottom:26px}
-  h1 .hl{color:var(--blue)}
-  .lead{font-size:clamp(17px,2.2vw,20px);max-width:680px;color:#94A3B8;margin-bottom:16px}
+  .hero{padding:100px 0 50px;position:relative}
+  .hero::before{content:"";position:absolute;top:0;left:50%;transform:translateX(-50%);width:800px;height:600px;background:radial-gradient(ellipse,rgba(37,99,235,.06),transparent 70%);pointer-events:none}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--blue-light);text-transform:uppercase;margin-bottom:24px;display:flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:40px;height:1px;background:var(--gradient)}
+  h1{font-size:clamp(38px,7vw,72px);font-weight:900;line-height:.95;letter-spacing:-.03em;margin-bottom:28px}
+  h1 .hl{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .lead{font-size:clamp(17px,2vw,19px);max-width:620px;color:var(--muted);margin-bottom:36px}
   .lead strong{color:var(--ink);font-weight:600}
-  .sub{font-size:15px;color:var(--muted);max-width:620px;margin-bottom:34px}
   .cta-row{display:flex;gap:14px;flex-wrap:wrap}
-  .btn{font-weight:700;font-size:14px;padding:13px 26px;text-decoration:none;border-radius:6px;transition:transform .15s,box-shadow .15s;display:inline-block;letter-spacing:.02em}
-  .btn-p{background:var(--blue);color:#fff}
-  .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(37,99,235,.35)}
+  .btn{font-weight:700;font-size:14px;padding:14px 28px;text-decoration:none;border-radius:8px;transition:all .2s;display:inline-block;letter-spacing:.02em}
+  .btn-p{background:var(--gradient);color:#fff;box-shadow:0 4px 20px rgba(37,99,235,.25)}
+  .btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(37,99,235,.35)}
   .btn-s{background:transparent;color:var(--ink);border:1px solid var(--line)}
-  .btn-s:hover{border-color:var(--blue-light);color:var(--blue-light)}
+  .btn-s:hover{border-color:var(--blue);color:var(--blue-light)}
 
   /* ---- METRICS ---- */
-  .metrics{margin:56px 0 20px;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;box-shadow:0 20px 50px rgba(0,0,0,.3);position:relative}
-  .metrics::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 15% 0%,var(--blue-glow),transparent 45%)}
-  .metrics-head{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1px solid var(--line);background:rgba(0,0,0,.2)}
-  .metrics-head .t{font-family:'JetBrains Mono',monospace;font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--muted)}
+  .metrics{margin:60px 0 20px;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.4)}
+  .metrics-head{padding:16px 24px;border-bottom:1px solid var(--line);background:var(--surface2)}
+  .metrics-head .t{font-family:'JetBrains Mono',monospace;font-weight:500;text-transform:uppercase;letter-spacing:.1em;font-size:11px;color:var(--muted)}
   .metrics-grid{display:grid;grid-template-columns:repeat(4,1fr)}
-  .cell{padding:22px 20px;border-right:1px solid var(--line)}
+  .cell{padding:24px 22px;border-right:1px solid var(--line)}
   .cell:last-child{border-right:none}
-  .cell .k{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
-  .cell .v{font-weight:900;font-size:26px;color:var(--ink);line-height:1}
-  .cell .v small{display:block;font-size:12px;font-weight:500;color:var(--blue-light);letter-spacing:.03em;margin-top:6px}
+  .cell .k{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:10px}
+  .cell .v{font-weight:900;font-size:28px;color:var(--ink);line-height:1}
+  .cell .v small{display:block;font-size:11px;font-weight:500;color:var(--blue-light);letter-spacing:.03em;margin-top:6px}
   @media(max-width:720px){.metrics-grid{grid-template-columns:repeat(2,1fr)}.cell{border-bottom:1px solid var(--line)}.cell:nth-child(2n){border-right:none}.cell:nth-child(2n+1){border-right:1px solid var(--line)}.cell:last-child{border-right:none}}
 
   /* ---- SECTIONS ---- */
-  section{padding:64px 0;border-top:1px solid var(--line)}
-  .sec-label{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.16em;color:var(--blue-light);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:12px}
-  h2{font-size:clamp(28px,4.5vw,42px);font-weight:900;letter-spacing:-.01em;margin-bottom:20px}
-  .intro{max-width:640px;color:#94A3B8;font-size:16px;margin-bottom:38px}
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  .sec-label{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;color:var(--blue-light);text-transform:uppercase;margin-bottom:16px;display:flex;align-items:center;gap:12px}
+  h2{font-size:clamp(30px,5vw,46px);font-weight:900;letter-spacing:-.02em;margin-bottom:20px;line-height:1.05}
+  .intro{max-width:600px;color:var(--muted);font-size:16px;margin-bottom:40px}
 
-  /* ---- SERVICES CARDS ---- */
-  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  @media(max-width:800px){.cards{grid-template-columns:1fr}}
-  .card{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:26px 22px;transition:border-color .2s,transform .2s}
-  .card:hover{border-color:var(--blue);transform:translateY(-3px)}
-  .card .ic{font-size:26px;margin-bottom:14px}
-  .card h3{font-weight:800;font-size:18px;letter-spacing:-.01em;margin-bottom:10px}
-  .card p{font-size:14px;color:var(--muted);line-height:1.5}
-
-  /* ---- PROCESS ---- */
-  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;position:relative}
-  @media(max-width:800px){.process-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:500px){.process-grid{grid-template-columns:1fr}}
-  .step{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px 22px;position:relative;transition:border-color .2s}
-  .step:hover{border-color:var(--blue)}
-  .step-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--blue);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-  .step-num::after{content:"";flex:1;height:1px;background:var(--line)}
-  .step h3{font-weight:800;font-size:17px;margin-bottom:8px}
-  .step p{font-size:13.5px;color:var(--muted);line-height:1.5}
-  .step .duration{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--blue-light);margin-top:12px;letter-spacing:.04em}
-
-  /* ---- PROJECTS ---- */
-  .projects-grid{display:grid;grid-template-columns:1fr;gap:20px}
-  .project{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s}
-  .project:hover{border-color:var(--blue)}
-  .project-header{padding:24px 28px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:14px}
-  .project-header h3{font-weight:900;font-size:20px;letter-spacing:-.01em}
-  .project-header .meta{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted);letter-spacing:.04em;margin-top:4px}
-  .badge{display:inline-block;background:var(--blue-glow);color:var(--blue-light);border:1px solid rgba(37,99,235,.3);font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;padding:5px 11px;border-radius:4px}
-  .badge-green{background:var(--green-glow);color:var(--green);border-color:rgba(16,185,129,.3)}
-  .project-body{padding:0 28px 24px;display:grid;grid-template-columns:1fr 1fr;gap:24px}
-  @media(max-width:720px){.project-body{grid-template-columns:1fr}}
-  .project-body h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:12px}
-  .flist{list-style:none}
-  .flist li{padding:6px 0 6px 20px;position:relative;font-size:14px;color:#94A3B8;border-bottom:1px dashed rgba(30,41,59,.8)}
-  .flist li::before{content:"›";position:absolute;left:0;color:var(--blue);font-weight:700;font-size:16px}
-  .flist li:last-child{border-bottom:none}
-  .project-tags{padding:0 28px 20px;display:flex;flex-wrap:wrap;gap:8px}
-  .ptag{font-family:'JetBrains Mono',monospace;font-size:11px;padding:4px 10px;background:rgba(37,99,235,.08);color:var(--blue-light);border-radius:4px;letter-spacing:.03em}
+  /* ---- CARDS ---- */
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:600px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px 20px;transition:all .25s}
+  .card:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+  .card .ic{font-size:24px;margin-bottom:12px}
+  .card h3{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+  .card p{font-size:13px;color:var(--muted);line-height:1.55}
+  .card .tag{display:inline-block;background:var(--amber-glow);color:var(--amber);border:1px solid rgba(245,158,11,.2);font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle}
 
   /* ---- DOMAINS ---- */
-  .domains{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:30px}
+  .domains{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
   @media(max-width:800px){.domains{grid-template-columns:repeat(2,1fr)}}
-  .domain{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:18px 16px;text-align:center;transition:border-color .2s}
+  .domain{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:16px 14px;text-align:center;transition:border-color .2s}
   .domain:hover{border-color:var(--blue)}
-  .domain .emoji{font-size:24px;margin-bottom:8px}
-  .domain .name{font-weight:700;font-size:14px;margin-bottom:4px}
-  .domain .desc{font-size:12px;color:var(--muted)}
+  .domain .emoji{font-size:22px;margin-bottom:6px}
+  .domain .name{font-weight:700;font-size:13px;margin-bottom:3px}
+  .domain .desc{font-size:11px;color:var(--muted)}
 
-  /* ---- STACK (accessible) ---- */
-  .stack-cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+  /* ---- PROCESS ---- */
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  @media(max-width:800px){.process-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:500px){.process-grid{grid-template-columns:1fr}}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:26px 20px;transition:border-color .2s}
+  .step:hover{border-color:var(--blue)}
+  .step-num{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.12em;color:var(--blue);text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+  .step-num::after{content:"";flex:1;height:1px;background:var(--line)}
+  .step h3{font-weight:800;font-size:16px;margin-bottom:8px}
+  .step p{font-size:13px;color:var(--muted);line-height:1.55}
+  .step .duration{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue-light);margin-top:12px;letter-spacing:.05em}
+
+  /* ---- PROJECTS ---- */
+  .projects-grid{display:grid;grid-template-columns:1fr;gap:16px}
+  .project{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden;transition:border-color .2s}
+  .project:hover{border-color:var(--blue)}
+  .project-header{padding:22px 26px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;border-bottom:1px solid var(--line)}
+  .project-header h3{font-weight:900;font-size:18px}
+  .project-header .meta{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--muted);letter-spacing:.04em;margin-top:4px}
+  .badge{display:inline-block;background:var(--blue-glow);color:var(--blue-light);border:1px solid rgba(37,99,235,.2);font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:4px}
+  .badge-green{background:var(--green-glow);color:var(--green);border-color:rgba(16,185,129,.2)}
+  .badge-amber{background:var(--amber-glow);color:var(--amber);border-color:rgba(245,158,11,.2)}
+  .project-body{padding:22px 26px;display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:720px){.project-body{grid-template-columns:1fr}}
+  .project-body h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:12px}
+  .flist{list-style:none}
+  .flist li{padding:5px 0 5px 18px;position:relative;font-size:13px;color:var(--muted);border-bottom:1px dashed var(--line)}
+  .flist li::before{content:"›";position:absolute;left:0;color:var(--blue);font-weight:700}
+  .flist li:last-child{border-bottom:none}
+  .project-tags{padding:0 26px 18px;display:flex;flex-wrap:wrap;gap:6px}
+  .ptag{font-family:'JetBrains Mono',monospace;font-size:10px;padding:3px 9px;background:rgba(37,99,235,.06);color:var(--blue-light);border-radius:4px;letter-spacing:.04em}
+
+  /* ---- STACK ---- */
+  .stack-cols{display:grid;grid-template-columns:1fr 1fr;gap:28px}
   @media(max-width:720px){.stack-cols{grid-template-columns:1fr}}
-  .stack-col h4{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:14px}
-  .stack-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed rgba(30,41,59,.6);font-size:14px}
+  .stack-col h4{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-light);margin-bottom:14px}
+  .stack-item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed var(--line);font-size:14px}
   .stack-item:last-child{border-bottom:none}
   .stack-item .label{color:var(--ink);font-weight:600}
   .stack-item .tech{font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--muted)}
 
-  /* ---- EDGE ---- */
-  .edge{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  /* ---- APPROACH ---- */
+  .edge{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
   @media(max-width:720px){.edge{grid-template-columns:1fr}}
-  .edge-quote{font-weight:900;font-size:clamp(24px,3.5vw,34px);line-height:1.15}
-  .edge-quote .hl{color:var(--blue)}
-  .edge p{color:#94A3B8;font-size:15px;margin-top:8px}
+  .edge-quote{font-weight:900;font-size:clamp(26px,4vw,38px);line-height:1.1;letter-spacing:-.02em}
+  .edge-quote .hl{background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  .edge p{color:var(--muted);font-size:15px;margin-top:10px}
   .edge p+p{margin-top:14px}
 
+  /* ---- FOUNDER ---- */
+  .founder{display:flex;gap:24px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:28px;margin-top:32px}
+  @media(max-width:600px){.founder{flex-direction:column}}
+  .founder-avatar{width:68px;height:68px;border-radius:50%;background:var(--gradient);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:900;color:#fff;flex-shrink:0;box-shadow:0 8px 24px rgba(37,99,235,.2)}
+  .founder-info h3{font-weight:800;font-size:16px;margin-bottom:4px}
+  .founder-info .role{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--blue-light);text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px}
+  .founder-info p{font-size:13.5px;color:var(--muted);line-height:1.6}
+
+  /* ---- TESTIMONIAL ---- */
+  .testimonial{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:32px 28px;margin-top:24px;position:relative;overflow:hidden}
+  .testimonial::before{content:""";font-size:120px;font-weight:900;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;opacity:.15;position:absolute;top:-10px;left:16px;line-height:1;pointer-events:none}
+  .testimonial blockquote{font-size:15px;color:#b0b8c4;line-height:1.75;font-style:italic;margin-bottom:16px;padding-left:8px;position:relative;z-index:1}
+  .testimonial .author{font-size:12px;color:var(--muted);font-style:normal;position:relative;z-index:1}
+  .testimonial .author strong{color:var(--ink);font-weight:700}
+
+  /* ---- PRICING ---- */
+  .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  @media(max-width:800px){.pricing-grid{grid-template-columns:1fr}}
+  .price-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:32px 24px;transition:all .25s;position:relative}
+  .price-card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(0,0,0,.3)}
+  .price-card.featured{border-color:var(--blue);background:linear-gradient(180deg,var(--surface2),var(--surface))}
+  .price-card.featured:hover{box-shadow:0 16px 40px rgba(37,99,235,.15)}
+  .price-card .popular{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--gradient);color:#fff;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;padding:4px 16px;border-radius:20px;white-space:nowrap}
+  .price-card .tier{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:var(--blue-light);text-transform:uppercase;margin-bottom:14px}
+  .price-card .price{font-size:30px;font-weight:900;color:var(--ink);margin-bottom:4px}
+  .price-card .price span{font-size:14px;font-weight:500;color:var(--muted)}
+  .price-card .price-desc{font-size:13px;color:var(--muted);margin-bottom:22px}
+  .price-card .features{list-style:none}
+  .price-card .features li{padding:7px 0;font-size:13px;color:var(--muted);border-bottom:1px dashed var(--line);display:flex;align-items:flex-start;gap:8px}
+  .price-card .features li:last-child{border-bottom:none}
+  .price-card .features li::before{content:"✓";color:var(--green);font-weight:700;flex-shrink:0;font-size:13px}
+  .price-note{font-size:12px;color:var(--muted2);text-align:center;margin-top:22px;font-style:italic}
+
   /* ---- CONTACT ---- */
-  .contact{text-align:center;background:linear-gradient(180deg,transparent,rgba(37,99,235,.04))}
+  .contact{text-align:center;background:linear-gradient(180deg,transparent,rgba(37,99,235,.03))}
   .contact h2{margin-bottom:16px}
-  .contact>div>p{color:#94A3B8;max-width:540px;margin:0 auto 30px}
-  .reassurance{display:flex;justify-content:center;gap:32px;flex-wrap:wrap;margin-top:24px}
-  .reassurance-item{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--muted)}
-  .reassurance-item .check{color:var(--green);font-weight:700;font-size:16px}
+  .contact>div>p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+  .reassurance{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin-top:24px}
+  .reassurance-item{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted)}
+  .reassurance-item .check{color:var(--green);font-weight:700;font-size:14px}
 
   /* ---- FOOTER ---- */
-  footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
+  footer{border-top:1px solid var(--line);padding:32px 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:12px}
   .footer-logo{display:flex;align-items:center;gap:10px}
-  .footer-logo svg{width:28px;height:28px}
-  .footer-logo span{font-size:15px;font-weight:800;letter-spacing:2px;color:var(--muted)}
-  .footer-logo span em{font-style:normal;color:var(--blue)}
-  footer .copy{color:var(--muted2);font-size:12px;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
-
-  .placeholder{color:var(--blue);font-weight:600}
+  .footer-logo svg{width:26px;height:26px}
+  .footer-logo span{font-size:14px;font-weight:800;letter-spacing:3px;color:var(--muted)}
+  .footer-logo span em{font-style:normal;background:var(--gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+  footer .copy{color:var(--muted2);font-size:11px;font-family:'JetBrains Mono',monospace;letter-spacing:.04em}
 </style>
 </head>
 <body>
@@ -167,314 +190,235 @@
 
 <nav>
   <a href="#" class="logo">
-    <svg viewBox="0 0 44 44" fill="none">
-      <polygon points="0,22 17,0 17,8 6,22 17,36 17,44 0,22" fill="#2563EB"/>
-      <polygon points="11,22 24,7 24,17 17,22 24,27 24,37 11,22" fill="#3B82F6" opacity="0.5"/>
-    </svg>
+    <svg viewBox="0 0 44 44" fill="none"><polygon points="0,22 17,0 17,8 6,22 17,36 17,44 0,22" fill="#2563EB"/><polygon points="11,22 24,7 24,17 17,22 24,27 24,37 11,22" fill="#3B82F6" opacity="0.5"/></svg>
     <div class="logo-text">PIV<span>TEK</span></div>
   </a>
   <div class="navlinks">
     <a href="#services">Services</a>
     <a href="#process">Méthode</a>
     <a href="#projets">Projets</a>
-    <a href="#approche">Approche</a>
+    <a href="#approche">À propos</a>
+    <a href="#tarifs">Tarifs</a>
     <a href="#contact">Contact</a>
   </div>
 </nav>
 
 <header class="hero">
   <div class="wrap">
-    <div class="eyebrow">Software Engineering · Applications sur mesure</div>
-    <h1>Nous concevons les<br>outils qui vous <span class="hl">manquent</span></h1>
-    <p class="lead">Sites web et applications sur mesure, pensés pour <strong>résoudre des problèmes concrets</strong>. Du site vitrine à l'app terrain, du dashboard au MVP startup — nous développons ce que les solutions génériques ne couvrent pas.</p>
-    <p class="sub">Ingénierie logicielle full-stack · Applications en production · Forfait cadré</p>
+    <div class="eyebrow">Ingénierie logicielle · Lyon, France</div>
+    <h1>Vos outils métier,<br>livrés en <span class="hl">semaines</span><br>pas en mois</h1>
+    <p class="lead">Sites web, applications mobiles et outils de gestion sur mesure pour <strong>PME, artisans et startups</strong>. Nous développons ce que les logiciels génériques ne couvrent pas — avec des délais et des budgets qui vous surprendront.</p>
     <div class="cta-row">
       <a href="#contact" class="btn btn-p">Discuter d'un projet</a>
-      <a href="#projets" class="btn btn-s">Voir nos réalisations</a>
+      <a href="#tarifs" class="btn btn-s">Voir les tarifs</a>
     </div>
-
     <div class="metrics">
-      <div class="metrics-head">
-        <span class="t">Pivtek · En bref</span>
-      </div>
+      <div class="metrics-head"><span class="t">Pivtek · En bref</span></div>
       <div class="metrics-grid">
         <div class="cell"><div class="k">Périmètre</div><div class="v">Full<small>Web + Mobile + Backend</small></div></div>
-        <div class="cell"><div class="k">Livraison</div><div class="v">Prod<small>Apps déployées & utilisées</small></div></div>
-        <div class="cell"><div class="k">Mode</div><div class="v">Forfait<small>Prix fixe, périmètre cadré</small></div></div>
-        <div class="cell"><div class="k">Réponse</div><div class="v">48h<small>Premier retour garanti</small></div></div>
+        <div class="cell"><div class="k">Statut</div><div class="v">Prod<small>App déployée & utilisée</small></div></div>
+        <div class="cell"><div class="k">Mode</div><div class="v">Forfait<small>Prix fixe, pas de surprise</small></div></div>
+        <div class="cell"><div class="k">Réponse</div><div class="v">48h<small>Analyse gratuite</small></div></div>
       </div>
     </div>
   </div>
 </header>
 
-<!-- ==================== SERVICES ==================== -->
+<!-- SERVICES -->
 <section id="services">
   <div class="wrap">
     <div class="sec-label">Services</div>
     <h2>Ce que nous développons</h2>
-    <p class="intro">Sites web, applications mobiles, outils métier sur mesure — nous développons ce dont votre entreprise a besoin, exactement comme elle en a besoin.</p>
+    <p class="intro">Des solutions numériques taillées pour votre métier. Du site vitrine à l'application de gestion complète.</p>
     <div class="cards">
-      <div class="card">
-        <div class="ic">⚙️</div>
-        <h3>Applications métier</h3>
-        <p>Outils de gestion internes, suivi d'interventions, gestion de tickets, CRM sur mesure. Des applications taillées pour vos processus, pas l'inverse.</p>
-      </div>
-      <div class="card">
-        <div class="ic">🌐</div>
-        <h3>Sites web</h3>
-        <p>Sites vitrines, sites d'entreprise, landing pages, one-pages. Des sites modernes, rapides, responsives et optimisés pour le référencement — de la TPE à la PME.</p>
-      </div>
-      <div class="card">
-        <div class="ic">📱</div>
-        <h3>Applications mobiles</h3>
-        <p>Apps Android et iOS natives. Idéal pour les équipes terrain, les techniciens itinérants, les commerciaux ou tout usage en mobilité.</p>
-      </div>
-      <div class="card">
-        <div class="ic">🖥️</div>
-        <h3>Applications web</h3>
-        <p>Dashboards, portails clients, back-offices, plateformes SaaS. Interfaces modernes, rapides et sécurisées.</p>
-      </div>
-      <div class="card">
-        <div class="ic">🚀</div>
-        <h3>MVP & prototypage</h3>
-        <p>Vous avez une idée de produit ? Nous développons votre MVP fonctionnel pour valider votre concept avant d'investir massivement.</p>
-      </div>
-      <div class="card">
-        <div class="ic">🔗</div>
-        <h3>Intégrations & API</h3>
-        <p>Connexion de vos outils existants, automatisations, intégrations de services tiers. Faites communiquer vos systèmes entre eux.</p>
-      </div>
-      <div class="card">
-        <div class="ic">🛡️</div>
-        <h3>Maintenance & évolution</h3>
-        <p>Hébergement, monitoring, corrections, mises à jour de sécurité et nouvelles fonctionnalités. Votre application évolue avec vous.</p>
-      </div>
+      <div class="card"><div class="ic">🌐</div><h3>Sites web</h3><p>Sites vitrines, landing pages, sites d'entreprise. Modernes, rapides, responsives et optimisés pour le référencement.</p></div>
+      <div class="card"><div class="ic">⚙️</div><h3>Outils métier</h3><p>Applications de gestion, suivi d'interventions, CRM, workflows. Taillés pour vos processus, pas l'inverse.</p></div>
+      <div class="card"><div class="ic">📱</div><h3>Apps mobiles</h3><p>Android et iOS cross-platform. Pour les équipes terrain, techniciens, commerciaux. Coût réduit vs développement natif.</p></div>
+      <div class="card"><div class="ic">🖥️</div><h3>Dashboards</h3><p>Tableaux de bord décisionnels, portails clients, back-offices. Vos KPI en temps réel, de partout.</p></div>
+      <div class="card"><div class="ic">🚀</div><h3>MVP</h3><p>Vous avez une idée ? Nous livrons un prototype fonctionnel rapidement pour valider avant d'investir.</p></div>
+      <div class="card"><div class="ic">🧾</div><h3>E-invoicing<span class="tag">2026</span></h3><p>Connecteurs et dashboards pour la facturation électronique obligatoire. Anticipez la réforme.</p></div>
+      <div class="card"><div class="ic">🔗</div><h3>Intégrations</h3><p>API sur mesure, automatisations, connexion de vos outils existants. Fini la double saisie.</p></div>
+      <div class="card"><div class="ic">🛡️</div><h3>Maintenance</h3><p>Hébergement, monitoring, mises à jour, évolutions. Votre application vit et évolue avec vous.</p></div>
     </div>
-
-    <!-- Domaines d'intervention -->
-    <p class="intro" style="margin-top:48px;margin-bottom:18px">Nous intervenons dans de nombreux secteurs :</p>
-    <div class="domains">
-      <div class="domain"><div class="emoji">🏭</div><div class="name">Industrie</div><div class="desc">SAV, maintenance, suivi terrain</div></div>
-      <div class="domain"><div class="emoji">🏗️</div><div class="name">BTP & artisans</div><div class="desc">Chantiers, devis, plannings</div></div>
-      <div class="domain"><div class="emoji">🏥</div><div class="name">Santé & social</div><div class="desc">Suivi patients, gestion RDV</div></div>
-      <div class="domain"><div class="emoji">🛒</div><div class="name">Commerce</div><div class="desc">Gestion stocks, commandes, CRM</div></div>
+    <div class="domains" style="margin-top:40px">
+      <div class="domain"><div class="emoji">🏭</div><div class="name">Industrie</div><div class="desc">SAV, maintenance, production</div></div>
+      <div class="domain"><div class="emoji">🏗️</div><div class="name">BTP</div><div class="desc">Chantiers, devis, interventions</div></div>
+      <div class="domain"><div class="emoji">🏥</div><div class="name">Santé</div><div class="desc">Coordination, suivi, plannings</div></div>
       <div class="domain"><div class="emoji">🚚</div><div class="name">Logistique</div><div class="desc">Tournées, livraisons, tracking</div></div>
-      <div class="domain"><div class="emoji">🎓</div><div class="name">Formation</div><div class="desc">Plateformes e-learning, suivi</div></div>
+      <div class="domain"><div class="emoji">🛒</div><div class="name">Commerce</div><div class="desc">Stocks, commandes, CRM</div></div>
+      <div class="domain"><div class="emoji">🎓</div><div class="name">Formation</div><div class="desc">E-learning, suivi, portails</div></div>
       <div class="domain"><div class="emoji">💡</div><div class="name">Startups</div><div class="desc">MVP, validation, itérations</div></div>
-      <div class="domain"><div class="emoji">🏢</div><div class="name">Services</div><div class="desc">Portails, automatisations, RH</div></div>
+      <div class="domain"><div class="emoji">🏢</div><div class="name">Services</div><div class="desc">Portails, automatisations</div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== PROCESS ==================== -->
+<!-- PROCESS -->
 <section id="process">
   <div class="wrap">
     <div class="sec-label">Méthode</div>
-    <h2>Comment nous travaillons</h2>
-    <p class="intro">Un process clair, prévisible, sans mauvaise surprise. Vous savez exactement ce que vous aurez, quand, et à quel prix.</p>
+    <h2>Un process clair,<br>sans surprise</h2>
+    <p class="intro">Vous savez ce que vous aurez, quand, et à quel prix. À chaque étape.</p>
     <div class="process-grid">
-      <div class="step">
-        <div class="step-num">Étape 1</div>
-        <h3>Cadrage</h3>
-        <p>Nous analysons votre besoin, définissons le périmètre fonctionnel et livrons un devis forfaitaire détaillé. Rien ne démarre sans votre validation écrite.</p>
-        <div class="duration">Gratuit · Sans engagement</div>
-      </div>
-      <div class="step">
-        <div class="step-num">Étape 2</div>
-        <h3>Développement</h3>
-        <p>Nous construisons votre application par itérations courtes. Vous voyez l'avancement régulièrement et pouvez réagir tôt — pas de tunnel.</p>
-        <div class="duration">Itérations de 1 à 2 semaines</div>
-      </div>
-      <div class="step">
-        <div class="step-num">Étape 3</div>
-        <h3>Livraison</h3>
-        <p>Tests, corrections, mise en production. Nous déployons votre application et formons vos équipes à son utilisation.</p>
-        <div class="duration">Déploiement inclus dans le forfait</div>
-      </div>
-      <div class="step">
-        <div class="step-num">Étape 4</div>
-        <h3>Maintenance</h3>
-        <p>Hébergement, monitoring, corrections et évolutions. Un forfait mensuel pour que votre outil reste fiable et à jour dans la durée.</p>
-        <div class="duration">Forfait mensuel optionnel</div>
-      </div>
+      <div class="step"><div class="step-num">01</div><h3>Cadrage</h3><p>Analyse du besoin, périmètre fonctionnel, devis forfaitaire détaillé. Rien ne démarre sans validation écrite.</p><div class="duration">Gratuit · Sans engagement</div></div>
+      <div class="step"><div class="step-num">02</div><h3>Développement</h3><p>Construction par itérations courtes. Vous voyez l'avancement régulièrement et réagissez tôt.</p><div class="duration">Itérations de 1 à 2 semaines</div></div>
+      <div class="step"><div class="step-num">03</div><h3>Livraison</h3><p>Tests, corrections, mise en production. Nous déployons et formons vos équipes.</p><div class="duration">Déploiement inclus</div></div>
+      <div class="step"><div class="step-num">04</div><h3>Suivi</h3><p>Hébergement, monitoring, corrections, évolutions. Un forfait mensuel pour durer.</p><div class="duration">À partir de 100 €/mois</div></div>
     </div>
   </div>
 </section>
 
-<!-- ==================== PROJETS ==================== -->
+<!-- PROJETS -->
 <section id="projets">
   <div class="wrap">
     <div class="sec-label">Réalisations</div>
-    <h2>Projets & domaines d'intervention</h2>
-    <p class="intro">Une référence en production et des domaines d'intervention concrets où nous apportons notre expertise.</p>
-
+    <h2>Ce que nous avons livré</h2>
+    <p class="intro">Une référence en production et des domaines d'intervention concrets.</p>
     <div class="projects-grid">
-      <!-- PROJET 1 : SAV (réel) -->
       <div class="project">
-        <div class="project-header">
-          <div>
-            <h3>Suite de gestion SAV — Web + Mobile</h3>
-            <div class="meta">Industriel du chauffage · Full-stack · Référence anonymisée</div>
-          </div>
-          <span class="badge">● En production</span>
-        </div>
+        <div class="project-header"><div><h3>Suite de gestion SAV — Web + Mobile</h3><div class="meta">Industriel du chauffage · Full-stack</div></div><span class="badge">● En production</span></div>
         <div class="project-body">
-          <div>
-            <h4>Problème</h4>
-            <ul class="flist">
-              <li>Suivi des interventions dispersé, sans centralisation</li>
-              <li>Aucun accès mobile pour les techniciens sur site</li>
-              <li>Besoin de sécurité forte sur des données sensibles</li>
-              <li>Équipes multilingues (FR / EN / IT)</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Solution livrée</h4>
-            <ul class="flist">
-              <li>App Android native : tickets, interventions, accès terrain</li>
-              <li>Sécurité : chiffrement local, code PIN, sessions par rôle</li>
-              <li>Tableau de bord web temps réel + exports Excel</li>
-              <li>Authentification par rôle & intégration portail B2B</li>
-              <li>Support multilingue complet (200+ libellés)</li>
-            </ul>
-          </div>
+          <div><h4>Problème</h4><ul class="flist"><li>Suivi des interventions dispersé et sans centralisation</li><li>Aucun accès mobile pour les techniciens terrain</li><li>Besoin de sécurité forte et de multilingue (FR/EN/IT)</li></ul></div>
+          <div><h4>Solution livrée</h4><ul class="flist"><li>App Android native : tickets, interventions, accès terrain</li><li>Sécurité : chiffrement, PIN, sessions par rôle</li><li>Dashboard web temps réel + exports Excel</li><li>Intégration portail B2B + multilingue (200+ libellés)</li></ul></div>
         </div>
-        <div class="project-tags">
-          <span class="ptag">React</span>
-          <span class="ptag">Capacitor 6</span>
-          <span class="ptag">Supabase</span>
-          <span class="ptag">Vercel</span>
-          <span class="ptag">i18n</span>
-          <span class="ptag">RLS</span>
-        </div>
+        <div class="project-tags"><span class="ptag">React</span><span class="ptag">Capacitor</span><span class="ptag">Supabase</span><span class="ptag">Vercel</span><span class="ptag">i18n</span></div>
       </div>
-
-      <!-- PROJET 2 : Dashboard PME -->
       <div class="project">
-        <div class="project-header">
-          <div>
-            <h3>Dashboard de pilotage pour PME</h3>
-            <div class="meta">Gestion commerciale · Tableaux de bord · Exports</div>
-          </div>
-          <span class="badge badge-green">Domaine d'intervention</span>
-        </div>
+        <div class="project-header"><div><h3>Dashboard de pilotage PME</h3><div class="meta">KPI temps réel · Exports automatisés</div></div><span class="badge badge-green">Domaine d'intervention</span></div>
         <div class="project-body">
-          <div>
-            <h4>Cas d'usage type</h4>
-            <ul class="flist">
-              <li>Dirigeant qui pilote son activité sur Excel ou à l'intuition</li>
-              <li>Données dispersées entre plusieurs outils non connectés</li>
-              <li>Besoin de KPI en temps réel, accessibles de partout</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Ce que nous livrons</h4>
-            <ul class="flist">
-              <li>Interface web responsive avec indicateurs clés visuels</li>
-              <li>Connexion aux sources de données existantes</li>
-              <li>Exports automatisés (Excel, PDF) pour le reporting</li>
-              <li>Accès sécurisé par rôle (dirigeant, manager, équipe)</li>
-            </ul>
-          </div>
+          <div><h4>Cas type</h4><ul class="flist"><li>Dirigeant qui pilote sur Excel ou à l'intuition</li><li>Données dispersées, pas de vue d'ensemble</li></ul></div>
+          <div><h4>Ce que nous livrons</h4><ul class="flist"><li>Interface responsive avec indicateurs visuels</li><li>Connexion aux sources de données via API</li><li>Exports Excel/PDF automatisés</li></ul></div>
         </div>
-        <div class="project-tags">
-          <span class="ptag">React</span>
-          <span class="ptag">Supabase</span>
-          <span class="ptag">Charts</span>
-          <span class="ptag">API</span>
-        </div>
+        <div class="project-tags"><span class="ptag">React</span><span class="ptag">Supabase</span><span class="ptag">Charts</span><span class="ptag">API</span></div>
       </div>
-
-      <!-- PROJET 3 : App mobile terrain -->
       <div class="project">
-        <div class="project-header">
-          <div>
-            <h3>Application mobile pour équipes terrain</h3>
-            <div class="meta">Techniciens · Commerciaux · Livreurs</div>
-          </div>
-          <span class="badge badge-green">Domaine d'intervention</span>
-        </div>
+        <div class="project-header"><div><h3>App mobile équipes terrain</h3><div class="meta">Techniciens · Commerciaux · BTP</div></div><span class="badge badge-green">Domaine d'intervention</span></div>
         <div class="project-body">
-          <div>
-            <h4>Cas d'usage type</h4>
-            <ul class="flist">
-              <li>Équipe mobile qui remplit des formulaires papier ou des Excel</li>
-              <li>Besoin de remonter des infos terrain en temps réel</li>
-              <li>Pas d'accès aux outils de l'entreprise hors du bureau</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Ce que nous livrons</h4>
-            <ul class="flist">
-              <li>App Android native installée sur les appareils terrain</li>
-              <li>Formulaires, photos, signatures, géolocalisation</li>
-              <li>Synchronisation en temps réel avec le back-office</li>
-              <li>Fonctionnement en conditions réseau dégradé</li>
-            </ul>
-          </div>
+          <div><h4>Cas type</h4><ul class="flist"><li>Formulaires papier ou Excel sur le terrain</li><li>Pas d'accès aux outils hors du bureau</li></ul></div>
+          <div><h4>Ce que nous livrons</h4><ul class="flist"><li>App Android/iOS cross-platform</li><li>Photos, signatures, géolocalisation</li><li>Synchro temps réel avec le back-office</li></ul></div>
         </div>
-        <div class="project-tags">
-          <span class="ptag">Capacitor</span>
-          <span class="ptag">React</span>
-          <span class="ptag">Supabase</span>
-          <span class="ptag">Mobile</span>
+        <div class="project-tags"><span class="ptag">Capacitor</span><span class="ptag">React</span><span class="ptag">Supabase</span></div>
+      </div>
+      <div class="project">
+        <div class="project-header"><div><h3>Connecteur facturation électronique</h3><div class="meta">E-invoicing · Conformité 2026-2027</div></div><span class="badge badge-amber">Opportunité 2026</span></div>
+        <div class="project-body">
+          <div><h4>Contexte</h4><ul class="flist"><li>Réception obligatoire dès septembre 2026</li><li>Émission obligatoire PME/TPE dès septembre 2027</li></ul></div>
+          <div><h4>Ce que nous livrons</h4><ul class="flist"><li>Intégration plateformes de dématérialisation</li><li>Dashboard de suivi des factures</li><li>Connexion à votre logiciel comptable</li></ul></div>
         </div>
+        <div class="project-tags"><span class="ptag">API</span><span class="ptag">Factur-X</span><span class="ptag">React</span><span class="ptag">Supabase</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== STACK (accessible) ==================== -->
+<!-- STACK -->
 <section id="stack">
   <div class="wrap">
     <div class="sec-label">Technologies</div>
     <h2>Notre boîte à outils</h2>
-    <p class="intro">Des technologies modernes, éprouvées et maintenues, choisies pour leur fiabilité et leur rapport performance/coût.</p>
+    <p class="intro">Technologies modernes, open-source et conformes RGPD.</p>
     <div class="stack-cols">
-      <div class="stack-col">
-        <h4>Ce que vos utilisateurs voient</h4>
+      <div class="stack-col"><h4>Côté utilisateur</h4>
         <div class="stack-item"><span class="label">Interfaces web</span><span class="tech">React</span></div>
-        <div class="stack-item"><span class="label">Applications mobiles</span><span class="tech">Capacitor 6</span></div>
-        <div class="stack-item"><span class="label">Design responsive</span><span class="tech">Tailwind / CSS</span></div>
+        <div class="stack-item"><span class="label">Applications mobiles</span><span class="tech">Capacitor (cross-platform)</span></div>
+        <div class="stack-item"><span class="label">Design</span><span class="tech">Responsive / Tailwind</span></div>
         <div class="stack-item"><span class="label">Multilingue</span><span class="tech">i18n (FR, EN, IT…)</span></div>
       </div>
-      <div class="stack-col">
-        <h4>Ce qui tourne en coulisses</h4>
+      <div class="stack-col"><h4>Côté serveur</h4>
         <div class="stack-item"><span class="label">Base de données</span><span class="tech">Supabase / PostgreSQL</span></div>
         <div class="stack-item"><span class="label">Authentification</span><span class="tech">Auth + rôles (RLS)</span></div>
         <div class="stack-item"><span class="label">Logique serveur</span><span class="tech">Edge Functions</span></div>
-        <div class="stack-item"><span class="label">Hébergement & déploiement</span><span class="tech">Vercel</span></div>
-        <div class="stack-item"><span class="label">Intégrations</span><span class="tech">REST / API tierces</span></div>
-        <div class="stack-item"><span class="label">Exports</span><span class="tech">Excel, PDF, CSV</span></div>
+        <div class="stack-item"><span class="label">Hébergement</span><span class="tech">Vercel (CDN mondial)</span></div>
+        <div class="stack-item"><span class="label">Exports</span><span class="tech">Excel, PDF, CSV, Factur-X</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ==================== APPROCHE ==================== -->
+<!-- APPROCHE + FONDATEUR + TÉMOIGNAGE -->
 <section id="approche">
   <div class="wrap">
-    <div class="sec-label">Pourquoi Pivtek</div>
+    <div class="sec-label">À propos</div>
     <div class="edge">
-      <div class="edge-quote">
-        Nous ne vendons pas<br>des lignes de code.<br>
-        <span class="hl">Nous résolvons</span><br>des problèmes.
-      </div>
+      <div class="edge-quote">Nous ne vendons pas<br>des lignes de code.<br><span class="hl">Nous résolvons</span><br>des problèmes.</div>
       <div>
-        <p>Pivtek est né d'un constat simple : trop de projets logiciels échouent parce que le développeur ne comprend pas le métier du client. Nous, nous commençons par comprendre votre réalité avant d'écrire la première ligne de code.</p>
-        <p>Notre force : une double compétence terrain et technique. Nous parlons votre langage métier autant que celui du code. Résultat : moins d'allers-retours, des outils qui tombent juste, et des délais tenus.</p>
-        <p>Nous travaillons au forfait, sur des périmètres clairs et cadrés par écrit. Vous savez ce que vous aurez, quand vous l'aurez, et combien ça coûte. Pas de mauvaise surprise.</p>
+        <p>Trop de projets logiciels échouent parce que le développeur ne comprend pas le métier du client. Chez Pivtek, nous commençons par comprendre votre réalité avant d'écrire la première ligne de code.</p>
+        <p>Notre force : une double compétence terrain et technique. Nous avons vécu les contraintes du SAV et des interventions avant de devenir développeurs. Moins d'allers-retours, des outils qui tombent juste.</p>
       </div>
+    </div>
+    <div class="founder">
+      <div class="founder-avatar">P</div>
+      <div class="founder-info">
+        <h3>Philippe — Fondateur</h3>
+        <div class="role">Du terrain au code</div>
+        <p>Ancien technicien SAV dans l'industrie du chauffage, passé au développement pour résoudre les problèmes qu'il vivait au quotidien. Résultat : une application de gestion SAV complète (web + mobile), en production et utilisée chaque jour par des équipes techniques. Pivtek met cette double expertise au service des PME qui ont besoin d'outils numériques taillés pour leur réalité.</p>
+      </div>
+    </div>
+    <div class="testimonial">
+      <blockquote>Depuis qu'on utilise l'application, on ne perd plus aucun ticket. Les techniciens accèdent à tout depuis leur téléphone, et moi j'ai enfin un tableau de bord en temps réel. On ne reviendrait pas en arrière.</blockquote>
+      <div class="author"><strong>Responsable SAV</strong> — Industriel du chauffage (référence anonymisée)</div>
     </div>
   </div>
 </section>
 
-<!-- ==================== CONTACT ==================== -->
+<!-- TARIFS -->
+<section id="tarifs">
+  <div class="wrap">
+    <div class="sec-label">Tarifs</div>
+    <h2>Des forfaits clairs</h2>
+    <p class="intro">Chaque projet est unique, mais voici nos fourchettes. Devis détaillé gratuit sur demande.</p>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="tier">Essentiel</div>
+        <div class="price">1 500 – 5 000 €</div>
+        <div class="price-desc">Site web professionnel</div>
+        <ul class="features">
+          <li>Site vitrine ou landing page</li>
+          <li>Design moderne et responsive</li>
+          <li>Référencement (SEO)</li>
+          <li>Formulaire de contact</li>
+          <li>Mise en ligne incluse</li>
+          <li>Livraison 1 à 3 semaines</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <div class="popular">Le plus demandé</div>
+        <div class="tier">Business</div>
+        <div class="price">5 000 – 15 000 €</div>
+        <div class="price-desc">Application métier ou dashboard</div>
+        <ul class="features">
+          <li>Outil de gestion sur mesure</li>
+          <li>Tableau de bord temps réel</li>
+          <li>Authentification par rôles</li>
+          <li>Exports Excel / PDF</li>
+          <li>Formation utilisateurs incluse</li>
+          <li>Livraison 3 à 6 semaines</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="tier">Premium</div>
+        <div class="price">15 000 – 40 000 €</div>
+        <div class="price-desc">Application web + mobile</div>
+        <ul class="features">
+          <li>App web + mobile Android/iOS</li>
+          <li>Backend complet avec API</li>
+          <li>Sécurité avancée</li>
+          <li>Multilingue</li>
+          <li>Intégrations tierces</li>
+          <li>Livraison 6 à 12 semaines</li>
+        </ul>
+      </div>
+    </div>
+    <p class="price-note">Maintenance : à partir de 100 €/mois · Devis personnalisé gratuit sous 48h</p>
+  </div>
+</section>
+
+<!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="wrap">
     <div class="sec-label" style="justify-content:center">Contact</div>
     <h2>Un projet en tête ?</h2>
-    <p>Site web, application métier, app mobile, dashboard, MVP, automatisation — décrivez-nous votre besoin. Nous vous répondons sous 48h avec une première analyse.</p>
+    <p>Décrivez-nous votre besoin. Nous vous répondons sous 48h avec une première analyse gratuite.</p>
     <div class="cta-row" style="justify-content:center">
       <a href="mailto:contact@pivtek.fr" class="btn btn-p">contact@pivtek.fr</a>
     </div>
@@ -489,82 +433,40 @@
 
 <footer>
   <div class="footer-logo">
-    <svg viewBox="0 0 44 44" fill="none">
-      <polygon points="0,22 17,0 17,8 6,22 17,36 17,44 0,22" fill="#2563EB"/>
-      <polygon points="11,22 24,7 24,17 17,22 24,27 24,37 11,22" fill="#3B82F6" opacity="0.5"/>
-    </svg>
-    <span>PIV<em>TEK</em></span>
+    <svg viewBox="0 0 44 44" width="30" height="30" fill="none"><polygon points="0,22 17,0 17,8 6,22 17,36 17,44 0,22" fill="#2563EB"/><polygon points="11,22 24,7 24,17 17,22 24,27 24,37 11,22" fill="#3B82F6" opacity="0.5"/></svg>
+    <span style="font-size:16px;font-weight:900;letter-spacing:4px;color:var(--muted)">PIV<em style="font-style:normal;background:linear-gradient(135deg,#2563EB,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent">TEK</em></span>
   </div>
-  <div class="copy">Software Engineering · Sites web & applications sur mesure · © 2026</div>
-  <div style="margin-top:10px;display:flex;gap:20px;justify-content:center">
-    <a href="#mentions" onclick="document.getElementById('modal-mentions').style.display='flex'" style="color:#475569;font-size:12px;text-decoration:none;font-family:'JetBrains Mono',monospace;letter-spacing:.03em">Mentions légales</a>
-    <a href="#confidentialite" onclick="document.getElementById('modal-privacy').style.display='flex'" style="color:#475569;font-size:12px;text-decoration:none;font-family:'JetBrains Mono',monospace;letter-spacing:.03em">Politique de confidentialité</a>
+  <div class="copy">Software Engineering · Lyon · © 2026</div>
+  <div style="margin-top:8px;display:flex;gap:20px;justify-content:center">
+    <a href="#" onclick="document.getElementById('modal-mentions').style.display='flex'" style="color:var(--muted2);font-size:11px;text-decoration:none;font-family:'JetBrains Mono',monospace">Mentions légales</a>
+    <a href="#" onclick="document.getElementById('modal-privacy').style.display='flex'" style="color:var(--muted2);font-size:11px;text-decoration:none;font-family:'JetBrains Mono',monospace">Confidentialité</a>
   </div>
 </footer>
 
-<!-- MODAL MENTIONS LÉGALES -->
-<div id="modal-mentions" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
-  <div style="background:#111720;border:1px solid #1E293B;border-radius:12px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px;position:relative">
-    <button onclick="document.getElementById('modal-mentions').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#64748B;font-size:24px;cursor:pointer">✕</button>
-    <h2 style="font-size:22px;font-weight:900;color:#E2E8F0;margin-bottom:20px">Mentions légales</h2>
-    <div style="font-size:13px;color:#94A3B8;line-height:1.8">
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Éditeur du site</strong><br>
-      PIVTEK — Philippe Nken, Entrepreneur individuel<br>
-      23 Rue Fine, 69320 Feyzin, France<br>
-      SIRET : en cours d'attribution<br>
-      Email : contact@pivtek.fr</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Directeur de la publication</strong><br>
-      Philippe Nken</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Hébergement</strong><br>
-      Vercel Inc.<br>
-      340 S Lemon Ave #4133, Walnut, CA 91789, États-Unis<br>
-      Site : vercel.com</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Nom de domaine</strong><br>
-      pivtek.fr — enregistré chez OVHcloud<br>
-      OVH SAS, 2 Rue Kellermann, 59100 Roubaix, France</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Propriété intellectuelle</strong><br>
-      L'ensemble du contenu de ce site (textes, images, logo, design) est la propriété de PIVTEK — Philippe Nken. Toute reproduction, même partielle, est interdite sans autorisation préalable.</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Responsabilité</strong><br>
-      PIVTEK s'efforce d'assurer l'exactitude des informations présentes sur ce site. Toutefois, PIVTEK ne peut garantir que les informations soient complètes, précises ou à jour. PIVTEK décline toute responsabilité pour les dommages résultant de l'utilisation de ce site.</p>
-
-      <p><strong style="color:#E2E8F0">Droit applicable</strong><br>
-      Le présent site est soumis au droit français. Tout litige sera de la compétence des tribunaux de Lyon.</p>
+<!-- MODALS -->
+<div id="modal-mentions" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:1000;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
+  <div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;max-width:660px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px;position:relative">
+    <button onclick="document.getElementById('modal-mentions').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer">✕</button>
+    <h2 style="font-size:20px;font-weight:900;color:var(--ink);margin-bottom:20px">Mentions légales</h2>
+    <div style="font-size:13px;color:var(--muted);line-height:1.8">
+      <p style="margin-bottom:14px"><strong style="color:var(--ink)">Éditeur</strong><br>PIVTEK — Philippe Nken, Entrepreneur individuel<br>23 Rue Fine, 69320 Feyzin<br>SIRET : en cours d'attribution<br>contact@pivtek.fr</p>
+      <p style="margin-bottom:14px"><strong style="color:var(--ink)">Hébergement</strong><br>Vercel Inc., Walnut, CA, États-Unis · vercel.com</p>
+      <p style="margin-bottom:14px"><strong style="color:var(--ink)">Domaine</strong><br>pivtek.fr — OVHcloud, Roubaix, France</p>
+      <p style="margin-bottom:14px"><strong style="color:var(--ink)">Propriété intellectuelle</strong><br>Contenu protégé. Reproduction interdite sans autorisation.</p>
+      <p><strong style="color:var(--ink)">Droit applicable</strong><br>Droit français · Tribunaux de Lyon</p>
     </div>
   </div>
 </div>
-
-<!-- MODAL POLITIQUE DE CONFIDENTIALITÉ -->
-<div id="modal-privacy" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:1000;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
-  <div style="background:#111720;border:1px solid #1E293B;border-radius:12px;max-width:700px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px;position:relative">
-    <button onclick="document.getElementById('modal-privacy').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;color:#64748B;font-size:24px;cursor:pointer">✕</button>
-    <h2 style="font-size:22px;font-weight:900;color:#E2E8F0;margin-bottom:20px">Politique de confidentialité</h2>
-    <div style="font-size:13px;color:#94A3B8;line-height:1.8">
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Responsable du traitement</strong><br>
-      PIVTEK — Philippe Nken, Entrepreneur individuel<br>
-      Email : contact@pivtek.fr</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Données collectées</strong><br>
-      Ce site ne collecte aucune donnée personnelle de manière automatique. Aucun cookie de suivi, aucun outil d'analyse, aucun formulaire de contact automatisé n'est utilisé. Les seules données traitées sont celles que vous nous transmettez volontairement par email (nom, adresse email, contenu du message) dans le cadre d'une prise de contact.</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Finalité du traitement</strong><br>
-      Les données transmises par email sont utilisées exclusivement pour répondre à votre demande et, le cas échéant, pour l'établissement d'un devis ou d'un contrat de prestation.</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Conservation des données</strong><br>
-      Les données sont conservées pendant la durée nécessaire au traitement de votre demande, et au maximum 3 ans après le dernier contact. Les données relatives aux contrats et factures sont conservées conformément aux obligations légales (10 ans).</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Vos droits</strong><br>
-      Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Vous pouvez exercer ces droits en nous contactant à : contact@pivtek.fr</p>
-
-      <p style="margin-bottom:14px"><strong style="color:#E2E8F0">Cookies</strong><br>
-      Ce site n'utilise aucun cookie.</p>
-
-      <p><strong style="color:#E2E8F0">Hébergement des données</strong><br>
-      Les données du site sont hébergées par Vercel Inc. (États-Unis). Les emails sont hébergés par OVHcloud (France).</p>
+<div id="modal-privacy" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:1000;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
+  <div style="background:var(--surface);border:1px solid var(--line);border-radius:12px;max-width:660px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px;position:relative">
+    <button onclick="document.getElementById('modal-privacy').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer">✕</button>
+    <h2 style="font-size:20px;font-weight:900;color:var(--ink);margin-bottom:20px">Confidentialité</h2>
+    <div style="font-size:13px;color:var(--muted);line-height:1.8">
+      <p style="margin-bottom:14px"><strong style="color:var(--ink)">Données collectées</strong><br>Aucune collecte automatique. Pas de cookies. Pas de tracking. Seules les données transmises par email sont traitées.</p>
+      <p style="margin-bottom:14px"><strong style="color:var(--ink)">Finalité</strong><br>Répondre à votre demande et établir un devis ou contrat.</p>
+      <p style="margin-bottom:14px"><strong style="color:var(--ink)">Conservation</strong><br>3 ans après dernier contact. Documents contractuels : 10 ans.</p>
+      <p style="margin-bottom:14px"><strong style="color:var(--ink)">Vos droits (RGPD)</strong><br>Accès, rectification, suppression, portabilité : contact@pivtek.fr</p>
+      <p><strong style="color:var(--ink)">Hébergement</strong><br>Site : Vercel (US) · Emails : OVHcloud (France)</p>
     </div>
   </div>
 </div>
