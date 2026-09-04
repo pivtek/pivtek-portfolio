@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Pivtek — Ingénierie logicielle · Applications web & mobiles sur mesure</title>
-<meta name="description" content="Pivtek conçoit des sites web, applications mobiles et outils métier sur mesure pour PME et startups. Lyon, France.">
+<title>PIVTEK — Ingénierie logicielle et intelligence artificielle · Lyon</title>
+<meta name="description" content="PIVTEK conçoit des plateformes digitales et des systèmes intelligents pour PME. Applications web, mobile, IA et automatisation. Lyon, France.">
 <link rel="icon" type="image/svg+xml" href="pivtek-icon.svg">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
@@ -79,7 +79,7 @@ section{padding:clamp(70px,8vw,120px) 0}
 .divider{border:none;height:1px;background:var(--line);margin:0}
 
 /* ============ SERVICES ============ */
-.services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 @media(max-width:1000px){.services-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:550px){.services-grid{grid-template-columns:1fr}}
 .service{background:var(--surface);padding:clamp(24px,3vw,36px);transition:background .3s}
@@ -159,7 +159,7 @@ section{padding:clamp(70px,8vw,120px) 0}
 
 /* ============ PRICING ============ */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-@media(max-width:800px){.pricing-grid{grid-template-columns:1fr}}
+@media(max-width:800px){.pricing-grid{grid-template-columns:1fr !important}}
 .price-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:36px 28px;transition:all .3s;position:relative}
 .price-card:hover{transform:translateY(-4px);border-color:var(--line2)}
 .price-card.featured{border-color:var(--accent);background:linear-gradient(180deg,var(--surface2),var(--surface))}
@@ -207,10 +207,10 @@ footer{border-top:1px solid var(--line);padding:48px 0}
     <div class="logo-text">PIV<span>TEK</span></div>
   </a>
   <div class="nav-links">
-    <a href="#services">Services</a>
+    <a href="#services">Expertises</a>
     <a href="#methode">Méthode</a>
     <a href="#realisations">Réalisations</a>
-    <a href="#tarifs">Tarifs</a>
+    <a href="#solutions">Solutions</a>
     <a href="#about">À propos</a>
     <a href="#contact" class="nav-cta">Nous contacter</a>
   </div>
@@ -222,17 +222,17 @@ footer{border-top:1px solid var(--line);padding:48px 0}
   <div class="hero-grid"></div>
   <div class="wrap">
     <div class="hero-content fade-up">
-      <div class="hero-eyebrow">Ingénierie logicielle · Lyon</div>
-      <h1>Vos outils métier,<br>livrés en <span class="hl">semaines</span></h1>
-      <p class="lead">Sites web, applications mobiles et outils de gestion sur mesure pour <strong>PME, artisans et startups</strong>. Nous développons ce que les logiciels génériques ne couvrent pas.</p>
+      <div class="hero-eyebrow">Ingénierie logicielle et intelligence artificielle · Lyon</div>
+      <h1>L'ingénierie logicielle au service de votre <span class="hl">croissance</span></h1>
+      <p class="lead">Nous concevons des <strong>plateformes digitales</strong> et des <strong>systèmes intelligents</strong> qui transforment vos opérations. Un partenaire technique unique, de la stratégie à la production.</p>
       <div class="hero-cta">
-        <a href="#contact" class="btn-primary">Discuter d'un projet</a>
-        <a href="#tarifs" class="btn-ghost">Voir les tarifs</a>
+        <a href="#contact" class="btn-primary">Démarrer un projet</a>
+        <a href="#solutions" class="btn-ghost">Nos solutions</a>
       </div>
       <div class="stats">
-        <div class="stat"><div class="stat-value">Full</div><div class="stat-label">Web + Mobile + Backend</div></div>
-        <div class="stat"><div class="stat-value">Prod</div><div class="stat-label">App en production</div></div>
-        <div class="stat"><div class="stat-value">Forfait</div><div class="stat-label">Prix fixe garanti</div></div>
+        <div class="stat"><div class="stat-value">24h</div><div class="stat-label">Première réponse</div></div>
+        <div class="stat"><div class="stat-value">100%</div><div class="stat-label">Code propriétaire</div></div>
+        <div class="stat"><div class="stat-value">0</div><div class="stat-label">Intermédiaire</div></div>
         <div class="stat"><div class="stat-value">48h</div><div class="stat-label">Analyse gratuite</div></div>
       </div>
     </div>
@@ -245,29 +245,21 @@ footer{border-top:1px solid var(--line);padding:48px 0}
 <section id="services">
   <div class="wrap">
     <div class="section-header">
-      <div class="section-tag">Services</div>
-      <h2 class="section-title">Ce que nous<br>développons</h2>
-      <p class="section-desc">Des solutions numériques taillées pour votre métier. Du site vitrine à l'application de gestion complète.</p>
+      <div class="section-tag">Expertises</div>
+      <h2 class="section-title">Quatre piliers,<br>un engagement</h2>
+      <p class="section-desc">De la conception logicielle à l'intelligence artificielle, un socle technique complet pour transformer vos opérations.</p>
     </div>
     <div class="services-grid">
-      <div class="service"><div class="service-icon">🌐</div><h3>Sites web</h3><p>Sites vitrines, landing pages, sites d'entreprise. Modernes, rapides et optimisés SEO.</p></div>
-      <div class="service"><div class="service-icon">⚙️</div><h3>Outils métier</h3><p>Applications de gestion, suivi d'interventions, CRM, workflows automatisés sur mesure.</p></div>
-      <div class="service"><div class="service-icon">📱</div><h3>Apps mobiles</h3><p>Android et iOS cross-platform. Pour équipes terrain, techniciens et commerciaux.</p></div>
-      <div class="service"><div class="service-icon">🖥️</div><h3>Dashboards</h3><p>Tableaux de bord décisionnels, portails clients, back-offices. KPI en temps réel.</p></div>
-      <div class="service"><div class="service-icon">🚀</div><h3>MVP</h3><p>Prototype fonctionnel livré rapidement pour valider votre concept avant d'investir.</p></div>
-      <div class="service"><div class="service-icon">🧾</div><h3>E-invoicing <span class="tag">2026</span></h3><p>Connecteurs et dashboards pour la facturation électronique obligatoire.</p></div>
-      <div class="service"><div class="service-icon">🔗</div><h3>Intégrations</h3><p>API sur mesure, automatisations, connexion entre vos outils existants.</p></div>
-      <div class="service"><div class="service-icon">🛡️</div><h3>Maintenance</h3><p>Hébergement, monitoring, mises à jour et évolutions. Forfait mensuel.</p></div>
+      <div class="service"><div class="service-icon">🌐</div><h3>Conception logicielle</h3><p>Applications web, mobile et plateformes SaaS. Design sur mesure, responsive et optimisé SEO.</p></div>
+      <div class="service"><div class="service-icon">🤖</div><h3>Intelligence artificielle</h3><p>Agents conversationnels, RAG, analyse documentaire automatisée et assistants métier.</p></div>
+      <div class="service"><div class="service-icon">⚡</div><h3>Automatisation</h3><p>Élimination des tâches répétitives, orchestration de workflows et connexion entre vos outils.</p></div>
+      <div class="service"><div class="service-icon">🎯</div><h3>Conseil et audit technique</h3><p>Diagnostic, architecture, choix technologiques et accompagnement stratégique de vos projets.</p></div>
     </div>
     <div class="sectors">
-      <div class="sector"><div class="sector-emoji">🏭</div><div class="sector-name">Industrie</div><div class="sector-desc">SAV, maintenance</div></div>
-      <div class="sector"><div class="sector-emoji">🏗️</div><div class="sector-name">BTP</div><div class="sector-desc">Chantiers, interventions</div></div>
-      <div class="sector"><div class="sector-emoji">🏥</div><div class="sector-name">Santé</div><div class="sector-desc">Coordination, suivi</div></div>
-      <div class="sector"><div class="sector-emoji">🚚</div><div class="sector-name">Logistique</div><div class="sector-desc">Tournées, tracking</div></div>
-      <div class="sector"><div class="sector-emoji">🛒</div><div class="sector-name">Commerce</div><div class="sector-desc">Stocks, CRM</div></div>
-      <div class="sector"><div class="sector-emoji">🎓</div><div class="sector-name">Formation</div><div class="sector-desc">E-learning, portails</div></div>
-      <div class="sector"><div class="sector-emoji">💡</div><div class="sector-name">Startups</div><div class="sector-desc">MVP, itérations</div></div>
-      <div class="sector"><div class="sector-emoji">🏢</div><div class="sector-name">Services</div><div class="sector-desc">Automatisations</div></div>
+      <div class="sector"><div class="sector-emoji">🏗️</div><div class="sector-name">Bâtiment et négoce</div><div class="sector-desc">Devis, planification, suivi de chantier</div></div>
+      <div class="sector"><div class="sector-emoji">🏭</div><div class="sector-name">Industrie et SAV</div><div class="sector-desc">Interventions terrain, diagnostic, reporting</div></div>
+      <div class="sector"><div class="sector-emoji">⚖️</div><div class="sector-name">Professions libérales</div><div class="sector-desc">Outils métier, gestion documentaire</div></div>
+      <div class="sector"><div class="sector-emoji">🛒</div><div class="sector-name">Commerce et retail</div><div class="sector-desc">E-commerce, fidélisation, catalogues</div></div>
     </div>
   </div>
 </section>
@@ -279,14 +271,14 @@ footer{border-top:1px solid var(--line);padding:48px 0}
   <div class="wrap">
     <div class="section-header">
       <div class="section-tag">Méthode</div>
-      <h2 class="section-title">Un process clair,<br>sans surprise</h2>
+      <h2 class="section-title">Un cadre rigoureux,<br>des résultats mesurables</h2>
       <p class="section-desc">Vous savez ce que vous aurez, quand, et à quel prix.</p>
     </div>
     <div class="process-grid">
-      <div class="process-step"><div class="process-num">01</div><div class="process-content"><h3>Cadrage</h3><p>Analyse du besoin, périmètre, devis forfaitaire détaillé. Rien ne démarre sans validation.</p><div class="process-tag">Gratuit · Sans engagement</div></div></div>
-      <div class="process-step"><div class="process-num">02</div><div class="process-content"><h3>Développement</h3><p>Construction par itérations courtes. Vous voyez l'avancement et réagissez tôt.</p><div class="process-tag">Itérations 1-2 semaines</div></div></div>
-      <div class="process-step"><div class="process-num">03</div><div class="process-content"><h3>Livraison</h3><p>Tests, mise en production, formation de vos équipes. Tout est inclus.</p><div class="process-tag">Déploiement inclus</div></div></div>
-      <div class="process-step"><div class="process-num">04</div><div class="process-content"><h3>Suivi</h3><p>Hébergement, monitoring, corrections et évolutions continues.</p><div class="process-tag">À partir de 100 €/mois</div></div></div>
+      <div class="process-step"><div class="process-num">01</div><div class="process-content"><h3>Cadrage stratégique</h3><p>Analyse de vos enjeux métier, définition du périmètre technique et des indicateurs de succès.</p><div class="process-tag">Gratuit · Sans engagement</div></div></div>
+      <div class="process-step"><div class="process-num">02</div><div class="process-content"><h3>Architecture et prototypage</h3><p>Conception technique, choix de stack, prototype fonctionnel validé avant développement.</p><div class="process-tag">Validation avant build</div></div></div>
+      <div class="process-step"><div class="process-num">03</div><div class="process-content"><h3>Réalisation par jalons</h3><p>Cycles courts, livrables intermédiaires que vous validez, transparence totale.</p><div class="process-tag">Itérations 1-2 semaines</div></div></div>
+      <div class="process-step"><div class="process-num">04</div><div class="process-content"><h3>Déploiement et continuité</h3><p>Mise en production, transfert de compétences, maintenance et évolutions dans la durée.</p><div class="process-tag">Accompagnement dès 79 €/mois</div></div></div>
     </div>
   </div>
 </section>
@@ -384,7 +376,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
       <div class="founder-avatar">P</div>
       <div>
         <div class="founder-name">Philippe — Fondateur</div>
-        <div class="founder-role">Développeur full-stack · Spécialiste outils métier</div>
+        <div class="founder-role">Développeur full-stack · Conception logicielle et systèmes intelligents</div>
         <div class="founder-bio">Avant de développer des logiciels, Philippe a travaillé sur le terrain dans l'industrie. C'est cette expérience qui fait la différence : quand un client décrit ses contraintes opérationnelles, il n'a pas besoin de les expliquer deux fois. Pivtek est né de cette double compétence — comprendre le métier et maîtriser la technique pour livrer des outils qui fonctionnent vraiment.</div>
       </div>
     </div>
@@ -397,57 +389,107 @@ footer{border-top:1px solid var(--line);padding:48px 0}
 
 <hr class="divider">
 
-<!-- TARIFS -->
-<section id="tarifs">
+<!-- NOS SOLUTIONS -->
+<section id="solutions">
   <div class="wrap">
     <div class="section-header">
-      <div class="section-tag">Tarifs</div>
-      <h2 class="section-title">Des forfaits clairs</h2>
-      <p class="section-desc">Chaque projet est unique. Voici nos fourchettes de prix. Devis détaillé gratuit sur demande.</p>
+      <div class="section-tag">Nos solutions</div>
+      <h2 class="section-title">Chaque projet a son cadre.<br>Voici les nôtres.</h2>
+      <p class="section-desc">Des formats pensés pour les PME qui veulent avancer concrètement, sans cahier des charges de 50 pages.</p>
     </div>
-    <div class="pricing-grid">
+    <div class="pricing-grid" style="grid-template-columns:repeat(2,1fr)">
       <div class="price-card">
-        <div class="price-tier">Essentiel</div>
-        <div class="price-amount">1 500 – 5 000 €</div>
-        <div class="price-desc">Site web professionnel</div>
+        <div class="price-tier">Présence digitale</div>
+        <div class="price-amount">890 – 2 400 €</div>
+        <div class="price-desc">Site institutionnel ou vitrine métier</div>
         <ul class="price-features">
-          <li>Site vitrine ou landing page</li>
-          <li>Design moderne et responsive</li>
-          <li>Référencement SEO</li>
-          <li>Formulaire de contact</li>
-          <li>Mise en ligne incluse</li>
-          <li>Livraison 1 à 3 semaines</li>
+          <li>Design sur mesure responsive</li>
+          <li>Architecture SEO</li>
+          <li>Espace d'administration</li>
+          <li>Formulaires qualifiés</li>
+          <li>Formation à la prise en main</li>
+          <li>Livraison 2 à 4 semaines</li>
         </ul>
       </div>
       <div class="price-card featured">
-        <div class="price-popular">Le plus demandé</div>
-        <div class="price-tier">Business</div>
-        <div class="price-amount">5 000 – 15 000 €</div>
-        <div class="price-desc">Application métier ou dashboard</div>
+        <div class="price-popular">Recommandé</div>
+        <div class="price-tier">Plateforme métier</div>
+        <div class="price-amount">3 200 – 7 500 €</div>
+        <div class="price-desc">Application web, outil interne ou SaaS</div>
         <ul class="price-features">
-          <li>Outil de gestion sur mesure</li>
-          <li>Tableau de bord temps réel</li>
-          <li>Authentification par rôles</li>
-          <li>Exports Excel / PDF</li>
-          <li>Formation incluse</li>
+          <li>Back-office avancé</li>
+          <li>Gestion utilisateurs et rôles</li>
+          <li>Logique métier et intégrations tierces</li>
+          <li>Base de données et API</li>
+          <li>Tests et documentation</li>
+          <li>Livraison 5 à 10 semaines</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Système intelligent</div>
+        <div class="price-amount">1 800 – 5 500 €</div>
+        <div class="price-desc">Agent IA, automatisation, assistant documentaire</div>
+        <ul class="price-features">
+          <li>Agents conversationnels</li>
+          <li>Analyse documentaire automatisée</li>
+          <li>Orchestration de workflows</li>
+          <li>Connexion à vos outils existants</li>
+          <li>Formation et documentation</li>
           <li>Livraison 3 à 6 semaines</li>
         </ul>
       </div>
       <div class="price-card">
-        <div class="price-tier">Premium</div>
-        <div class="price-amount">15 000 – 40 000 €</div>
-        <div class="price-desc">Application web + mobile</div>
+        <div class="price-tier">Projet sur mesure</div>
+        <div class="price-amount">Sur étude</div>
+        <div class="price-desc">Mobile natif, refonte critique, architecture complexe</div>
         <ul class="price-features">
-          <li>App web + mobile Android/iOS</li>
-          <li>Backend complet avec API</li>
-          <li>Sécurité avancée</li>
-          <li>Multilingue</li>
-          <li>Intégrations tierces</li>
-          <li>Livraison 6 à 12 semaines</li>
+          <li>App mobile native iOS / Android</li>
+          <li>Refonte de systèmes existants</li>
+          <li>Architecture multi-tenant</li>
+          <li>Intégrations complexes</li>
+          <li>Accompagnement de bout en bout</li>
+          <li>Délai et périmètre sur mesure</li>
         </ul>
       </div>
     </div>
-    <p class="price-note">Maintenance : à partir de 100 €/mois · Devis personnalisé gratuit sous 48h</p>
+    <!-- Accompagnement continu -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px">
+      <div class="price-card">
+        <div class="price-tier">Maintien en condition</div>
+        <div class="price-amount">79 €<span style="font-size:16px;font-weight:400;color:var(--muted)"> /mois</span></div>
+        <div class="price-desc">Hébergement complet et sérénité technique</div>
+        <ul class="price-features">
+          <li>Hébergement production + SSL</li>
+          <li>Base de données, authentification et stockage</li>
+          <li>Nom de domaine + e-mail professionnel inclus</li>
+          <li>Sauvegardes quotidiennes + monitoring 24/7</li>
+          <li>Mises à jour de sécurité et dépendances</li>
+          <li>Support e-mail sous 48h ouvrées</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-tier">Évolution continue</div>
+        <div class="price-amount">159 €<span style="font-size:16px;font-weight:400;color:var(--muted)"> /mois</span></div>
+        <div class="price-desc">Maintien + modifications + conseil mensuel</div>
+        <ul class="price-features">
+          <li>Tout le maintien en condition inclus</li>
+          <li>2 heures de modifications incluses / mois</li>
+          <li>Point mensuel conseil et feuille de route</li>
+          <li>Support prioritaire sous 24h</li>
+          <li>Rapport mensuel performances et uptime</li>
+        </ul>
+      </div>
+    </div>
+    <!-- Toujours inclus -->
+    <div style="background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:28px;margin-top:24px;display:grid;grid-template-columns:1fr 1fr;gap:8px 32px">
+      <div style="grid-column:1/-1;font-weight:800;font-size:14px;margin-bottom:8px">Toujours inclus</div>
+      <div style="font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--green);font-weight:700">✓</span> Code source livré, propriété pleine et entière</div>
+      <div style="font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--green);font-weight:700">✓</span> Aucun abonnement obligatoire après livraison</div>
+      <div style="font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--green);font-weight:700">✓</span> Documentation technique et formation</div>
+      <div style="font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--green);font-weight:700">✓</span> Interlocuteur unique de bout en bout</div>
+      <div style="font-size:13px;color:var(--muted);display:flex;align-items:center;gap:8px"><span style="color:var(--green);font-weight:700">✓</span> Conformité RGPD garantie</div>
+    </div>
+    <p class="price-note">Devis personnalisé gratuit sous 24h</p>
   </div>
 </section>
 
@@ -477,7 +519,7 @@ footer{border-top:1px solid var(--line);padding:48px 0}
       <div class="footer-brand-text">PIV<span>TEK</span></div>
     </div>
     <div class="footer-sep"></div>
-    <div class="footer-copy">Software Engineering · Lyon · © 2026</div>
+    <div class="footer-copy">Ingénierie logicielle et intelligence artificielle · Lyon · © 2026</div>
     <div class="footer-links">
       <a href="#" onclick="event.preventDefault();document.getElementById('ml').style.display='flex'">Mentions légales</a>
       <a href="#" onclick="event.preventDefault();document.getElementById('pp').style.display='flex'">Confidentialité</a>
@@ -491,23 +533,27 @@ footer{border-top:1px solid var(--line);padding:48px 0}
 <button onclick="document.getElementById('ml').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:4px">✕</button>
 <h2 style="font-size:20px;font-weight:900;margin-bottom:20px">Mentions légales</h2>
 <div style="font-size:13px;color:var(--muted);line-height:1.8">
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Éditeur</strong><br>PIVTEK — Philippe Nken, EI<br>23 Rue Fine, 69320 Feyzin<br>SIRET : en cours · contact@pivtek.fr</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Hébergement</strong><br>Vercel Inc. · vercel.com</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Domaine</strong><br>pivtek.fr — OVHcloud, Roubaix</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Propriété intellectuelle</strong><br>Contenu protégé. Reproduction interdite sans autorisation.</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Éditeur</strong><br>PIVTEK — Philippe Jordan NKEN, Entrepreneur individuel<br>SIREN : 109 542 860 · SIRET : 109 542 860 00019<br>Code APE : 6201Z — Programmation informatique<br>23 Rue Fine, 69320 Feyzin, France<br>contact@pivtek.fr<br>TVA non applicable — Art. 293 B du CGI</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Directeur de la publication</strong><br>Philippe Jordan NKEN</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Hébergement</strong><br>Vercel Inc. — 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis<br>Supabase Inc. — 970 Toa Payoh North #07-04, Singapore 318992<br>OVHcloud — 2 rue Kellermann, 59100 Roubaix, France</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Activité</strong><br>Développement de sites web et d'applications informatiques sur mesure. Conception, réalisation et maintenance de solutions logicielles web et mobiles pour entreprises.<br>Nature : Libérale non réglementée</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Propriété intellectuelle</strong><br>L'ensemble des contenus de ce site est la propriété exclusive de PIVTEK. Le nom PIVTEK, le logo et l'insigne associés constituent des signes distinctifs protégés. Toute reproduction sans autorisation écrite est interdite (art. L.122-4 et L.335-2 du CPI).</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Limitation de responsabilité</strong><br>Les informations présentées, y compris les fourchettes tarifaires, ne constituent pas un engagement contractuel. Seul le devis signé fait foi.</p>
 <p><strong style="color:var(--ink)">Droit applicable</strong><br>Droit français · Tribunaux de Lyon</p>
 </div></div></div>
 
 <div id="pp" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.9);z-index:9999;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
 <div style="background:var(--surface);border:1px solid var(--line2);border-radius:16px;max-width:620px;width:100%;max-height:90vh;overflow-y:auto;padding:40px 36px;position:relative">
 <button onclick="document.getElementById('pp').style.display='none'" style="position:absolute;top:16px;right:20px;background:none;border:none;color:var(--muted);font-size:20px;cursor:pointer;padding:4px">✕</button>
-<h2 style="font-size:20px;font-weight:900;margin-bottom:20px">Confidentialité</h2>
+<h2 style="font-size:20px;font-weight:900;margin-bottom:20px">Politique de confidentialité</h2>
 <div style="font-size:13px;color:var(--muted);line-height:1.8">
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Données</strong><br>Aucune collecte automatique. Pas de cookies. Pas de tracking.</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Finalité</strong><br>Répondre à votre demande et établir devis/contrat.</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Conservation</strong><br>3 ans après dernier contact. Documents : 10 ans.</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Droits RGPD</strong><br>Accès, rectification, suppression : contact@pivtek.fr</p>
-<p><strong style="color:var(--ink)">Hébergement</strong><br>Site : Vercel (US) · Emails : OVHcloud (FR)</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Responsable du traitement</strong><br>PIVTEK — Philippe Jordan NKEN, EI<br>SIRET : 109 542 860 00019 · 23 rue Fine, 69320 Feyzin<br>contact@pivtek.fr</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Données collectées</strong><br>Formulaire de contact et estimateur : nom, e-mail, téléphone (facultatif), société (facultatif), description du projet.<br>Espace client : identifiants, historique des échanges.<br>Navigation : adresse IP anonymisée, pages consultées, cookies techniques.</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Finalités et conservation</strong><br>Contact et devis : mesures précontractuelles (art. 6.1.b RGPD) — 3 ans.<br>Suivi client : exécution du contrat (art. 6.1.b) — durée + 5 ans.<br>Analyse d'audience : intérêt légitime (art. 6.1.f) — 13 mois.</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Sous-traitants</strong><br>Vercel Inc. (hébergement) — États-Unis<br>Supabase Inc. (infrastructure applicative) — Singapour / États-Unis<br>OVHcloud (infrastructure serveur) — France / UE<br>Google Workspace (messagerie) — UE / États-Unis<br>Transferts hors UE encadrés par le Data Privacy Framework et les CCT.</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Vos droits (RGPD)</strong><br>Accès (art. 15), rectification (art. 16), effacement (art. 17), limitation (art. 18), portabilité (art. 20), opposition (art. 21), retrait du consentement.<br>Exercice : contact@pivtek.fr — Réponse sous 1 mois.<br>Réclamation : CNIL — www.cnil.fr</p>
+<p style="margin-bottom:14px"><strong style="color:var(--ink)">Cookies</strong><br>Cookies nécessaires : fonctionnement et authentification — pas de consentement requis.<br>Cookies analytiques : déposés uniquement après consentement — 13 mois max (CNIL).</p>
+<p><strong style="color:var(--ink)">Sécurité</strong><br>Chiffrement SSL/TLS, hashage des mots de passe, contrôle d'accès par rôles, sauvegardes automatisées, authentification forte pour les accès administrateur.</p>
 </div></div></div>
 
 </body>
