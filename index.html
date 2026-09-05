@@ -2,491 +2,434 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>PIVTEK — Ingénierie logicielle et intelligence artificielle · Lyon</title>
 <meta name="description" content="PIVTEK conçoit des plateformes digitales et des systèmes intelligents pour PME. Applications web, mobile, IA et automatisation. Lyon, France.">
-<link rel="icon" type="image/svg+xml" href="pivtek-icon.svg">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap');
-:root{
-  --bg:#0c0e14;--surface:#151820;--surface2:#1c1f2a;
-  --line:rgba(255,255,255,.07);--line2:rgba(255,255,255,.12);
-  --ink:#f0f2f5;--ink2:#c9d1d9;--muted:#8b949e;--muted2:#484f58;
-  --purple:#7B6FD6;--blue:#5B8DEF;--green:#10b981;
-  --radius:14px;
-}
+:root{--bg:#0c0e14;--s:#151820;--s2:#1c1f2a;--ln:rgba(255,255,255,.07);--ln2:rgba(255,255,255,.12);--ink:#f0f2f5;--ink2:#c9d1d9;--mu:#8b949e;--mu2:#484f58;--pur:#7B6FD6;--blu:#5B8DEF;--grn:#10b981;--r:14px}
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:var(--purple);color:#fff}
-.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--pur);color:#fff}
+.w{max-width:720px;margin:0 auto;padding:0 24px}
 .serif{font-family:'DM Serif Display',serif;font-weight:400}
 section{padding:80px 0}
+.page{display:none}.page.active{display:block}
+hr.dv{border:none;height:1px;background:var(--ln);margin:0}
 
 /* NAV */
-nav{display:flex;justify-content:space-between;align-items:center;padding:18px 24px;max-width:720px;margin:0 auto}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,14,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+.nav-inner{max-width:720px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer}
 .logo svg{width:28px;height:28px}
-.logo-text{font-size:15px;font-weight:600;letter-spacing:4px}
-.logo-text .gray{color:var(--muted)}
-.logo-text .pur{color:var(--purple)}
-.nav-links{display:flex;gap:24px;align-items:center}
-.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;font-weight:500;transition:color .3s}
-.nav-links a:hover,.nav-links a.active{color:var(--purple)}
-.nav-ham{display:none;background:none;border:none;color:var(--muted);font-size:22px;cursor:pointer}
-@media(max-width:600px){.nav-links{display:none}.nav-ham{display:block}}
+.logo-t{font-size:15px;font-weight:600;letter-spacing:4px}
+.logo-t .g{color:var(--mu)}.logo-t .p{color:var(--pur)}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:var(--mu);text-decoration:none;font-size:13px;font-weight:500;transition:color .3s;cursor:pointer}
+.nav-links a:hover,.nav-links a.on{color:var(--pur)}
+.nav-btn{background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:8px;font-weight:600;font-size:12px;text-decoration:none;cursor:pointer;border:none;transition:opacity .3s}
+.nav-btn:hover{opacity:.9}
+.ham{display:none;background:none;border:none;color:var(--mu);font-size:22px;cursor:pointer}
+@media(max-width:700px){.nav-links{position:fixed;top:56px;left:0;right:0;background:var(--s);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--ln);transform:translateY(-120%);transition:transform .3s}.nav-links.open{transform:translateY(0)}.ham{display:block}}
 
-/* SECTION HEADER */
-.stag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--purple);margin-bottom:16px}
-.stitle{font-family:'DM Serif Display',serif;font-size:clamp(28px,5vw,42px);font-weight:400;line-height:1.15;margin-bottom:16px}
-.sdesc{font-size:15px;color:var(--muted);line-height:1.7;max-width:540px;margin-bottom:48px}
-.divider{border:none;height:1px;background:var(--line);margin:0}
+/* BACK TO TOP */
+.btt{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--pur);color:#fff;border:none;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:99;box-shadow:0 4px 20px rgba(123,111,214,.3);transition:transform .3s}
+.btt:hover{transform:scale(1.1)}
+.btt.show{display:flex}
+
+/* TAGS & TITLES */
+.stag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pur);margin-bottom:16px}
+.st{font-family:'DM Serif Display',serif;font-size:clamp(28px,5vw,42px);font-weight:400;line-height:1.15;margin-bottom:16px}
+.sd{font-size:15px;color:var(--mu);line-height:1.7;max-width:540px;margin-bottom:48px}
+.st2{font-family:'DM Serif Display',serif;font-size:clamp(22px,3.5vw,30px);font-weight:400;line-height:1.15;margin-bottom:16px}
 
 /* HERO */
 .hero{padding:clamp(60px,10vw,100px) 0 60px}
-.hero-eyebrow{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--purple);margin-bottom:24px}
+.hero-ey{font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--pur);margin-bottom:24px}
 .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(34px,6vw,52px);font-weight:400;line-height:1.1;margin-bottom:20px}
-.hero .lead{font-size:16px;color:var(--muted);max-width:520px;line-height:1.75;margin-bottom:36px}
-.hero .lead strong{color:var(--ink2);font-weight:600}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
-.btn-fill{background:var(--ink);color:var(--bg);padding:13px 28px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;transition:all .3s;border:none;cursor:pointer}
-.btn-fill:hover{opacity:.9;transform:translateY(-1px)}
-.btn-outline{color:var(--ink2);padding:13px 28px;border-radius:8px;font-weight:500;font-size:14px;text-decoration:none;border:1px solid var(--line2);transition:all .3s}
-.btn-outline:hover{border-color:var(--purple);color:var(--purple)}
+.hero .ld{font-size:16px;color:var(--mu);max-width:520px;line-height:1.75;margin-bottom:36px}
+.hero .ld strong{color:var(--ink2);font-weight:600}
+.hb{display:flex;gap:12px;flex-wrap:wrap}
+.bf{background:var(--ink);color:var(--bg);padding:13px 28px;border-radius:8px;font-weight:600;font-size:14px;text-decoration:none;cursor:pointer;border:none;transition:all .3s}
+.bf:hover{opacity:.9;transform:translateY(-1px)}
+.bo{color:var(--ink2);padding:13px 28px;border-radius:8px;font-weight:500;font-size:14px;text-decoration:none;border:1px solid var(--ln2);cursor:pointer;transition:all .3s}
+.bo:hover{border-color:var(--pur);color:var(--pur)}
 
 /* STATS */
-.stats{display:flex;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-top:48px;background:var(--surface)}
-.stat{flex:1;padding:22px 16px;text-align:center;border-right:1px solid var(--line)}
+.stats{display:flex;border:1px solid var(--ln);border-radius:var(--r);overflow:hidden;margin-top:48px;background:var(--s)}
+.stat{flex:1;padding:22px 16px;text-align:center;border-right:1px solid var(--ln)}
 .stat:last-child{border-right:none}
-.stat-val{font-family:'DM Serif Display',serif;font-size:24px;margin-bottom:4px}
-.stat-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-@media(max-width:500px){.stats{flex-wrap:wrap}.stat{flex:1 1 50%;border-bottom:1px solid var(--line)}.stat:nth-child(2){border-right:none}.stat:nth-child(3),.stat:nth-child(4){border-bottom:none}}
+.stat-v{font-family:'DM Serif Display',serif;font-size:24px;margin-bottom:4px}
+.stat-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu)}
+@media(max-width:500px){.stats{flex-wrap:wrap}.stat{flex:1 1 50%;border-bottom:1px solid var(--ln)}.stat:nth-child(2){border-right:none}.stat:nth-child(3),.stat:nth-child(4){border-bottom:none}}
 
-/* CARD (generic) */
-.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(22px,3vw,30px);margin-bottom:14px;transition:border-color .3s}
-.card:hover{border-color:var(--line2)}
-.card-featured{border:2px solid var(--blue);position:relative}
-.card-badge{position:absolute;top:-11px;right:18px;background:linear-gradient(135deg,var(--blue),var(--purple));color:#fff;font-size:10px;font-weight:600;letter-spacing:.06em;padding:4px 16px;border-radius:20px}
-.card-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.card-name{font-size:clamp(17px,2.5vw,20px);font-weight:700;margin-bottom:3px}
-.card-sub{font-size:13px;color:var(--muted)}
-.card-delay{font-size:12px;color:var(--muted);white-space:nowrap;flex-shrink:0;margin-top:3px}
-.card-sep{height:1px;background:var(--line);margin:14px 0}
-.card-desc{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:16px}
-.card-price{font-family:'DM Serif Display',serif;font-size:clamp(26px,4vw,34px);font-weight:400}
-.card-monthly{font-family:'DM Serif Display',serif;font-size:clamp(20px,3vw,26px);font-weight:400;flex-shrink:0}
-.card-monthly span{font-family:'Inter',sans-serif;font-size:13px;color:var(--muted);font-weight:400}
-
-/* CHECK LIST */
-.checks{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:14px}
-.checks li{font-size:13px;color:var(--muted);display:flex;align-items:flex-start;gap:9px;line-height:1.5}
-.checks li::before{content:"✓";color:var(--purple);font-weight:700;flex-shrink:0;margin-top:1px}
-
-/* INCLUDED BOX */
-.included{background:var(--surface2);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(22px,3vw,30px);margin-top:20px}
-.included-title{font-size:17px;font-weight:700;margin-bottom:2px}
+/* PREVIEW ROW (accueil) */
+.prev-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:32px}
+@media(max-width:500px){.prev-grid{grid-template-columns:1fr}}
+.prev-card{background:var(--s);border:1px solid var(--ln);border-radius:var(--r);padding:20px;cursor:pointer;transition:border-color .3s}
+.prev-card:hover{border-color:var(--pur)}
+.prev-icon{font-size:22px;margin-bottom:10px}
+.prev-name{font-size:15px;font-weight:600;margin-bottom:3px}
+.prev-desc{font-size:12px;color:var(--mu)}
 
 /* EXPERTISE ROWS */
-.exp-row{border-bottom:1px solid var(--line);padding:18px 0;display:flex;justify-content:space-between;align-items:center;cursor:default;transition:padding-left .3s}
-.exp-row:hover{padding-left:8px}
-.exp-row:last-child{border-bottom:none}
-.exp-icon{font-size:20px;margin-right:14px}
-.exp-name{font-size:15px;font-weight:600}
-.exp-sub{font-size:12px;color:var(--muted);margin-top:2px}
-.exp-arrow{color:var(--muted2);font-size:16px}
+.exp{border-bottom:1px solid var(--ln);padding:18px 0;display:flex;justify-content:space-between;align-items:center;cursor:default;transition:padding-left .3s}
+.exp:hover{padding-left:8px}
+.exp:last-child{border-bottom:none}
+.exp-i{font-size:20px;margin-right:14px}
+.exp-n{font-size:15px;font-weight:600}
+.exp-s{font-size:12px;color:var(--mu);margin-top:2px}
+.exp-a{color:var(--mu2);font-size:16px}
 
 /* SECTORS */
-.sectors{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
-@media(max-width:500px){.sectors{grid-template-columns:1fr}}
-.sector{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px;transition:border-color .3s}
-.sector:hover{border-color:var(--purple)}
-.sector-icon{font-size:20px;margin-bottom:8px}
-.sector-name{font-size:14px;font-weight:600;margin-bottom:2px}
-.sector-desc{font-size:12px;color:var(--muted)}
+.sects{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
+@media(max-width:500px){.sects{grid-template-columns:1fr}}
+.sect{background:var(--s);border:1px solid var(--ln);border-radius:var(--r);padding:18px;transition:border-color .3s}
+.sect:hover{border-color:var(--pur)}
+.sect-i{font-size:20px;margin-bottom:8px}
+.sect-n{font-size:14px;font-weight:600;margin-bottom:2px}
+.sect-d{font-size:12px;color:var(--mu)}
 
-/* PROCESS */
+/* STEPS */
 .step{display:flex;gap:16px;align-items:flex-start;margin-bottom:28px}
 .step:last-child{margin-bottom:0}
-.step-num{width:32px;height:32px;border:1px solid var(--line2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--muted);font-weight:600;flex-shrink:0;margin-top:2px}
-.step-name{font-size:14px;font-weight:600;margin-bottom:3px}
-.step-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.step-n{width:32px;height:32px;border:1px solid var(--ln2);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;color:var(--mu);font-weight:600;flex-shrink:0;margin-top:2px}
+.step-t{font-size:14px;font-weight:600;margin-bottom:3px}
+.step-d{font-size:13px;color:var(--mu);line-height:1.6}
+
+/* CARD (solutions) */
+.cd{background:var(--s);border:1px solid var(--ln);border-radius:var(--r);padding:clamp(22px,3vw,30px);margin-bottom:14px;transition:border-color .3s}
+.cd:hover{border-color:var(--ln2)}
+.cd-f{border:2px solid var(--blu);position:relative}
+.cd-bg{position:absolute;top:-11px;right:18px;background:linear-gradient(135deg,var(--blu),var(--pur));color:#fff;font-size:10px;font-weight:600;letter-spacing:.06em;padding:4px 16px;border-radius:20px}
+.cd-h{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.cd-nm{font-size:clamp(17px,2.5vw,20px);font-weight:700;margin-bottom:3px}
+.cd-sb{font-size:13px;color:var(--mu)}
+.cd-dl{font-size:12px;color:var(--mu);white-space:nowrap;flex-shrink:0;margin-top:3px}
+.cd-sep{height:1px;background:var(--ln);margin:14px 0}
+.cd-desc{font-size:14px;color:var(--mu);line-height:1.7;margin-bottom:16px}
+.cd-pr{font-family:'DM Serif Display',serif;font-size:clamp(26px,4vw,34px);font-weight:400}
+.cd-mo{font-family:'DM Serif Display',serif;font-size:clamp(20px,3vw,26px);font-weight:400;flex-shrink:0}
+.cd-mo span{font-family:'Inter',sans-serif;font-size:13px;color:var(--mu);font-weight:400}
+.chks{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:14px}
+.chks li{font-size:13px;color:var(--mu);display:flex;align-items:flex-start;gap:9px;line-height:1.5}
+.chks li::before{content:"✓";color:var(--pur);font-weight:700;flex-shrink:0;margin-top:1px}
+.incl{background:var(--s2);border:1px solid var(--ln);border-radius:var(--r);padding:clamp(22px,3vw,30px);margin-top:20px}
+.incl-t{font-size:17px;font-weight:700;margin-bottom:2px}
 
 /* PROJECTS */
-.proj{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:14px;overflow:hidden;transition:border-color .3s}
-.proj:hover{border-color:var(--line2)}
-.proj-top{padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--line)}
-.proj-title{font-size:16px;font-weight:700}
-.proj-meta{font-size:11px;color:var(--muted);margin-top:3px}
-.proj-badge{font-size:10px;letter-spacing:.04em;padding:4px 12px;border-radius:20px;font-weight:600}
-.badge-blue{background:rgba(91,141,239,.1);color:var(--blue);border:1px solid rgba(91,141,239,.15)}
-.badge-green{background:rgba(16,185,129,.08);color:var(--green);border:1px solid rgba(16,185,129,.15)}
-.proj-body{padding:20px 24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
-@media(max-width:600px){.proj-body{grid-template-columns:1fr}}
-.proj-body h4{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}
-.proj-list{list-style:none}
-.proj-list li{padding:4px 0 4px 14px;position:relative;font-size:13px;color:var(--muted)}
-.proj-list li::before{content:"→";position:absolute;left:0;color:var(--purple);font-size:11px}
-.proj-tags{padding:14px 24px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid var(--line)}
-.ptag{font-size:10px;padding:4px 10px;background:rgba(123,111,214,.08);color:var(--purple);border-radius:4px;font-weight:500}
+.pj{background:var(--s);border:1px solid var(--ln);border-radius:var(--r);margin-bottom:14px;overflow:hidden;transition:border-color .3s}
+.pj:hover{border-color:var(--ln2)}
+.pj-top{padding:20px 24px;display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:8px;border-bottom:1px solid var(--ln)}
+.pj-ti{font-size:16px;font-weight:700}
+.pj-me{font-size:11px;color:var(--mu);margin-top:3px}
+.pj-bd{font-size:10px;letter-spacing:.04em;padding:4px 12px;border-radius:20px;font-weight:600}
+.bd-b{background:rgba(91,141,239,.1);color:var(--blu);border:1px solid rgba(91,141,239,.15)}
+.bd-g{background:rgba(16,185,129,.08);color:var(--grn);border:1px solid rgba(16,185,129,.15)}
+.pj-body{padding:20px 24px;display:grid;grid-template-columns:1fr 1fr;gap:20px}
+@media(max-width:600px){.pj-body{grid-template-columns:1fr}}
+.pj-body h4{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--pur);margin-bottom:10px}
+.pj-li{list-style:none}
+.pj-li li{padding:4px 0 4px 14px;position:relative;font-size:13px;color:var(--mu)}
+.pj-li li::before{content:"→";position:absolute;left:0;color:var(--pur);font-size:11px}
+.pj-tags{padding:14px 24px;display:flex;flex-wrap:wrap;gap:6px;border-top:1px solid var(--ln)}
+.ptag{font-size:10px;padding:4px 10px;background:rgba(123,111,214,.08);color:var(--pur);border-radius:4px;font-weight:500}
 
 /* TECH */
-.tech-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
-@media(max-width:600px){.tech-grid{grid-template-columns:1fr}}
-.tech-col h4{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line)}
-.tech-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--line)}
-.tech-row:last-child{border-bottom:none}
-.tech-label{font-size:13px;font-weight:600}
-.tech-value{font-size:12px;color:var(--muted)}
+.tg{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+@media(max-width:600px){.tg{grid-template-columns:1fr}}
+.tg h4{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--pur);margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--ln)}
+.tr{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed var(--ln)}
+.tr:last-child{border-bottom:none}
+.tr-l{font-size:13px;font-weight:600}
+.tr-v{font-size:12px;color:var(--mu)}
 
 /* ABOUT */
-.about-quote{font-family:'DM Serif Display',serif;font-size:clamp(24px,4vw,34px);line-height:1.15;margin-bottom:28px}
-.about-hl{color:var(--purple)}
-.about-text{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:14px}
-.founder{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:24px;margin-top:28px;display:flex;gap:18px;align-items:flex-start}
+.ab-q{font-family:'DM Serif Display',serif;font-size:clamp(24px,4vw,34px);line-height:1.15;margin-bottom:28px}
+.ab-hl{color:var(--pur)}
+.ab-t{font-size:14px;color:var(--mu);line-height:1.75;margin-bottom:14px}
+.founder{background:var(--s);border:1px solid var(--ln);border-radius:var(--r);padding:24px;margin-top:28px;display:flex;gap:18px;align-items:flex-start}
 @media(max-width:500px){.founder{flex-direction:column}}
-.founder-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--purple));display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#fff;flex-shrink:0}
-.founder-name{font-size:15px;font-weight:700;margin-bottom:2px}
-.founder-role{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple);margin-bottom:8px}
-.founder-bio{font-size:13px;color:var(--muted);line-height:1.65}
-.quote-box{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--purple);border-radius:var(--radius);padding:24px;margin-top:18px}
-.quote-box blockquote{font-size:14px;color:var(--ink2);line-height:1.75;font-style:italic;margin-bottom:10px}
-.quote-box cite{font-size:12px;color:var(--muted);font-style:normal}
-.quote-box cite strong{color:var(--ink);font-weight:700}
+.f-av{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blu),var(--pur));display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;color:#fff;flex-shrink:0}
+.f-nm{font-size:15px;font-weight:700;margin-bottom:2px}
+.f-rl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--pur);margin-bottom:8px}
+.f-bio{font-size:13px;color:var(--mu);line-height:1.65}
+.qbox{background:var(--s);border:1px solid var(--ln);border-left:3px solid var(--pur);border-radius:var(--r);padding:24px;margin-top:18px}
+.qbox blockquote{font-size:14px;color:var(--ink2);line-height:1.75;font-style:italic;margin-bottom:10px}
+.qbox cite{font-size:12px;color:var(--mu);font-style:normal}
+.qbox cite strong{color:var(--ink);font-weight:700}
 
 /* CTA */
-.cta-section{text-align:center;padding:64px 0}
-.cta-section h2{font-family:'DM Serif Display',serif;font-size:clamp(24px,4vw,32px);font-weight:400;margin-bottom:10px}
-.cta-section .desc{color:var(--muted);max-width:420px;margin:0 auto 28px;font-size:14px}
-
-/* CONTACT */
-.contact-section{text-align:center;padding:64px 0}
-.contact-section h2{font-family:'DM Serif Display',serif;font-size:clamp(24px,4vw,32px);font-weight:400;margin-bottom:10px}
-.contact-section .desc{color:var(--muted);max-width:420px;margin:0 auto 28px;font-size:14px}
-.contact-btn{display:inline-block;background:var(--ink);color:var(--bg);padding:14px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;transition:all .3s}
-.contact-btn:hover{opacity:.9;transform:translateY(-1px)}
-.trust-row{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:24px}
-.trust-item{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
-.trust-check{color:var(--purple);font-weight:700}
+.cta{text-align:center;padding:64px 0}
+.cta h2{font-family:'DM Serif Display',serif;font-size:clamp(24px,4vw,32px);font-weight:400;margin-bottom:10px}
+.cta .desc{color:var(--mu);max-width:420px;margin:0 auto 28px;font-size:14px}
+.ct-btn{display:inline-block;background:var(--ink);color:var(--bg);padding:14px 32px;border-radius:8px;font-weight:600;font-size:15px;text-decoration:none;cursor:pointer;transition:all .3s;border:none}
+.ct-btn:hover{opacity:.9;transform:translateY(-1px)}
+.trust{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:24px}
+.trust div{font-size:12px;color:var(--mu);display:flex;align-items:center;gap:6px}
+.trust span{color:var(--pur);font-weight:700}
 
 /* FOOTER */
-footer{border-top:1px solid var(--line);padding:36px 0}
-.footer-inner{max-width:720px;margin:0 auto;padding:0 24px}
-.footer-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
-.footer-copy{font-size:11px;color:var(--muted2)}
-.footer-links{display:flex;gap:16px;margin-top:10px}
-.footer-links a{font-size:11px;color:var(--muted2);text-decoration:none;transition:color .3s}
-.footer-links a:hover{color:var(--purple)}
+footer{border-top:1px solid var(--ln);padding:36px 0}
+.ft{max-width:720px;margin:0 auto;padding:0 24px}
+.ft-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ft-c{font-size:11px;color:var(--mu2)}
+.ft-links{display:flex;gap:16px;margin-top:10px}
+.ft-links a{font-size:11px;color:var(--mu2);text-decoration:none;cursor:pointer;transition:color .3s}
+.ft-links a:hover{color:var(--pur)}
+
+/* MODAL */
+.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:200;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+.modal.show{display:flex}
+.modal-c{background:var(--s);border:1px solid var(--ln2);border-radius:16px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px;position:relative;margin:auto}
+.modal-x{position:absolute;top:14px;right:18px;background:none;border:none;color:var(--mu);font-size:18px;cursor:pointer}
+.modal h2{font-family:'DM Serif Display',serif;font-size:20px;font-weight:400;margin-bottom:20px}
+.modal p{font-size:13px;color:var(--mu);line-height:1.8;margin-bottom:14px}
+.modal strong{color:var(--ink)}
 </style>
 </head>
 <body>
 
 <!-- NAV -->
-<nav>
-  <a href="#" class="logo">
-    <svg viewBox="0 0 28 28" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    <div class="logo-text"><span class="gray">PIV</span><span class="pur">TEK</span></div>
-  </a>
-  <div class="nav-links">
-    <a href="#expertises">Expertises</a>
-    <a href="#methode">Méthode</a>
-    <a href="#realisations">Réalisations</a>
-    <a href="#solutions">Solutions</a>
-    <a href="#about">À propos</a>
-    <a href="#contact" class="btn-fill" style="padding:9px 20px;font-size:13px">Contact</a>
-  </div>
-  <button class="nav-ham" onclick="document.querySelector('.nav-links').style.display=this.dataset.open?'none':'flex';this.dataset.open=this.dataset.open?'':'1'">☰</button>
+<nav class="nav">
+<div class="nav-inner">
+<a class="logo" onclick="go('accueil')">
+<svg viewBox="0 0 28 28" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<div class="logo-t"><span class="g">PIV</span><span class="p">TEK</span></div>
+</a>
+<div class="nav-links" id="navLinks">
+<a onclick="go('expertises')">Expertises</a>
+<a onclick="go('realisations')">Réalisations</a>
+<a onclick="go('solutions')">Solutions</a>
+<a onclick="go('about')">À propos</a>
+<a class="nav-btn" onclick="go('contact')">Contact</a>
+</div>
+<button class="ham" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+</div>
 </nav>
 
-<!-- HERO -->
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-eyebrow">Ingénierie logicielle et intelligence artificielle · Lyon</div>
-    <h1 class="serif">L'ingénierie logicielle au service de votre croissance.</h1>
-    <p class="lead">Nous concevons des <strong>plateformes digitales</strong> et des <strong>systèmes intelligents</strong> qui transforment vos opérations. Un partenaire technique unique, de la stratégie à la production.</p>
-    <div class="hero-btns">
-      <a href="#contact" class="btn-fill">Démarrer un projet</a>
-      <a href="#solutions" class="btn-outline">Nos solutions</a>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="stat-val">24h</div><div class="stat-lbl">Réponse</div></div>
-      <div class="stat"><div class="stat-val">100%</div><div class="stat-lbl">Code propriétaire</div></div>
-      <div class="stat"><div class="stat-val">0</div><div class="stat-lbl">Intermédiaire</div></div>
-      <div class="stat"><div class="stat-val">48h</div><div class="stat-lbl">Analyse gratuite</div></div>
-    </div>
-  </div>
-</header>
+<!-- BTT -->
+<button class="btt" id="btt" onclick="window.scrollTo({top:0})">↑</button>
 
-<hr class="divider">
+<!-- ==================== ACCUEIL ==================== -->
+<div class="page active" id="p-accueil">
+<header class="hero"><div class="w">
+<div class="hero-ey">Ingénierie logicielle et intelligence artificielle · Lyon</div>
+<h1 class="serif">L'ingénierie logicielle au service de votre croissance.</h1>
+<p class="ld">Nous concevons des <strong>plateformes digitales</strong> et des <strong>systèmes intelligents</strong> qui transforment vos opérations. Un partenaire technique unique, de la stratégie à la production.</p>
+<div class="hb">
+<a class="bf" onclick="go('contact')">Démarrer un projet</a>
+<a class="bo" onclick="go('solutions')">Nos solutions</a>
+</div>
+<div class="stats">
+<div class="stat"><div class="stat-v">24h</div><div class="stat-l">Réponse</div></div>
+<div class="stat"><div class="stat-v">100%</div><div class="stat-l">Code propriétaire</div></div>
+<div class="stat"><div class="stat-v">0</div><div class="stat-l">Intermédiaire</div></div>
+<div class="stat"><div class="stat-v">48h</div><div class="stat-l">Analyse gratuite</div></div>
+</div>
+</div></header>
+<hr class="dv">
+<section><div class="w">
+<div class="stag">Expertises</div>
+<h2 class="st2">Quatre piliers, un engagement.</h2>
+<div class="prev-grid">
+<div class="prev-card" onclick="go('expertises')"><div class="prev-icon">🌐</div><div class="prev-name">Conception logicielle</div><div class="prev-desc">Applications web, mobile, SaaS</div></div>
+<div class="prev-card" onclick="go('expertises')"><div class="prev-icon">🤖</div><div class="prev-name">Intelligence artificielle</div><div class="prev-desc">Agents, RAG, automatisation</div></div>
+<div class="prev-card" onclick="go('expertises')"><div class="prev-icon">⚡</div><div class="prev-name">Automatisation</div><div class="prev-desc">Workflows et orchestration</div></div>
+<div class="prev-card" onclick="go('expertises')"><div class="prev-icon">🎯</div><div class="prev-name">Conseil technique</div><div class="prev-desc">Audit, architecture, stratégie</div></div>
+</div>
+<div style="text-align:center"><a class="bo" onclick="go('expertises')" style="display:inline-block">Découvrir nos expertises →</a></div>
+</div></section>
+<hr class="dv">
+<section><div class="w">
+<div class="qbox">
+<blockquote>Depuis qu'on utilise l'application, on ne perd plus aucun ticket. Les techniciens accèdent à tout depuis leur téléphone, et moi j'ai enfin un tableau de bord en temps réel.</blockquote>
+<cite><strong>Responsable SAV</strong> — Industriel du chauffage</cite>
+</div>
+</div></section>
+<hr class="dv">
+<section class="cta"><div class="w">
+<h2 class="serif">Parlons de votre projet.</h2>
+<p class="desc">Première analyse et orientation sous 24 heures ouvrées.</p>
+<a class="ct-btn" onclick="go('contact')">Démarrer un projet</a>
+</div></section>
+</div>
 
-<!-- EXPERTISES -->
-<section id="expertises">
-  <div class="wrap">
-    <div class="stag">Expertises</div>
-    <h2 class="stitle">Quatre piliers, un engagement.</h2>
-    <div style="border-top:1px solid var(--line)">
-      <div class="exp-row"><div style="display:flex;align-items:center"><span class="exp-icon">🌐</span><div><div class="exp-name">Conception logicielle</div><div class="exp-sub">Applications web, mobile et plateformes SaaS</div></div></div><span class="exp-arrow">→</span></div>
-      <div class="exp-row"><div style="display:flex;align-items:center"><span class="exp-icon">🤖</span><div><div class="exp-name">Intelligence artificielle</div><div class="exp-sub">Agents conversationnels, RAG et analyse documentaire</div></div></div><span class="exp-arrow">→</span></div>
-      <div class="exp-row"><div style="display:flex;align-items:center"><span class="exp-icon">⚡</span><div><div class="exp-name">Automatisation</div><div class="exp-sub">Élimination des tâches répétitives et orchestration</div></div></div><span class="exp-arrow">→</span></div>
-      <div class="exp-row"><div style="display:flex;align-items:center"><span class="exp-icon">🎯</span><div><div class="exp-name">Conseil et audit technique</div><div class="exp-sub">Diagnostic, architecture et accompagnement stratégique</div></div></div><span class="exp-arrow">→</span></div>
-    </div>
-    <div class="stag" style="margin-top:40px">Secteurs</div>
-    <h2 class="stitle" style="font-size:clamp(22px,3.5vw,30px)">Une connaissance intime de vos enjeux.</h2>
-    <div class="sectors">
-      <div class="sector"><div class="sector-icon">🏗️</div><div class="sector-name">Bâtiment et négoce</div><div class="sector-desc">Devis, planification, suivi de chantier</div></div>
-      <div class="sector"><div class="sector-icon">🏭</div><div class="sector-name">Industrie et SAV</div><div class="sector-desc">Interventions terrain, diagnostic, reporting</div></div>
-      <div class="sector"><div class="sector-icon">⚖️</div><div class="sector-name">Professions libérales</div><div class="sector-desc">Outils métier, gestion documentaire</div></div>
-      <div class="sector"><div class="sector-icon">🛒</div><div class="sector-name">Commerce et retail</div><div class="sector-desc">E-commerce, fidélisation, catalogues</div></div>
-    </div>
-  </div>
-</section>
+<!-- ==================== EXPERTISES ==================== -->
+<div class="page" id="p-expertises">
+<section><div class="w">
+<div class="stag">Expertises</div>
+<h2 class="st">Quatre piliers, un engagement.</h2>
+<div class="sd">De la conception logicielle à l'intelligence artificielle, un socle technique complet pour transformer vos opérations.</div>
+<div style="border-top:1px solid var(--ln)">
+<div class="exp"><div style="display:flex;align-items:center"><span class="exp-i">🌐</span><div><div class="exp-n">Conception logicielle</div><div class="exp-s">Applications web, mobile et plateformes SaaS</div></div></div><span class="exp-a">→</span></div>
+<div class="exp"><div style="display:flex;align-items:center"><span class="exp-i">🤖</span><div><div class="exp-n">Intelligence artificielle</div><div class="exp-s">Agents conversationnels, RAG et analyse documentaire</div></div></div><span class="exp-a">→</span></div>
+<div class="exp"><div style="display:flex;align-items:center"><span class="exp-i">⚡</span><div><div class="exp-n">Automatisation</div><div class="exp-s">Élimination des tâches répétitives et orchestration</div></div></div><span class="exp-a">→</span></div>
+<div class="exp"><div style="display:flex;align-items:center"><span class="exp-i">🎯</span><div><div class="exp-n">Conseil et audit technique</div><div class="exp-s">Diagnostic, architecture et accompagnement stratégique</div></div></div><span class="exp-a">→</span></div>
+</div>
+</div></section>
+<hr class="dv">
+<section><div class="w">
+<div class="stag">Secteurs</div>
+<h2 class="st2">Une connaissance intime de vos enjeux.</h2>
+<div class="sects">
+<div class="sect"><div class="sect-i">🏗️</div><div class="sect-n">Bâtiment et négoce</div><div class="sect-d">Devis, planification, suivi de chantier</div></div>
+<div class="sect"><div class="sect-i">🏭</div><div class="sect-n">Industrie et SAV</div><div class="sect-d">Interventions terrain, diagnostic, reporting</div></div>
+<div class="sect"><div class="sect-i">⚖️</div><div class="sect-n">Professions libérales</div><div class="sect-d">Outils métier, gestion documentaire</div></div>
+<div class="sect"><div class="sect-i">🛒</div><div class="sect-n">Commerce et retail</div><div class="sect-d">E-commerce, fidélisation, catalogues</div></div>
+</div>
+</div></section>
+<hr class="dv">
+<section><div class="w">
+<div class="stag">Méthode</div>
+<h2 class="st2">Un cadre rigoureux, des résultats mesurables.</h2>
+<div class="sd">Vous savez ce que vous aurez, quand, et à quel prix.</div>
+<div class="step"><div class="step-n">01</div><div><div class="step-t">Cadrage stratégique</div><div class="step-d">Analyse de vos enjeux métier, définition du périmètre technique et des indicateurs de succès.</div></div></div>
+<div class="step"><div class="step-n">02</div><div><div class="step-t">Architecture et prototypage</div><div class="step-d">Conception technique, choix de stack, prototype fonctionnel validé avant développement.</div></div></div>
+<div class="step"><div class="step-n">03</div><div><div class="step-t">Réalisation par jalons</div><div class="step-d">Cycles courts, livrables intermédiaires que vous validez, transparence totale.</div></div></div>
+<div class="step"><div class="step-n">04</div><div><div class="step-t">Déploiement et continuité</div><div class="step-d">Mise en production, transfert de compétences, maintenance et évolutions dans la durée.</div></div></div>
+</div></section>
+<hr class="dv">
+<section><div class="w">
+<div class="stag">Technologies</div>
+<h2 class="st2">Notre stack.</h2>
+<div class="tg">
+<div><h4>Frontend & Mobile</h4><div class="tr"><span class="tr-l">Applications web</span><span class="tr-v">React / Next.js</span></div><div class="tr"><span class="tr-l">Applications mobiles</span><span class="tr-v">Capacitor</span></div><div class="tr"><span class="tr-l">Langages</span><span class="tr-v">TypeScript</span></div><div class="tr"><span class="tr-l">Design</span><span class="tr-v">Tailwind CSS</span></div></div>
+<div><h4>Backend & Infrastructure</h4><div class="tr"><span class="tr-l">Base de données</span><span class="tr-v">PostgreSQL / Supabase</span></div><div class="tr"><span class="tr-l">API</span><span class="tr-v">Edge Functions / REST</span></div><div class="tr"><span class="tr-l">Auth</span><span class="tr-v">Rôles, RLS</span></div><div class="tr"><span class="tr-l">Hébergement</span><span class="tr-v">Vercel / GitHub</span></div></div>
+</div>
+</div></section>
+</div>
 
-<hr class="divider">
+<!-- ==================== RÉALISATIONS ==================== -->
+<div class="page" id="p-realisations">
+<section><div class="w">
+<div class="stag">Réalisations</div>
+<h2 class="st">Ce que nous avons livré.</h2>
+<div class="sd">Des projets concrets, en production, qui résolvent de vrais problèmes métier.</div>
+<div class="pj">
+<div class="pj-top"><div><div class="pj-ti">Suite de gestion SAV — Web + Mobile</div><div class="pj-me">Industriel du chauffage · Full-stack</div></div><span class="pj-bd bd-b">● En production</span></div>
+<div class="pj-body"><div><h4>Problème</h4><ul class="pj-li"><li>Suivi dispersé, sans centralisation</li><li>Aucun accès mobile terrain</li><li>Besoin sécurité forte + multilingue</li></ul></div><div><h4>Solution</h4><ul class="pj-li"><li>App Android : tickets, interventions</li><li>Chiffrement, PIN, sessions par rôle</li><li>Dashboard temps réel + exports</li><li>Multilingue FR/EN/IT</li></ul></div></div>
+<div class="pj-tags"><span class="ptag">React</span><span class="ptag">Capacitor</span><span class="ptag">Supabase</span><span class="ptag">Vercel</span></div>
+</div>
+<div class="pj">
+<div class="pj-top"><div><div class="pj-ti">Dashboard de pilotage PME</div><div class="pj-me">KPI temps réel · Exports automatisés</div></div><span class="pj-bd bd-g">Domaine d'intervention</span></div>
+<div class="pj-body"><div><h4>Cas type</h4><ul class="pj-li"><li>Pilotage sur Excel ou à l'intuition</li><li>Données dispersées, pas de vue globale</li></ul></div><div><h4>Livrable</h4><ul class="pj-li"><li>Interface responsive, KPI visuels</li><li>Connexion données via API</li><li>Exports Excel/PDF automatisés</li></ul></div></div>
+<div class="pj-tags"><span class="ptag">React</span><span class="ptag">Supabase</span><span class="ptag">Charts</span></div>
+</div>
+<div class="pj">
+<div class="pj-top"><div><div class="pj-ti">App mobile équipes terrain</div><div class="pj-me">Techniciens · Commerciaux · BTP</div></div><span class="pj-bd bd-g">Domaine d'intervention</span></div>
+<div class="pj-body"><div><h4>Cas type</h4><ul class="pj-li"><li>Formulaires papier, pas d'accès mobile</li><li>Infos terrain non remontées</li></ul></div><div><h4>Livrable</h4><ul class="pj-li"><li>App Android/iOS cross-platform</li><li>Photos, signatures, géolocalisation</li><li>Synchro temps réel back-office</li></ul></div></div>
+<div class="pj-tags"><span class="ptag">Capacitor</span><span class="ptag">React</span><span class="ptag">Supabase</span></div>
+</div>
+</div></section>
+</div>
 
-<!-- MÉTHODE -->
-<section id="methode">
-  <div class="wrap">
-    <div class="stag">Méthode</div>
-    <h2 class="stitle">Un cadre rigoureux, des résultats mesurables.</h2>
-    <div class="sdesc">Vous savez ce que vous aurez, quand, et à quel prix.</div>
-    <div class="step"><div class="step-num">01</div><div><div class="step-name">Cadrage stratégique</div><div class="step-desc">Analyse de vos enjeux métier, définition du périmètre technique et des indicateurs de succès.</div></div></div>
-    <div class="step"><div class="step-num">02</div><div><div class="step-name">Architecture et prototypage</div><div class="step-desc">Conception technique, choix de stack, prototype fonctionnel validé avant développement.</div></div></div>
-    <div class="step"><div class="step-num">03</div><div><div class="step-name">Réalisation par jalons</div><div class="step-desc">Cycles courts, livrables intermédiaires que vous validez, transparence totale.</div></div></div>
-    <div class="step"><div class="step-num">04</div><div><div class="step-name">Déploiement et continuité</div><div class="step-desc">Mise en production, transfert de compétences, maintenance et évolutions dans la durée.</div></div></div>
-  </div>
-</section>
+<!-- ==================== SOLUTIONS ==================== -->
+<div class="page" id="p-solutions">
+<section><div class="w">
+<div class="stag">Nos solutions</div>
+<h2 class="st">Chaque projet a son cadre. Voici les nôtres.</h2>
+<div class="sd">Des formats pensés pour les PME qui veulent avancer concrètement, sans cahier des charges de 50 pages.</div>
+<div class="stag">Par projet</div>
+<div class="cd"><div class="cd-h"><div><div class="cd-nm">Présence digitale</div><div class="cd-sb">Site institutionnel ou vitrine métier</div></div><div class="cd-dl">2 à 4 sem.</div></div><div class="cd-sep"></div><div class="cd-desc">Design sur mesure responsive, architecture SEO, espace d'administration, formulaires qualifiés, formation.</div><div class="cd-pr">890 € — 2 400 €</div></div>
+<div class="cd cd-f"><div class="cd-bg">Recommandé</div><div class="cd-h"><div><div class="cd-nm">Plateforme métier</div><div class="cd-sb">Application web, outil interne ou SaaS</div></div><div class="cd-dl">5 à 10 sem.</div></div><div class="cd-sep"></div><div class="cd-desc">Back-office avancé, gestion utilisateurs et rôles, logique métier, intégrations tierces, base de données, tests et documentation.</div><div class="cd-pr">3 200 € — 7 500 €</div></div>
+<div class="cd"><div class="cd-h"><div><div class="cd-nm">Système intelligent</div><div class="cd-sb">Agent IA, automatisation, assistant documentaire</div></div><div class="cd-dl">3 à 6 sem.</div></div><div class="cd-sep"></div><div class="cd-desc">Agents conversationnels, analyse documentaire, orchestration de workflows, connexion à vos outils existants.</div><div class="cd-pr">1 800 € — 5 500 €</div></div>
+<div class="cd"><div class="cd-h"><div><div class="cd-nm">Projet sur mesure</div><div class="cd-sb">Mobile natif, refonte critique, architecture complexe</div></div></div><div class="cd-sep"></div><div class="cd-pr">Sur étude</div></div>
+<div class="stag" style="margin-top:40px">Accompagnement continu</div>
+<div class="cd"><div class="cd-h"><div class="cd-nm">Maintien en condition</div><div class="cd-mo">79 €<span>/mois</span></div></div><ul class="chks"><li>Hébergement production + SSL</li><li>Base de données, authentification et stockage</li><li>Nom de domaine + e-mail professionnel inclus</li><li>Sauvegardes quotidiennes + monitoring 24/7</li><li>Mises à jour de sécurité et dépendances</li><li>Support e-mail sous 48h ouvrées</li></ul></div>
+<div class="cd"><div class="cd-h"><div class="cd-nm">Évolution continue</div><div class="cd-mo">159 €<span>/mois</span></div></div><ul class="chks"><li>Tout le maintien en condition inclus</li><li>2 heures de modifications incluses / mois</li><li>Point mensuel conseil et feuille de route</li><li>Support prioritaire sous 24h</li><li>Rapport mensuel performances et uptime</li></ul></div>
+<div class="incl"><div class="incl-t">Toujours inclus</div><ul class="chks"><li>Code source livré, propriété pleine et entière</li><li>Aucun abonnement obligatoire après livraison</li><li>Documentation technique et formation</li><li>Interlocuteur unique de bout en bout</li><li>Conformité RGPD garantie</li></ul></div>
+</div></section>
+</div>
 
-<hr class="divider">
+<!-- ==================== À PROPOS ==================== -->
+<div class="page" id="p-about">
+<section><div class="w">
+<div class="stag">À propos</div>
+<div class="ab-q">Nous ne vendons pas des lignes de code. <span class="ab-hl">Nous résolvons des problèmes.</span></div>
+<p class="ab-t">Trop de projets logiciels échouent parce que le développeur ne comprend pas le métier du client. Chez Pivtek, nous commençons par comprendre votre réalité avant d'écrire la première ligne de code.</p>
+<p class="ab-t">Notre force : une double compétence terrain et technique. Nous avons vécu les contraintes du SAV et des interventions. Moins d'allers-retours, des outils qui tombent juste.</p>
+<div class="founder"><div class="f-av">P</div><div><div class="f-nm">Philippe — Fondateur</div><div class="f-rl">Conception logicielle et systèmes intelligents</div><div class="f-bio">Avant de développer des logiciels, Philippe a travaillé sur le terrain dans l'industrie. Pivtek est né de cette double compétence — comprendre le métier et maîtriser la technique pour livrer des outils qui fonctionnent vraiment.</div></div></div>
+<div class="qbox"><blockquote>Depuis qu'on utilise l'application, on ne perd plus aucun ticket. Les techniciens accèdent à tout depuis leur téléphone, et moi j'ai enfin un tableau de bord en temps réel.</blockquote><cite><strong>Responsable SAV</strong> — Industriel du chauffage</cite></div>
+</div></section>
+</div>
 
-<!-- RÉALISATIONS -->
-<section id="realisations">
-  <div class="wrap">
-    <div class="stag">Réalisations</div>
-    <h2 class="stitle">Ce que nous avons livré.</h2>
-    <div class="proj">
-      <div class="proj-top"><div><div class="proj-title">Suite de gestion SAV — Web + Mobile</div><div class="proj-meta">Industriel du chauffage · Full-stack</div></div><span class="proj-badge badge-blue">● En production</span></div>
-      <div class="proj-body">
-        <div><h4>Problème</h4><ul class="proj-list"><li>Suivi dispersé, sans centralisation</li><li>Aucun accès mobile terrain</li><li>Besoin sécurité forte + multilingue</li></ul></div>
-        <div><h4>Solution</h4><ul class="proj-list"><li>App Android : tickets, interventions</li><li>Chiffrement, PIN, sessions par rôle</li><li>Dashboard temps réel + exports</li><li>Multilingue FR/EN/IT</li></ul></div>
-      </div>
-      <div class="proj-tags"><span class="ptag">React</span><span class="ptag">Capacitor</span><span class="ptag">Supabase</span><span class="ptag">Vercel</span></div>
-    </div>
-    <div class="proj">
-      <div class="proj-top"><div><div class="proj-title">Dashboard de pilotage PME</div><div class="proj-meta">KPI temps réel · Exports automatisés</div></div><span class="proj-badge badge-green">Domaine d'intervention</span></div>
-      <div class="proj-body">
-        <div><h4>Cas type</h4><ul class="proj-list"><li>Pilotage sur Excel ou à l'intuition</li><li>Données dispersées, pas de vue globale</li></ul></div>
-        <div><h4>Livrable</h4><ul class="proj-list"><li>Interface responsive, KPI visuels</li><li>Connexion données via API</li><li>Exports Excel/PDF automatisés</li></ul></div>
-      </div>
-      <div class="proj-tags"><span class="ptag">React</span><span class="ptag">Supabase</span><span class="ptag">Charts</span></div>
-    </div>
-    <div class="proj">
-      <div class="proj-top"><div><div class="proj-title">App mobile équipes terrain</div><div class="proj-meta">Techniciens · Commerciaux · BTP</div></div><span class="proj-badge badge-green">Domaine d'intervention</span></div>
-      <div class="proj-body">
-        <div><h4>Cas type</h4><ul class="proj-list"><li>Formulaires papier, pas d'accès mobile</li><li>Infos terrain non remontées</li></ul></div>
-        <div><h4>Livrable</h4><ul class="proj-list"><li>App Android/iOS cross-platform</li><li>Photos, signatures, géolocalisation</li><li>Synchro temps réel back-office</li></ul></div>
-      </div>
-      <div class="proj-tags"><span class="ptag">Capacitor</span><span class="ptag">React</span><span class="ptag">Supabase</span></div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- TECH -->
-<section>
-  <div class="wrap">
-    <div class="stag">Technologies</div>
-    <h2 class="stitle">Notre stack.</h2>
-    <div class="sdesc">Technologies modernes, open-source et conformes RGPD.</div>
-    <div class="tech-grid">
-      <div class="tech-col"><h4>Frontend & Mobile</h4>
-        <div class="tech-row"><span class="tech-label">Applications web</span><span class="tech-value">React / Next.js</span></div>
-        <div class="tech-row"><span class="tech-label">Applications mobiles</span><span class="tech-value">Capacitor</span></div>
-        <div class="tech-row"><span class="tech-label">Langages</span><span class="tech-value">TypeScript</span></div>
-        <div class="tech-row"><span class="tech-label">Design</span><span class="tech-value">Tailwind CSS</span></div>
-      </div>
-      <div class="tech-col"><h4>Backend & Infrastructure</h4>
-        <div class="tech-row"><span class="tech-label">Base de données</span><span class="tech-value">PostgreSQL / Supabase</span></div>
-        <div class="tech-row"><span class="tech-label">API</span><span class="tech-value">Edge Functions / REST</span></div>
-        <div class="tech-row"><span class="tech-label">Auth</span><span class="tech-value">Rôles, RLS</span></div>
-        <div class="tech-row"><span class="tech-label">Hébergement</span><span class="tech-value">Vercel / GitHub</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="wrap">
-    <div class="stag">À propos</div>
-    <div class="about-quote">Nous ne vendons pas des lignes de code. <span class="about-hl">Nous résolvons des problèmes.</span></div>
-    <p class="about-text">Trop de projets logiciels échouent parce que le développeur ne comprend pas le métier du client. Chez Pivtek, nous commençons par comprendre votre réalité avant d'écrire la première ligne de code.</p>
-    <p class="about-text">Notre force : une double compétence terrain et technique. Nous avons vécu les contraintes du SAV et des interventions. Moins d'allers-retours, des outils qui tombent juste.</p>
-    <div class="founder">
-      <div class="founder-avatar">P</div>
-      <div>
-        <div class="founder-name">Philippe — Fondateur</div>
-        <div class="founder-role">Conception logicielle et systèmes intelligents</div>
-        <div class="founder-bio">Avant de développer des logiciels, Philippe a travaillé sur le terrain dans l'industrie. Pivtek est né de cette double compétence — comprendre le métier et maîtriser la technique pour livrer des outils qui fonctionnent vraiment.</div>
-      </div>
-    </div>
-    <div class="quote-box">
-      <blockquote>Depuis qu'on utilise l'application, on ne perd plus aucun ticket. Les techniciens accèdent à tout depuis leur téléphone, et moi j'ai enfin un tableau de bord en temps réel.</blockquote>
-      <cite><strong>Responsable SAV</strong> — Industriel du chauffage</cite>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- SOLUTIONS -->
-<section id="solutions">
-  <div class="wrap">
-    <div class="stag">Nos solutions</div>
-    <h2 class="stitle">Chaque projet a son cadre. Voici les nôtres.</h2>
-    <div class="sdesc">Des formats pensés pour les PME qui veulent avancer concrètement, sans cahier des charges de 50 pages.</div>
-
-    <div class="stag">Par projet</div>
-
-    <div class="card">
-      <div class="card-head"><div><div class="card-name">Présence digitale</div><div class="card-sub">Site institutionnel ou vitrine métier</div></div><div class="card-delay">2 à 4 sem.</div></div>
-      <div class="card-sep"></div>
-      <div class="card-desc">Design sur mesure responsive, architecture SEO, espace d'administration, formulaires qualifiés, formation.</div>
-      <div class="card-price">890 € — 2 400 €</div>
-    </div>
-
-    <div class="card card-featured">
-      <div class="card-badge">Recommandé</div>
-      <div class="card-head"><div><div class="card-name">Plateforme métier</div><div class="card-sub">Application web, outil interne ou SaaS</div></div><div class="card-delay">5 à 10 sem.</div></div>
-      <div class="card-sep"></div>
-      <div class="card-desc">Back-office avancé, gestion utilisateurs et rôles, logique métier, intégrations tierces, base de données, tests et documentation.</div>
-      <div class="card-price">3 200 € — 7 500 €</div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><div class="card-name">Système intelligent</div><div class="card-sub">Agent IA, automatisation, assistant documentaire</div></div><div class="card-delay">3 à 6 sem.</div></div>
-      <div class="card-sep"></div>
-      <div class="card-desc">Agents conversationnels, analyse documentaire, orchestration de workflows, connexion à vos outils existants.</div>
-      <div class="card-price">1 800 € — 5 500 €</div>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div><div class="card-name">Projet sur mesure</div><div class="card-sub">Mobile natif, refonte critique, architecture complexe</div></div></div>
-      <div class="card-sep"></div>
-      <div class="card-price">Sur étude</div>
-    </div>
-
-    <div class="stag" style="margin-top:40px">Accompagnement continu</div>
-
-    <div class="card">
-      <div class="card-head"><div class="card-name">Maintien en condition</div><div class="card-monthly">79 €<span>/mois</span></div></div>
-      <ul class="checks">
-        <li>Hébergement production + SSL</li>
-        <li>Base de données, authentification et stockage</li>
-        <li>Nom de domaine + e-mail professionnel inclus</li>
-        <li>Sauvegardes quotidiennes + monitoring 24/7</li>
-        <li>Mises à jour de sécurité et dépendances</li>
-        <li>Support e-mail sous 48h ouvrées</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <div class="card-head"><div class="card-name">Évolution continue</div><div class="card-monthly">159 €<span>/mois</span></div></div>
-      <ul class="checks">
-        <li>Tout le maintien en condition inclus</li>
-        <li>2 heures de modifications incluses / mois</li>
-        <li>Point mensuel conseil et feuille de route</li>
-        <li>Support prioritaire sous 24h</li>
-        <li>Rapport mensuel performances et uptime</li>
-      </ul>
-    </div>
-
-    <div class="included">
-      <div class="included-title">Toujours inclus</div>
-      <ul class="checks">
-        <li>Code source livré, propriété pleine et entière</li>
-        <li>Aucun abonnement obligatoire après livraison</li>
-        <li>Documentation technique et formation</li>
-        <li>Interlocuteur unique de bout en bout</li>
-        <li>Conformité RGPD garantie</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- CTA -->
-<section class="cta-section">
-  <div class="wrap">
-    <h2 class="serif">Dimensionnons votre projet ensemble.</h2>
-    <p class="desc">30 minutes suffisent pour une estimation précise et un calendrier réaliste.</p>
-    <a href="#contact" class="contact-btn">Planifier un échange</a>
-  </div>
-</section>
-
-<hr class="divider">
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-  <div class="wrap">
-    <div class="stag" style="justify-content:center;display:flex">Contact</div>
-    <h2 class="serif">Un projet en tête ?</h2>
-    <p class="desc">Décrivez-nous votre besoin. Nous vous répondons sous 48h avec une première analyse gratuite.</p>
-    <a href="mailto:contact@pivtek.fr" class="contact-btn">contact@pivtek.fr</a>
-    <div class="trust-row">
-      <div class="trust-item"><span class="trust-check">✓</span> Premier échange gratuit</div>
-      <div class="trust-item"><span class="trust-check">✓</span> Sans engagement</div>
-      <div class="trust-item"><span class="trust-check">✓</span> Devis sous 24h</div>
-      <div class="trust-item"><span class="trust-check">✓</span> Forfait fixe</div>
-    </div>
-  </div>
-</section>
+<!-- ==================== CONTACT ==================== -->
+<div class="page" id="p-contact">
+<section class="cta"><div class="w">
+<div class="stag" style="display:flex;justify-content:center">Contact</div>
+<h2 class="serif">Un projet en tête ?</h2>
+<p class="desc">Décrivez-nous votre besoin. Nous vous répondons sous 48h avec une première analyse gratuite.</p>
+<a href="mailto:contact@pivtek.fr" class="ct-btn">contact@pivtek.fr</a>
+<div class="trust">
+<div><span>✓</span> Premier échange gratuit</div>
+<div><span>✓</span> Sans engagement</div>
+<div><span>✓</span> Devis sous 24h</div>
+<div><span>✓</span> Forfait fixe</div>
+</div>
+</div></section>
+<hr class="dv">
+<section class="cta"><div class="w">
+<h2 class="serif">Dimensionnons votre projet ensemble.</h2>
+<p class="desc">30 minutes suffisent pour une estimation précise et un calendrier réaliste.</p>
+<a class="ct-btn" onclick="go('solutions')">Voir nos solutions</a>
+</div></section>
+</div>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <svg viewBox="0 0 28 28" width="20" height="20" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span style="font-size:13px;font-weight:600;letter-spacing:3px"><span style="color:var(--muted)">PIV</span><span style="color:var(--purple)">TEK</span></span>
-    </div>
-    <div class="footer-copy">© 2026 PIVTEK · Lyon, France</div>
-    <div class="footer-links">
-      <a href="#" onclick="event.preventDefault();document.getElementById('ml').style.display='flex'">Mentions légales</a>
-      <a href="#" onclick="event.preventDefault();document.getElementById('pp').style.display='flex'">Confidentialité</a>
-    </div>
-  </div>
+<div class="ft">
+<div class="ft-top">
+<svg viewBox="0 0 28 28" width="20" height="20" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+<span style="font-size:13px;font-weight:600;letter-spacing:3px"><span style="color:var(--mu)">PIV</span><span style="color:var(--pur)">TEK</span></span>
+</div>
+<div class="ft-c">© 2026 PIVTEK · Lyon, France</div>
+<div class="ft-links">
+<a onclick="openModal('ml')">Mentions légales</a>
+<a onclick="openModal('pp')">Confidentialité</a>
+</div>
+</div>
 </footer>
 
 <!-- MODALS -->
-<div id="ml" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
-<div style="background:var(--surface);border:1px solid var(--line2);border-radius:16px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px;position:relative;margin:auto">
-<button onclick="document.getElementById('ml').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer">✕</button>
-<h2 style="font-family:'DM Serif Display',serif;font-size:20px;font-weight:400;margin-bottom:20px">Mentions légales</h2>
-<div style="font-size:13px;color:var(--muted);line-height:1.8">
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Éditeur</strong><br>PIVTEK — Philippe Jordan NKEN, Entrepreneur individuel<br>SIREN : 109 542 860 · SIRET : 109 542 860 00019<br>Code APE : 6201Z — Programmation informatique<br>23 Rue Fine, 69320 Feyzin, France<br>contact@pivtek.fr<br>TVA non applicable — Art. 293 B du CGI</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Directeur de la publication</strong><br>Philippe Jordan NKEN</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Hébergement</strong><br>Vercel Inc. — 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis<br>Supabase Inc. — 970 Toa Payoh North #07-04, Singapore 318992<br>OVHcloud — 2 rue Kellermann, 59100 Roubaix, France</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Activité</strong><br>Développement de sites web et d'applications informatiques sur mesure. Conception, réalisation et maintenance de solutions logicielles web et mobiles pour entreprises.<br>Nature : Libérale non réglementée</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Propriété intellectuelle</strong><br>L'ensemble des contenus de ce site est la propriété exclusive de PIVTEK. Le nom PIVTEK, le logo et l'insigne associés constituent des signes distinctifs protégés. Toute reproduction sans autorisation écrite est interdite (art. L.122-4 et L.335-2 du CPI).</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Limitation de responsabilité</strong><br>Les informations présentées, y compris les fourchettes tarifaires, ne constituent pas un engagement contractuel. Seul le devis signé fait foi.</p>
-<p><strong style="color:var(--ink)">Droit applicable</strong><br>Droit français · Tribunaux de Lyon</p>
-</div></div></div>
+<div class="modal" id="ml"><div class="modal-c"><button class="modal-x" onclick="closeModal('ml')">✕</button>
+<h2>Mentions légales</h2>
+<p><strong>Éditeur</strong><br>PIVTEK — Philippe Jordan NKEN, Entrepreneur individuel<br>SIREN : 109 542 860 · SIRET : 109 542 860 00019<br>Code APE : 6201Z — Programmation informatique<br>23 Rue Fine, 69320 Feyzin, France<br>contact@pivtek.fr<br>TVA non applicable — Art. 293 B du CGI</p>
+<p><strong>Directeur de la publication</strong><br>Philippe Jordan NKEN</p>
+<p><strong>Hébergement</strong><br>Vercel Inc. — 440 N Barranca Ave #4133, Covina, CA 91723, États-Unis<br>Supabase Inc. — 970 Toa Payoh North #07-04, Singapore 318992<br>OVHcloud — 2 rue Kellermann, 59100 Roubaix, France</p>
+<p><strong>Activité</strong><br>Développement de sites web et d'applications informatiques sur mesure. Conception, réalisation et maintenance de solutions logicielles web et mobiles pour entreprises.<br>Nature : Libérale non réglementée</p>
+<p><strong>Propriété intellectuelle</strong><br>L'ensemble des contenus de ce site est la propriété exclusive de PIVTEK. Le nom PIVTEK, le logo et l'insigne associés constituent des signes distinctifs protégés. Toute reproduction sans autorisation écrite est interdite (art. L.122-4 et L.335-2 du CPI).</p>
+<p><strong>Limitation de responsabilité</strong><br>Les informations présentées, y compris les fourchettes tarifaires, ne constituent pas un engagement contractuel. Seul le devis signé fait foi.</p>
+<p><strong>Droit applicable</strong><br>Droit français · Tribunaux de Lyon</p>
+</div></div>
 
-<div id="pp" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;align-items:center;justify-content:center;padding:20px;overflow-y:auto">
-<div style="background:var(--surface);border:1px solid var(--line2);border-radius:16px;max-width:600px;width:100%;max-height:90vh;overflow-y:auto;padding:36px 32px;position:relative;margin:auto">
-<button onclick="document.getElementById('pp').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;color:var(--muted);font-size:18px;cursor:pointer">✕</button>
-<h2 style="font-family:'DM Serif Display',serif;font-size:20px;font-weight:400;margin-bottom:20px">Politique de confidentialité</h2>
-<div style="font-size:13px;color:var(--muted);line-height:1.8">
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Responsable du traitement</strong><br>PIVTEK — Philippe Jordan NKEN, EI<br>SIRET : 109 542 860 00019 · 23 rue Fine, 69320 Feyzin<br>contact@pivtek.fr</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Données collectées</strong><br>Formulaire de contact et estimateur : nom, e-mail, téléphone (facultatif), société (facultatif), description du projet.<br>Espace client : identifiants, historique des échanges.<br>Navigation : adresse IP anonymisée, pages consultées, cookies techniques.</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Finalités et conservation</strong><br>Contact et devis : mesures précontractuelles (art. 6.1.b RGPD) — 3 ans.<br>Suivi client : exécution du contrat (art. 6.1.b) — durée + 5 ans.<br>Analyse d'audience : intérêt légitime (art. 6.1.f) — 13 mois.</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Sous-traitants</strong><br>Vercel Inc. (hébergement) — États-Unis<br>Supabase Inc. (infrastructure applicative) — Singapour / États-Unis<br>OVHcloud (infrastructure serveur) — France / UE<br>Google Workspace (messagerie) — UE / États-Unis<br>Transferts hors UE encadrés par le Data Privacy Framework et les CCT.</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Vos droits (RGPD)</strong><br>Accès (art. 15), rectification (art. 16), effacement (art. 17), limitation (art. 18), portabilité (art. 20), opposition (art. 21), retrait du consentement.<br>Exercice : contact@pivtek.fr — Réponse sous 1 mois.<br>Réclamation : CNIL — www.cnil.fr</p>
-<p style="margin-bottom:14px"><strong style="color:var(--ink)">Cookies</strong><br>Cookies nécessaires : fonctionnement et authentification — pas de consentement requis.<br>Cookies analytiques : déposés uniquement après consentement — 13 mois max (CNIL).</p>
-<p><strong style="color:var(--ink)">Sécurité</strong><br>Chiffrement SSL/TLS, hashage des mots de passe, contrôle d'accès par rôles, sauvegardes automatisées, authentification forte pour les accès administrateur.</p>
-</div></div></div>
+<div class="modal" id="pp"><div class="modal-c"><button class="modal-x" onclick="closeModal('pp')">✕</button>
+<h2>Politique de confidentialité</h2>
+<p><strong>Responsable du traitement</strong><br>PIVTEK — Philippe Jordan NKEN, EI<br>SIRET : 109 542 860 00019 · 23 rue Fine, 69320 Feyzin<br>contact@pivtek.fr</p>
+<p><strong>Données collectées</strong><br>Formulaire de contact et estimateur : nom, e-mail, téléphone (facultatif), société (facultatif), description du projet.<br>Espace client : identifiants, historique des échanges.<br>Navigation : adresse IP anonymisée, pages consultées, cookies techniques.</p>
+<p><strong>Finalités et conservation</strong><br>Contact et devis : mesures précontractuelles (art. 6.1.b RGPD) — 3 ans.<br>Suivi client : exécution du contrat (art. 6.1.b) — durée + 5 ans.<br>Analyse d'audience : intérêt légitime (art. 6.1.f) — 13 mois.</p>
+<p><strong>Sous-traitants</strong><br>Vercel Inc. (hébergement) — États-Unis<br>Supabase Inc. (infrastructure applicative) — Singapour / États-Unis<br>OVHcloud (infrastructure serveur) — France / UE<br>Google Workspace (messagerie) — UE / États-Unis<br>Transferts hors UE encadrés par le Data Privacy Framework et les CCT.</p>
+<p><strong>Vos droits (RGPD)</strong><br>Accès (art. 15), rectification (art. 16), effacement (art. 17), limitation (art. 18), portabilité (art. 20), opposition (art. 21), retrait du consentement.<br>Exercice : contact@pivtek.fr — Réponse sous 1 mois.<br>Réclamation : CNIL — www.cnil.fr</p>
+<p><strong>Cookies</strong><br>Cookies nécessaires : fonctionnement et authentification — pas de consentement requis.<br>Cookies analytiques : déposés uniquement après consentement — 13 mois max (CNIL).</p>
+<p><strong>Sécurité</strong><br>Chiffrement SSL/TLS, hashage des mots de passe, contrôle d'accès par rôles, sauvegardes automatisées, authentification forte pour les accès administrateur.</p>
+</div></div>
 
+<script>
+function go(p){
+document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
+document.getElementById('p-'+p).classList.add('active');
+document.querySelectorAll('.nav-links a:not(.nav-btn)').forEach(a=>{a.classList.toggle('on',a.textContent.toLowerCase().includes(p==='accueil'?'xxx':p.substring(0,4)))});
+document.getElementById('navLinks').classList.remove('open');
+window.scrollTo({top:0,behavior:'smooth'});
+history.pushState(null,null,'#'+p);
+}
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&document.getElementById('p-'+h))go(h)});
+window.addEventListener('load',()=>{const h=location.hash.slice(1);if(h&&document.getElementById('p-'+h))go(h)});
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>400)});
+function openModal(id){document.getElementById(id).classList.add('show')}
+function closeModal(id){document.getElementById(id).classList.remove('show')}
+document.querySelectorAll('.modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show')})});
+</script>
 </body>
 </html>
