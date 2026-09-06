@@ -6,6 +6,17 @@
 <title>PIVTEK — Ingénierie logicielle et intelligence artificielle · Lyon</title>
 <meta name="description" content="PIVTEK conçoit des plateformes digitales et des systèmes intelligents pour PME. Applications web, mobile, IA et automatisation. Lyon, France.">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0e14'/%3E%3Cpath d='M18 6L8 16L18 26' stroke='%237B6FD6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M24 9L16 16L24 23' stroke='%235B8DEF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<!-- Open Graph / LinkedIn -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pivtek.fr">
+<meta property="og:title" content="PIVTEK — Ingénierie logicielle et intelligence artificielle">
+<meta property="og:description" content="Applications web, mobile, IA et automatisation pour PME. Un partenaire technique unique, de la stratégie à la production. Lyon, France.">
+<meta property="og:image" content="https://pivtek.fr/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PIVTEK — Ingénierie logicielle et IA · Lyon">
+<meta name="twitter:description" content="Applications web, mobile, IA et automatisation pour PME.">>
+<meta name="twitter:image" content="https://pivtek.fr/og-image.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap');
 :root{--bg:#0c0e14;--s:#151820;--s2:#1c1f2a;--ln:rgba(255,255,255,.07);--ln2:rgba(255,255,255,.12);--ink:#f0f2f5;--ink2:#c9d1d9;--mu:#8b949e;--mu2:#484f58;--pur:#7B6FD6;--blu:#5B8DEF;--grn:#10b981;--r:14px}
@@ -42,6 +53,28 @@ hr.dv{border:none;height:1px;background:var(--ln);margin:0}
 /* BACK BTN */
 .back-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--mu);text-decoration:none;cursor:pointer;padding:8px 16px;border:1px solid var(--ln2);border-radius:8px;margin-bottom:32px;transition:all .3s}
 .back-btn:hover{color:var(--pur);border-color:var(--pur)}
+
+/* SCROLL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}
+.reveal-delay-2{transition-delay:.2s}
+.reveal-delay-3{transition-delay:.3s}
+
+/* FORM */
+.form-group{margin-bottom:16px}
+.form-label{font-size:13px;color:var(--mu);display:block;margin-bottom:6px;font-weight:500}
+.form-input,.form-textarea{width:100%;padding:12px 16px;background:var(--s);border:1px solid var(--ln2);border-radius:8px;color:var(--ink);font-family:'Inter',sans-serif;font-size:14px;transition:border-color .3s;box-sizing:border-box}
+.form-input:focus,.form-textarea:focus{outline:none;border-color:var(--pur)}
+.form-textarea{resize:vertical;min-height:100px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:500px){.form-row{grid-template-columns:1fr}}
+.form-submit{background:var(--ink);color:var(--bg);padding:14px 32px;border-radius:8px;font-weight:600;font-size:15px;border:none;cursor:pointer;width:100%;transition:all .3s;margin-top:8px}
+.form-submit:hover{opacity:.9;transform:translateY(-1px)}
+.form-success{display:none;text-align:center;padding:40px 20px}
+.form-success.show{display:block}
+.form-success h3{font-family:'DM Serif Display',serif;font-size:24px;margin-bottom:8px}
+.form-success p{color:var(--mu);font-size:14px}
 
 /* TAGS & TITLES */
 .stag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pur);margin-bottom:16px}
@@ -469,12 +502,52 @@ footer{border-top:1px solid var(--ln);padding:36px 0}
 
 <!-- ==================== CONTACT ==================== -->
 <div class="page" id="p-contact">
-<section class="cta"><div class="w">
-<div class="stag" style="display:flex;justify-content:center">Contact</div>
-<h2 class="serif">Un projet en tête ?</h2>
-<p class="desc">Décrivez-nous votre besoin. Nous vous répondons sous 48h avec une première analyse gratuite.</p>
-<a href="mailto:contact@pivtek.fr" class="ct-btn">contact@pivtek.fr</a>
-<div class="trust">
+<section><div class="w">
+<div class="stag">Contact</div>
+<h2 class="st">Un projet en tête ?</h2>
+<div class="sd">Remplissez le formulaire ci-dessous. Nous vous répondons sous 48h avec une première analyse gratuite.</div>
+
+<div id="contactForm">
+<div class="form-row">
+<div class="form-group"><label class="form-label">Nom *</label><input class="form-input" type="text" id="f-name" required placeholder="Votre nom"></div>
+<div class="form-group"><label class="form-label">Société</label><input class="form-input" type="text" id="f-company" placeholder="Nom de votre entreprise"></div>
+</div>
+<div class="form-row">
+<div class="form-group"><label class="form-label">E-mail *</label><input class="form-input" type="email" id="f-email" required placeholder="vous@exemple.fr"></div>
+<div class="form-group"><label class="form-label">Téléphone</label><input class="form-input" type="tel" id="f-phone" placeholder="06 00 00 00 00"></div>
+</div>
+<div class="form-group"><label class="form-label">Type de projet</label>
+<select class="form-input" id="f-type" style="appearance:auto">
+<option value="">— Sélectionnez —</option>
+<option>Site web / vitrine</option>
+<option>Application web métier</option>
+<option>Application mobile</option>
+<option>Intelligence artificielle / chatbot</option>
+<option>Automatisation</option>
+<option>Audit / conseil technique</option>
+<option>Autre</option>
+</select></div>
+<div class="form-group"><label class="form-label">Décrivez votre projet *</label><textarea class="form-textarea" id="f-message" required placeholder="Décrivez votre besoin, vos objectifs et vos contraintes éventuelles..."></textarea></div>
+<div class="form-group"><label class="form-label">Budget estimé</label>
+<select class="form-input" id="f-budget" style="appearance:auto">
+<option value="">— Sélectionnez —</option>
+<option>Moins de 2 000 €</option>
+<option>2 000 – 5 000 €</option>
+<option>5 000 – 10 000 €</option>
+<option>Plus de 10 000 €</option>
+<option>À définir ensemble</option>
+</select></div>
+<button class="form-submit" onclick="submitForm()">Envoyer ma demande</button>
+</div>
+
+<div id="contactSuccess" class="form-success">
+<h3>Message envoyé !</h3>
+<p>Merci pour votre demande. Nous vous répondons sous 48h avec une première analyse.</p>
+<br>
+<a class="bo" onclick="resetForm()">Envoyer un autre message</a>
+</div>
+
+<div class="trust" style="margin-top:32px">
 <div><span>✓</span> Premier échange gratuit</div>
 <div><span>✓</span> Sans engagement</div>
 <div><span>✓</span> Devis sous 24h</div>
@@ -530,18 +603,38 @@ footer{border-top:1px solid var(--ln);padding:36px 0}
 <script>
 function go(p){
 document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
-document.getElementById('p-'+p).classList.add('active');
+const pg=document.getElementById('p-'+p);
+if(pg){pg.classList.add('active');initReveals()}
 document.querySelectorAll('.nav-links a:not(.nav-btn)').forEach(a=>{a.classList.toggle('on',a.textContent.toLowerCase().includes(p==='accueil'?'xxx':p.substring(0,4)))});
 document.getElementById('navLinks').classList.remove('open');
 window.scrollTo({top:0,behavior:'smooth'});
 history.pushState(null,null,'#'+p);
 }
 window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&document.getElementById('p-'+h))go(h)});
-window.addEventListener('load',()=>{const h=location.hash.slice(1);if(h&&document.getElementById('p-'+h))go(h)});
+window.addEventListener('load',()=>{const h=location.hash.slice(1);if(h&&document.getElementById('p-'+h))go(h);initReveals()});
 window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>400)});
 function openModal(id){document.getElementById(id).classList.add('show')}
 function closeModal(id){document.getElementById(id).classList.remove('show')}
 document.querySelectorAll('.modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show')})});
+
+/* Scroll reveal */
+function initReveals(){
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.page.active section,.page.active .cd,.page.active .prev-card,.page.active .pj,.page.active .sect,.page.active .exp,.page.active .step,.page.active .stats,.page.active .qbox,.page.active .founder,.page.active .incl').forEach(el=>{if(!el.classList.contains('visible')){el.classList.add('reveal');obs.observe(el)}});
+}
+setTimeout(initReveals,100);
+
+/* Contact form */
+function submitForm(){
+const name=document.getElementById('f-name').value.trim();
+const email=document.getElementById('f-email').value.trim();
+const msg=document.getElementById('f-message').value.trim();
+if(!name||!email||!msg){alert('Veuillez remplir les champs obligatoires (nom, e-mail, message).');return}
+const data={name,email,company:document.getElementById('f-company').value,phone:document.getElementById('f-phone').value,type:document.getElementById('f-type').value,message:msg,budget:document.getElementById('f-budget').value,date:new Date().toISOString()};
+/* === FORMSPREE : remplacer YOUR_FORM_ID par votre ID Formspree === */
+fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(r=>{if(r.ok){document.getElementById('contactForm').style.display='none';document.getElementById('contactSuccess').classList.add('show')}else{window.location.href='mailto:contact@pivtek.fr?subject=Demande de projet&body='+encodeURIComponent('Nom: '+data.name+'\nSociété: '+data.company+'\nType: '+data.type+'\nBudget: '+data.budget+'\n\n'+data.message)}}).catch(()=>{window.location.href='mailto:contact@pivtek.fr?subject=Demande de projet&body='+encodeURIComponent('Nom: '+data.name+'\n\n'+data.message)});
+}
+function resetForm(){document.getElementById('contactForm').style.display='block';document.getElementById('contactSuccess').classList.remove('show');['f-name','f-email','f-company','f-phone','f-message'].forEach(id=>document.getElementById(id).value='');['f-type','f-budget'].forEach(id=>document.getElementById(id).selectedIndex=0)}
 </script>
 </body>
 </html>
