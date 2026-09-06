@@ -15,7 +15,7 @@
 <meta property="og:locale" content="fr_FR">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="PIVTEK — Ingénierie logicielle et IA · Lyon">
-<meta name="twitter:description" content="Applications web, mobile, IA et automatisation pour PME.">>
+<meta name="twitter:description" content="Applications web, mobile, IA et automatisation pour PME.">
 <meta name="twitter:image" content="https://pivtek.fr/og-image.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -46,9 +46,9 @@ hr.dv{border:none;height:1px;background:var(--ln);margin:0}
 @media(max-width:700px){.nav-links{position:fixed;top:56px;left:0;right:0;background:var(--s);flex-direction:column;padding:20px;gap:16px;border-bottom:1px solid var(--ln);transform:translateY(-120%);transition:transform .3s}.nav-links.open{transform:translateY(0)}.ham{display:block}}
 
 /* BACK TO TOP */
-.btt{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--pur);color:#fff;border:none;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:99;box-shadow:0 4px 20px rgba(123,111,214,.3);transition:transform .3s}
+.btt{position:fixed;bottom:24px;right:24px;width:44px;height:44px;border-radius:50%;background:var(--pur);color:#fff;border:none;font-size:18px;cursor:pointer;display:none;align-items:center;justify-content:center;z-index:99;box-shadow:0 4px 20px rgba(123,111,214,.3);transition:transform .3s;opacity:0;pointer-events:none}
 .btt:hover{transform:scale(1.1)}
-.btt.show{display:flex}
+.btt.show{display:flex;opacity:1;pointer-events:auto}
 
 /* BACK BTN */
 .back-btn{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:var(--mu);text-decoration:none;cursor:pointer;padding:8px 16px;border:1px solid var(--ln2);border-radius:8px;margin-bottom:32px;transition:all .3s}
@@ -632,7 +632,7 @@ const msg=document.getElementById('f-message').value.trim();
 if(!name||!email||!msg){alert('Veuillez remplir les champs obligatoires (nom, e-mail, message).');return}
 const data={name,email,company:document.getElementById('f-company').value,phone:document.getElementById('f-phone').value,type:document.getElementById('f-type').value,message:msg,budget:document.getElementById('f-budget').value,date:new Date().toISOString()};
 /* === FORMSPREE : remplacer YOUR_FORM_ID par votre ID Formspree === */
-fetch('https://formspree.io/f/YOUR_FORM_ID',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(r=>{if(r.ok){document.getElementById('contactForm').style.display='none';document.getElementById('contactSuccess').classList.add('show')}else{window.location.href='mailto:contact@pivtek.fr?subject=Demande de projet&body='+encodeURIComponent('Nom: '+data.name+'\nSociété: '+data.company+'\nType: '+data.type+'\nBudget: '+data.budget+'\n\n'+data.message)}}).catch(()=>{window.location.href='mailto:contact@pivtek.fr?subject=Demande de projet&body='+encodeURIComponent('Nom: '+data.name+'\n\n'+data.message)});
+fetch('https://formspree.io/f/mljewzdb',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(data)}).then(r=>{if(r.ok){document.getElementById('contactForm').style.display='none';document.getElementById('contactSuccess').classList.add('show')}else{window.location.href='mailto:contact@pivtek.fr?subject=Demande de projet&body='+encodeURIComponent('Nom: '+data.name+'\nSociété: '+data.company+'\nType: '+data.type+'\nBudget: '+data.budget+'\n\n'+data.message)}}).catch(()=>{window.location.href='mailto:contact@pivtek.fr?subject=Demande de projet&body='+encodeURIComponent('Nom: '+data.name+'\n\n'+data.message)});
 }
 function resetForm(){document.getElementById('contactForm').style.display='block';document.getElementById('contactSuccess').classList.remove('show');['f-name','f-email','f-company','f-phone','f-message'].forEach(id=>document.getElementById(id).value='');['f-type','f-budget'].forEach(id=>document.getElementById(id).selectedIndex=0)}
 </script>
