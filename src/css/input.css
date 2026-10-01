@@ -775,6 +775,187 @@
 
 }
 
+/* ── Cookie banner ──────────────────────────────────────── */
+@layer components {
+
+  .pv-cookie {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    z-index: 9999;
+    width: calc(100% - 32px);
+    max-width: 620px;
+    background: var(--color-pv-s);
+    border: 1px solid var(--ln2);
+    border-radius: 16px;
+    padding: 20px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-shadow: 0 8px 40px rgba(0,0,0,.45);
+    transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .3s;
+    opacity: 0;
+  }
+  .pv-cookie.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+
+  .pv-cookie-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+  .pv-cookie-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    border-radius: 9px;
+    background: rgba(123,111,214,.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pv-cookie-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-pv-ink);
+    margin-bottom: 3px;
+  }
+  .pv-cookie-desc {
+    font-size: 12.5px;
+    color: var(--color-pv-mu);
+    line-height: 1.6;
+  }
+  .pv-cookie-desc a {
+    color: var(--color-pv-pur);
+    text-decoration: none;
+  }
+  .pv-cookie-desc a:hover { text-decoration: underline; }
+
+  .pv-cookie-actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .pv-cookie-accept {
+    background: var(--color-pv-pur);
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: opacity .2s;
+  }
+  .pv-cookie-accept:hover { opacity: .85; }
+
+  .pv-cookie-refuse {
+    background: transparent;
+    color: var(--color-pv-mu);
+    font-size: 12.5px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    border: 1px solid var(--ln2);
+    cursor: pointer;
+    transition: color .2s, border-color .2s;
+  }
+  .pv-cookie-refuse:hover {
+    color: var(--color-pv-ink2);
+    border-color: var(--color-pv-mu2);
+  }
+
+  .pv-cookie-more {
+    font-size: 11.5px;
+    color: var(--color-pv-mu2);
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-left: auto;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    transition: color .2s;
+  }
+  .pv-cookie-more:hover { color: var(--color-pv-mu); }
+
+  /* Detail panel */
+  .pv-cookie-detail {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    border-top: 1px solid var(--ln);
+    padding-top: 14px;
+  }
+  .pv-cookie-detail.open { display: flex; }
+
+  .pv-cookie-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+  .pv-cookie-row-info { flex: 1; }
+  .pv-cookie-row-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-pv-ink2);
+    margin-bottom: 2px;
+  }
+  .pv-cookie-row-d {
+    font-size: 11.5px;
+    color: var(--color-pv-mu);
+    line-height: 1.5;
+  }
+
+  /* Toggle switch */
+  .pv-toggle {
+    position: relative;
+    width: 38px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  .pv-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+  .pv-toggle-track {
+    position: absolute;
+    inset: 0;
+    border-radius: 11px;
+    background: var(--color-pv-mu2);
+    cursor: pointer;
+    transition: background .2s;
+  }
+  .pv-toggle input:checked + .pv-toggle-track { background: var(--color-pv-pur); }
+  .pv-toggle input:disabled + .pv-toggle-track { opacity: .5; cursor: not-allowed; }
+  .pv-toggle-track::after {
+    content: '';
+    position: absolute;
+    top: 3px; left: 3px;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #fff;
+    transition: transform .2s;
+  }
+  .pv-toggle input:checked + .pv-toggle-track::after { transform: translateX(16px); }
+
+  .pv-cookie-save {
+    background: var(--color-pv-pur);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: opacity .2s;
+  }
+  .pv-cookie-save:hover { opacity: .85; }
+
+}
+
 /* ── Responsive helpers ─────────────────────────────────── */
 @layer utilities {
   @media (max-width: 700px) {

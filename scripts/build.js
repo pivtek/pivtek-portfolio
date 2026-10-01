@@ -12,6 +12,12 @@ const DIST = path.join(__dirname, '..', 'dist');
 // Pages to process
 const pages = ['index.html', 'cgv.html', 'mentions-legales.html', 'politique-confidentialite.html'];
 
+// Cookie banner partial
+const cookieBannerPath = path.join(SRC, 'partials', 'cookie-banner.html');
+const cookieBanner = fs.existsSync(cookieBannerPath)
+  ? fs.readFileSync(cookieBannerPath, 'utf8')
+  : '';
+
 // Ensure dist exists
 if (!fs.existsSync(DIST)) fs.mkdirSync(DIST, { recursive: true });
 
@@ -23,6 +29,10 @@ for (const page of pages) {
   let html = fs.readFileSync(src, 'utf8');
   // Replace <!-- STYLES --> placeholder with compiled CSS link
   html = html.replace('<!-- STYLES -->', '<link rel="stylesheet" href="/styles.css">');
+  // Inject cookie banner before </body>
+  if (cookieBanner) {
+    html = html.replace('</body>', cookieBanner + '\n</body>');
+  }
   fs.writeFileSync(dest, html, 'utf8');
   console.log(`✓  ${page} → dist/${page}`);
   built++;
