@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Portfolio Pivtek — Software Engineering",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/css/input.css -o ./dist/styles.css --watch",
-    "build": "npx tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify && node scripts/build.js",
-    "build:css": "npx tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify"
+    "dev": "tailwindcss -i ./src/css/input.css -o ./dist/styles.css --watch",
+    "build": "tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify && node scripts/build.js",
+    "build:css": "tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify"
   },
   "dependencies": {
     "tailwindcss": "^4.1.11"
