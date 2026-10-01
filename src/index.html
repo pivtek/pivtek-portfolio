@@ -431,36 +431,55 @@
     <div class="pv-tag">Contact</div>
     <h2 class="pv-heading">Un projet en tête ?</h2>
     <p class="pv-desc">Remplissez le formulaire ci-dessous. Nous vous répondons sous 24h avec une première analyse gratuite.</p>
-    <div id="contactForm">
-      <div class="grid grid-cols-2 gap-3 max-[500px]:grid-cols-1">
-        <div class="mb-4"><label class="pv-label">Nom *</label><input class="pv-input" type="text" id="f-name" required placeholder="Votre nom"><span class="pv-field-err" id="err-name"></span></div>
-        <div class="mb-4"><label class="pv-label">Société</label><input class="pv-input" type="text" id="f-company" placeholder="Nom de votre entreprise"></div>
+    <div id="contactForm" class="pv-form-card">
+
+      <!-- Vous -->
+      <div class="pv-form-section">
+        <div class="pv-form-section-label">Vous</div>
+        <div class="grid grid-cols-2 gap-3 max-[500px]:grid-cols-1">
+          <div class="mb-3.5"><label class="pv-label">Nom <span class="pv-req">*</span></label><input class="pv-input" type="text" id="f-name" required placeholder="Votre nom"><span class="pv-field-err" id="err-name"></span></div>
+          <div class="mb-3.5"><label class="pv-label">Société</label><input class="pv-input" type="text" id="f-company" placeholder="Nom de votre entreprise"></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 max-[500px]:grid-cols-1">
+          <div class="mb-3.5"><label class="pv-label">E-mail <span class="pv-req">*</span></label><input class="pv-input" type="email" id="f-email" required placeholder="vous@exemple.fr"><span class="pv-field-err" id="err-email"></span></div>
+          <div class="mb-0"><label class="pv-label">Téléphone</label><input class="pv-input" type="tel" id="f-phone" placeholder="06 00 00 00 00"></div>
+        </div>
       </div>
-      <div class="grid grid-cols-2 gap-3 max-[500px]:grid-cols-1">
-        <div class="mb-4"><label class="pv-label">E-mail *</label><input class="pv-input" type="email" id="f-email" required placeholder="vous@exemple.fr"><span class="pv-field-err" id="err-email"></span></div>
-        <div class="mb-4"><label class="pv-label">Téléphone</label><input class="pv-input" type="tel" id="f-phone" placeholder="06 00 00 00 00"></div>
+
+      <!-- Votre projet -->
+      <div class="pv-form-section">
+        <div class="pv-form-section-label">Votre projet</div>
+        <div class="mb-3.5"><label class="pv-label">Type de projet</label>
+          <select class="pv-select" id="f-type">
+            <option value="">— Sélectionnez —</option>
+            <option>Site web / vitrine</option><option>Application web métier</option><option>Application mobile</option>
+            <option>Intelligence artificielle / chatbot</option><option>Automatisation</option>
+            <option>Audit / conseil technique</option><option>Autre</option>
+          </select>
+        </div>
+        <div class="mb-3.5"><label class="pv-label">Description <span class="pv-req">*</span></label><textarea class="pv-textarea" id="f-message" required placeholder="Décrivez votre besoin, vos objectifs et vos contraintes éventuelles..."></textarea><span class="pv-field-err" id="err-message"></span></div>
+        <div class="mb-0"><label class="pv-label">Budget estimé</label>
+          <select class="pv-select" id="f-budget">
+            <option value="">— Sélectionnez —</option>
+            <option>Moins de 2 000 €</option><option>2 000 – 5 000 €</option><option>5 000 – 10 000 €</option>
+            <option>Plus de 10 000 €</option><option>À définir ensemble</option>
+          </select>
+        </div>
       </div>
-      <div class="mb-4"><label class="pv-label">Type de projet</label>
-        <select class="pv-select" id="f-type">
-          <option value="">— Sélectionnez —</option>
-          <option>Site web / vitrine</option><option>Application web métier</option><option>Application mobile</option>
-          <option>Intelligence artificielle / chatbot</option><option>Automatisation</option>
-          <option>Audit / conseil technique</option><option>Autre</option>
-        </select>
-      </div>
-      <div class="mb-4"><label class="pv-label">Décrivez votre projet *</label><textarea class="pv-textarea" id="f-message" required placeholder="Décrivez votre besoin, vos objectifs et vos contraintes éventuelles..."></textarea><span class="pv-field-err" id="err-message"></span></div>
-      <div class="mb-4"><label class="pv-label">Budget estimé</label>
-        <select class="pv-select" id="f-budget">
-          <option value="">— Sélectionnez —</option>
-          <option>Moins de 2 000 €</option><option>2 000 – 5 000 €</option><option>5 000 – 10 000 €</option>
-          <option>Plus de 10 000 €</option><option>À définir ensemble</option>
-        </select>
-      </div>
+
+      <!-- Submit -->
       <div id="err-global" class="pv-field-err pv-field-err--global hidden"></div>
-      <button class="pv-form-submit" onclick="submitForm()">Envoyer ma demande</button>
+      <div class="pv-form-submit-row">
+        <div class="pv-form-submit-note"><strong>Réponse sous 24h</strong><br>Premier échange &amp; devis gratuits</div>
+        <button class="pv-form-submit" onclick="submitForm()">Envoyer ma demande →</button>
+      </div>
+
     </div>
-    <div id="contactSuccess" class="hidden text-center py-10">
-      <h3 class="font-serif text-2xl mb-2">Message envoyé !</h3>
+    <div id="contactSuccess" class="hidden text-center py-12">
+      <div class="pv-success-ring mx-auto mb-5">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M6 14L11.5 19.5L22 9" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3 class="font-serif text-2xl font-normal mb-2">Message envoyé !</h3>
       <p class="text-pv-mu text-[14px]">Merci pour votre demande. Nous vous répondons sous 24h avec une première analyse.</p>
       <br><a class="pv-btn-outline mt-4 inline-block" onclick="resetForm()">Envoyer un autre message</a>
     </div>
