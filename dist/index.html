@@ -433,11 +433,11 @@
     <p class="pv-desc">Remplissez le formulaire ci-dessous. Nous vous répondons sous 48h avec une première analyse gratuite.</p>
     <div id="contactForm">
       <div class="grid grid-cols-2 gap-3 max-[500px]:grid-cols-1">
-        <div class="mb-4"><label class="pv-label">Nom *</label><input class="pv-input" type="text" id="f-name" required placeholder="Votre nom"></div>
+        <div class="mb-4"><label class="pv-label">Nom *</label><input class="pv-input" type="text" id="f-name" required placeholder="Votre nom"><span class="pv-field-err" id="err-name"></span></div>
         <div class="mb-4"><label class="pv-label">Société</label><input class="pv-input" type="text" id="f-company" placeholder="Nom de votre entreprise"></div>
       </div>
       <div class="grid grid-cols-2 gap-3 max-[500px]:grid-cols-1">
-        <div class="mb-4"><label class="pv-label">E-mail *</label><input class="pv-input" type="email" id="f-email" required placeholder="vous@exemple.fr"></div>
+        <div class="mb-4"><label class="pv-label">E-mail *</label><input class="pv-input" type="email" id="f-email" required placeholder="vous@exemple.fr"><span class="pv-field-err" id="err-email"></span></div>
         <div class="mb-4"><label class="pv-label">Téléphone</label><input class="pv-input" type="tel" id="f-phone" placeholder="06 00 00 00 00"></div>
       </div>
       <div class="mb-4"><label class="pv-label">Type de projet</label>
@@ -448,7 +448,7 @@
           <option>Audit / conseil technique</option><option>Autre</option>
         </select>
       </div>
-      <div class="mb-4"><label class="pv-label">Décrivez votre projet *</label><textarea class="pv-textarea" id="f-message" required placeholder="Décrivez votre besoin, vos objectifs et vos contraintes éventuelles..."></textarea></div>
+      <div class="mb-4"><label class="pv-label">Décrivez votre projet *</label><textarea class="pv-textarea" id="f-message" required placeholder="Décrivez votre besoin, vos objectifs et vos contraintes éventuelles..."></textarea><span class="pv-field-err" id="err-message"></span></div>
       <div class="mb-4"><label class="pv-label">Budget estimé</label>
         <select class="pv-select" id="f-budget">
           <option value="">— Sélectionnez —</option>
@@ -456,6 +456,7 @@
           <option>Plus de 10 000 €</option><option>À définir ensemble</option>
         </select>
       </div>
+      <div id="err-global" class="pv-field-err pv-field-err--global hidden"></div>
       <button class="pv-form-submit" onclick="submitForm()">Envoyer ma demande</button>
     </div>
     <div id="contactSuccess" class="hidden text-center py-10">
@@ -527,15 +528,40 @@ function initReveals(){
 }
 setTimeout(initReveals,100);
 
+function setErr(id,msg){const el=document.getElementById(id);el.textContent=msg;el.classList.toggle('hidden',!msg)}
+function clearErrs(){['err-name','err-email','err-message'].forEach(id=>setErr(id,''));setErr('err-global','')}
+function markInvalid(inputId,errId,msg){setErr(errId,msg);document.getElementById(inputId).classList.add('pv-input--err')}
+function clearInvalid(inputId,errId){setErr(errId,'');document.getElementById(inputId).classList.remove('pv-input--err')}
+
+// Blur-time validation
+['f-name','f-email','f-message'].forEach(id=>{
+  const el=document.getElementById(id);
+  el.addEventListener('input',()=>el.classList.remove('pv-input--err'));
+});
+document.getElementById('f-name').addEventListener('blur',function(){if(!this.value.trim())markInvalid('f-name','err-name','Le nom est requis.');else clearInvalid('f-name','err-name')});
+document.getElementById('f-email').addEventListener('blur',function(){const v=this.value.trim();if(!v)markInvalid('f-email','err-email','L\'e-mail est requis.');else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v))markInvalid('f-email','err-email','Adresse e-mail invalide.');else clearInvalid('f-email','err-email')});
+document.getElementById('f-message').addEventListener('blur',function(){if(!this.value.trim())markInvalid('f-message','err-message','Le message est requis.');else clearInvalid('f-message','err-message')});
+
 function submitForm(){
+  clearErrs();
   const name=document.getElementById('f-name').value.trim();
   const email=document.getElementById('f-email').value.trim();
   const msg=document.getElementById('f-message').value.trim();
-  if(!name||!email||!msg){alert('Veuillez remplir les champs obligatoires (nom, e-mail, message).');return}
-  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Veuillez entrer une adresse e-mail valide.');return}
+  let valid=true;
+  if(!name){markInvalid('f-name','err-name','Le nom est requis.');valid=false}
+  if(!email){markInvalid('f-email','err-email','L\'e-mail est requis.');valid=false}
+  else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){markInvalid('f-email','err-email','Adresse e-mail invalide.');valid=false}
+  if(!msg){markInvalid('f-message','err-message','Le message est requis.');valid=false}
+  if(!valid){document.querySelector('[id^="err-"][class*="pv-input--err"]');const first=document.querySelector('.pv-input--err');if(first)first.focus();return}
   const btn=document.querySelector('.pv-form-submit');
-  btn.textContent='Envoi en cours...';btn.disabled=true;
-  fetch('https://formspree.io/f/mljewzdb',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name,_replyto:email,email,company:document.getElementById('f-company').value,phone:document.getElementById('f-phone').value,type:document.getElementById('f-type').value,message:msg,budget:document.getElementById('f-budget').value})}).then(r=>{if(r.ok){document.getElementById('contactForm').style.display='none';document.getElementById('contactSuccess').classList.remove('hidden');document.getElementById('contactSuccess').classList.add('flex','flex-col','items-center')}else{alert('Erreur lors de l\'envoi. Veuillez réessayer.')}btn.textContent='Envoyer ma demande';btn.disabled=false}).catch(()=>{alert('Erreur de connexion. Vérifiez votre connexion internet.');btn.textContent='Envoyer ma demande';btn.disabled=false});
+  btn.textContent='Envoi en cours…';btn.disabled=true;
+  fetch('https://formspree.io/f/mljewzdb',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name,_replyto:email,email,company:document.getElementById('f-company').value,phone:document.getElementById('f-phone').value,type:document.getElementById('f-type').value,message:msg,budget:document.getElementById('f-budget').value})})
+    .then(r=>{
+      if(r.ok){document.getElementById('contactForm').style.display='none';document.getElementById('contactSuccess').classList.remove('hidden');document.getElementById('contactSuccess').classList.add('flex','flex-col','items-center')}
+      else{setErr('err-global','Erreur lors de l\'envoi. Veuillez réessayer dans quelques instants.');const g=document.getElementById('err-global');g.classList.remove('hidden');g.scrollIntoView({behavior:'smooth',block:'nearest'})}
+      btn.textContent='Envoyer ma demande';btn.disabled=false;
+    })
+    .catch(()=>{setErr('err-global','Erreur de connexion. Vérifiez votre connexion internet.');document.getElementById('err-global').classList.remove('hidden');btn.textContent='Envoyer ma demande';btn.disabled=false});
 }
 function resetForm(){
   document.getElementById('contactForm').style.display='block';
