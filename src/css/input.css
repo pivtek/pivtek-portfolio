@@ -1228,6 +1228,172 @@
     border-color: rgba(123,111,214,.45);
   }
 
+  /* ── Blog article pages ─────────────────────────────── */
+
+  .pv-nav-link--active { color: var(--color-pv-ink) !important; }
+
+  .pv-blog-cat--dev { background: rgba(255,180,80,.10); color: #f0a84a; }
+
+  /* Breadcrumb */
+  .pv-blog-article-breadcrumb {
+    border-bottom: 1px solid var(--ln);
+    background: var(--color-pv-s);
+  }
+  .pv-blog-article-breadcrumb .pv-wrap {
+    display: flex; align-items: center; gap: 8px;
+    padding-top: 12px; padding-bottom: 12px;
+    font-size: 12px; color: var(--color-pv-mu);
+  }
+  .pv-blog-article-breadcrumb a {
+    color: var(--color-pv-mu); text-decoration: none; transition: color .2s;
+  }
+  .pv-blog-article-breadcrumb a:hover { color: var(--color-pv-pur); }
+  .pv-blog-article-breadcrumb-sep { color: var(--color-pv-mu2); }
+
+  /* Article wrap */
+  .pv-blog-article { padding: 0 0 80px; }
+  .pv-blog-article-wrap { max-width: 720px; margin: 0 auto; }
+
+  /* Article header */
+  .pv-blog-article-header { padding: 52px 0 40px; border-bottom: 1px solid var(--ln); margin-bottom: 44px; }
+  .pv-blog-article-title {
+    font-family: var(--font-family-serif);
+    font-size: clamp(26px, 5vw, 38px);
+    font-weight: 400; line-height: 1.2;
+    color: var(--color-pv-ink);
+    margin: 16px 0 20px;
+    text-wrap: balance;
+  }
+  .pv-blog-article-meta {
+    display: flex; align-items: center; gap: 8px; flex-wrap: wrap;
+    font-size: 13px; color: var(--color-pv-mu);
+  }
+  .pv-blog-article-meta-dot { color: var(--color-pv-mu2); }
+
+  /* Disclaimer */
+  .pv-blog-article-disclaimer {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin-top: 20px;
+    padding: 14px 16px;
+    background: rgba(91,141,239,.07);
+    border: 1px solid rgba(91,141,239,.18);
+    border-radius: 10px;
+    font-size: 12.5px; color: var(--color-pv-mu); line-height: 1.6;
+  }
+  .pv-blog-article-disclaimer svg { flex-shrink: 0; margin-top: 1px; opacity: .7; }
+
+  /* Body typography */
+  .pv-blog-article-body { font-size: 15px; line-height: 1.85; color: var(--color-pv-ink2); }
+  .pv-blog-article-body h2 {
+    font-family: var(--font-family-serif);
+    font-size: clamp(20px, 4vw, 26px); font-weight: 400;
+    color: var(--color-pv-ink); margin: 48px 0 16px; line-height: 1.25;
+  }
+  .pv-blog-article-body h3 {
+    font-size: 16px; font-weight: 600;
+    color: var(--color-pv-ink); margin: 36px 0 12px;
+  }
+  .pv-blog-article-body p { margin-bottom: 20px; }
+  .pv-blog-article-body p:last-child { margin-bottom: 0; }
+  .pv-blog-article-body ul {
+    list-style: none; padding: 0; margin: 0 0 20px; display: flex; flex-direction: column; gap: 10px;
+  }
+  .pv-blog-article-body ul li {
+    padding-left: 22px; position: relative; font-size: 15px; line-height: 1.7;
+  }
+  .pv-blog-article-body ul li::before {
+    content: ''; position: absolute; left: 0; top: 10px;
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--color-pv-pur); opacity: .7;
+  }
+  .pv-blog-article-body ol {
+    padding-left: 20px; margin: 0 0 20px; display: flex; flex-direction: column; gap: 8px;
+  }
+  .pv-blog-article-body ol li { font-size: 15px; line-height: 1.7; padding-left: 6px; }
+  .pv-blog-article-body blockquote {
+    border-left: 3px solid var(--color-pv-pur);
+    padding: 14px 20px; margin: 24px 0;
+    background: rgba(123,111,214,.06);
+    border-radius: 0 10px 10px 0;
+    color: var(--color-pv-ink2); font-size: 14.5px; line-height: 1.75;
+  }
+  .pv-blog-article-body strong { color: var(--color-pv-ink); font-weight: 600; }
+  .pv-blog-article-body a {
+    color: var(--color-pv-pur); text-decoration: none;
+    border-bottom: 1px solid rgba(123,111,214,.3); transition: border-color .2s;
+  }
+  .pv-blog-article-body a:hover { border-color: var(--color-pv-pur); }
+  .pv-blog-article-body code {
+    font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+    font-size: 13px; background: var(--color-pv-s2); color: var(--color-pv-blu);
+    padding: 2px 6px; border-radius: 5px;
+  }
+  .pv-blog-article-body pre {
+    background: var(--color-pv-s); border: 1px solid var(--ln); border-radius: 12px;
+    padding: 20px 24px; overflow-x: auto; margin: 24px 0;
+  }
+  .pv-blog-article-body pre code {
+    background: none; padding: 0; color: var(--color-pv-ink2); font-size: 13px;
+  }
+  .pv-blog-article-hr {
+    border: none; border-top: 1px solid var(--ln); margin: 40px 0;
+  }
+
+  /* Inline CTA */
+  .pv-blog-article-cta {
+    margin-top: 56px; border-top: 1px solid var(--ln); padding-top: 40px;
+  }
+  .pv-blog-article-cta-inner {
+    background: var(--color-pv-s);
+    border: 1px solid var(--ln);
+    border-radius: 16px;
+    padding: 24px 28px;
+    display: flex; align-items: center; justify-content: space-between; gap: 20px;
+    flex-wrap: wrap;
+  }
+  .pv-blog-article-cta-text {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+  .pv-blog-article-cta-text strong { font-size: 15px; color: var(--color-pv-ink); }
+  .pv-blog-article-cta-text span { font-size: 13px; color: var(--color-pv-mu); }
+
+  /* Article footer */
+  .pv-blog-article-footer {
+    border-top: 1px solid var(--ln);
+    padding: 28px 0;
+  }
+  .pv-blog-article-footer-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 20px; flex-wrap: wrap;
+  }
+  .pv-blog-article-footer-brand {
+    display: flex; align-items: center; gap: 8px;
+    text-decoration: none; color: var(--color-pv-ink);
+    font-weight: 600; font-size: 14px;
+  }
+  .pv-blog-article-footer-links {
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .pv-blog-article-footer-links a {
+    font-size: 12px; color: var(--color-pv-mu); text-decoration: none; transition: color .2s;
+  }
+  .pv-blog-article-footer-links a:hover { color: var(--color-pv-pur); }
+  .pv-blog-article-footer-copy { font-size: 11px; color: var(--color-pv-mu2); }
+  @media (max-width: 560px) {
+    .pv-blog-article-footer-inner { flex-direction: column; align-items: flex-start; }
+  }
+
+  /* Blog index page */
+  .pv-blog-index-hero {
+    padding: 72px 0 56px;
+    border-bottom: 1px solid var(--ln);
+  }
+  .pv-blog-index-sub {
+    font-size: 16px; color: var(--color-pv-mu);
+    margin-top: 16px; max-width: 480px; line-height: 1.65;
+  }
+  .pv-blog-index-grid-section { padding: 60px 0 80px; }
+
 }
 
 /* ── Responsive helpers ─────────────────────────────────── */

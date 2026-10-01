@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="{{metaDescription}}">
+  <meta property="og:title" content="{{metaTitle}}">
+  <meta property="og:description" content="{{metaDescription}}">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://pivtek.fr/blog/{{slug}}">
+  <meta property="og:site_name" content="PIVTEK">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>{{metaTitle}}</title>
+  <!-- STYLES -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{title}}",
+    "description": "{{metaDescription}}",
+    "datePublished": "{{date}}",
+    "dateModified": "{{date}}",
+    "author": {
+      "@type": "Organization",
+      "name": "PIVTEK",
+      "url": "https://pivtek.fr"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "PIVTEK",
+      "url": "https://pivtek.fr"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://pivtek.fr/blog/{{slug}}"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="pv-nav-bar pv-nav-bar--scrolled" style="position:sticky;top:0;z-index:50;">
+    <div class="pv-wrap" style="display:flex;align-items:center;justify-content:space-between;height:56px;">
+      <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#7B6FD6"/>
+          <path d="M7 8h5.5a2.5 2.5 0 0 1 0 5H7V8Z" fill="white"/>
+          <rect x="7" y="15" width="3" height="2" rx="1" fill="white" opacity=".6"/>
+        </svg>
+        <span class="pv-nav-logo-text">PIVTEK</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:24px;">
+        <a href="/#services" class="pv-nav-link">Services</a>
+        <a href="/#realisations" class="pv-nav-link">Réalisations</a>
+        <a href="/blog" class="pv-nav-link">Blog</a>
+        <a href="/#contact" class="pv-btn pv-btn--sm pv-btn--primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- BREADCRUMB -->
+  <div class="pv-blog-article-breadcrumb">
+    <div class="pv-wrap">
+      <a href="/">Accueil</a>
+      <span class="pv-blog-article-breadcrumb-sep">→</span>
+      <a href="/blog">Blog</a>
+      <span class="pv-blog-article-breadcrumb-sep">→</span>
+      <span>{{title}}</span>
+    </div>
+  </div>
+
+  <!-- ARTICLE -->
+  <main>
+    <article class="pv-blog-article">
+      <div class="pv-wrap pv-blog-article-wrap">
+
+        <header class="pv-blog-article-header">
+          <span class="pv-blog-cat pv-blog-cat--{{category}}">{{categoryLabel}}</span>
+          <h1 class="pv-blog-article-title">{{title}}</h1>
+          <div class="pv-blog-article-meta">
+            <span>Par <strong>PIVTEK</strong></span>
+            <span class="pv-blog-article-meta-dot">·</span>
+            <span>{{dateFormatted}}</span>
+            <span class="pv-blog-article-meta-dot">·</span>
+            <span>{{readTime}}</span>
+          </div>
+          {{#disclaimer}}
+          <div class="pv-blog-article-disclaimer">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M7 5v3M7 9.5v.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/></svg>
+            Cas illustratif basé sur des situations réelles rencontrées par PIVTEK. Les noms ont été modifiés.
+          </div>
+          {{/disclaimer}}
+        </header>
+
+        <div class="pv-blog-article-body">
+          {{content}}
+        </div>
+
+        <!-- CTA inline -->
+        <div class="pv-blog-article-cta">
+          <div class="pv-blog-article-cta-inner">
+            <div class="pv-blog-article-cta-text">
+              <strong>Une question sur votre projet ?</strong>
+              <span>On échange 30 minutes — diagnostic offert, sans engagement.</span>
+            </div>
+            <a href="/#contact" class="pv-btn pv-btn--primary">Parlons de votre projet →</a>
+          </div>
+        </div>
+
+      </div>
+    </article>
+  </main>
+
+  <!-- FOOTER simple -->
+  <footer class="pv-blog-article-footer">
+    <div class="pv-wrap">
+      <div class="pv-blog-article-footer-inner">
+        <a href="/" class="pv-blog-article-footer-brand">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="6" fill="#7B6FD6"/>
+            <path d="M7 8h5.5a2.5 2.5 0 0 1 0 5H7V8Z" fill="white"/>
+            <rect x="7" y="15" width="3" height="2" rx="1" fill="white" opacity=".6"/>
+          </svg>
+          <span>PIVTEK</span>
+        </a>
+        <div class="pv-blog-article-footer-links">
+          <a href="/blog">← Tous les articles</a>
+          <a href="/mentions-legales">Mentions légales</a>
+          <a href="/politique-confidentialite">Confidentialité</a>
+        </div>
+        <p class="pv-blog-article-footer-copy">© {{year}} PIVTEK — Développement web & applications · Lyon</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

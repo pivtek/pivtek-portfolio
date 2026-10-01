@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Cas concrets, guides techniques et conseils terrain pour artisans, TPE et PME de la région lyonnaise. Par PIVTEK, développeur web et apps à Lyon.">
+  <meta property="og:title" content="Blog PIVTEK — Ressources pour artisans et PME lyonnaises">
+  <meta property="og:description" content="Cas concrets et conseils terrain pour transformer votre activité avec le numérique.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://pivtek.fr/blog">
+  <title>Blog & Ressources — PIVTEK Lyon</title>
+  <!-- STYLES -->
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="pv-nav-bar pv-nav-bar--scrolled" style="position:sticky;top:0;z-index:50;">
+    <div class="pv-wrap" style="display:flex;align-items:center;justify-content:space-between;height:56px;">
+      <a href="/" style="display:flex;align-items:center;gap:8px;text-decoration:none;">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect width="24" height="24" rx="6" fill="#7B6FD6"/>
+          <path d="M7 8h5.5a2.5 2.5 0 0 1 0 5H7V8Z" fill="white"/>
+          <rect x="7" y="15" width="3" height="2" rx="1" fill="white" opacity=".6"/>
+        </svg>
+        <span class="pv-nav-logo-text">PIVTEK</span>
+      </a>
+      <nav style="display:flex;align-items:center;gap:24px;">
+        <a href="/#services" class="pv-nav-link">Services</a>
+        <a href="/#realisations" class="pv-nav-link">Réalisations</a>
+        <a href="/blog" class="pv-nav-link pv-nav-link--active">Blog</a>
+        <a href="/#contact" class="pv-btn pv-btn--sm pv-btn--primary">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="pv-blog-index-hero">
+    <div class="pv-wrap">
+      <div class="pv-tag">Ressources</div>
+      <h1 class="pv-heading-lg">Cas concrets et conseils terrain.</h1>
+      <p class="pv-blog-index-sub">Ce que ça coûte vraiment, ce que ça rapporte, comment ça fonctionne. Sans jargon.</p>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="pv-blog-index-grid-section">
+    <div class="pv-wrap">
+      <div class="pv-blog-grid">
+        {{articles}}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pv-cta">
+    <div class="pv-wrap">
+      <div class="pv-cta-inner">
+        <div class="pv-cta-body">
+          <h2 class="pv-cta-title">Un projet dont vous voulez parler ?</h2>
+          <p class="pv-cta-sub">On échange 30 minutes. Diagnostic offert, sans engagement.</p>
+        </div>
+        <a href="/#contact" class="pv-btn pv-btn--primary pv-btn--lg">Parlons de votre projet →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="pv-blog-article-footer">
+    <div class="pv-wrap">
+      <div class="pv-blog-article-footer-inner">
+        <a href="/" class="pv-blog-article-footer-brand">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="6" fill="#7B6FD6"/>
+            <path d="M7 8h5.5a2.5 2.5 0 0 1 0 5H7V8Z" fill="white"/>
+            <rect x="7" y="15" width="3" height="2" rx="1" fill="white" opacity=".6"/>
+          </svg>
+          <span>PIVTEK</span>
+        </a>
+        <div class="pv-blog-article-footer-links">
+          <a href="/">← Retour au site</a>
+          <a href="/mentions-legales">Mentions légales</a>
+          <a href="/politique-confidentialite">Confidentialité</a>
+        </div>
+        <p class="pv-blog-article-footer-copy">© {{year}} PIVTEK — Développement web & applications · Lyon</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

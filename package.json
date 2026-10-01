@@ -4,7 +4,7 @@
   "description": "Portfolio Pivtek — Software Engineering",
   "scripts": {
     "dev": "node_modules/.bin/tailwindcss -i ./src/css/input.css -o ./dist/styles.css --watch",
-    "build": "node_modules/.bin/tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify && node scripts/build.js",
+    "build": "node_modules/.bin/tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify && node scripts/build.js && node scripts/build-blog.js",
     "build:css": "node_modules/.bin/tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify"
   },
   "dependencies": {
