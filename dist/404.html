@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Page introuvable — PIVTEK</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0e14'/%3E%3Cpath d='M18 6L8 16L18 26' stroke='%237B6FD6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M24 9L16 16L24 23' stroke='%235B8DEF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="pv-nav">
+  <div class="pv-nav-inner">
+    <a class="pv-logo" href="/">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="pv-logo-text"><span class="pv-logo-piv">PIV</span><span class="pv-logo-tek">TEK</span></span>
+    </a>
+  </div>
+</nav>
+
+<!-- 404 -->
+<section style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:80px 24px;text-align:center;">
+  <div style="max-width:520px;">
+
+    <!-- 404 number -->
+    <div style="font-size:clamp(96px,18vw,180px);font-weight:900;line-height:1;letter-spacing:-4px;background:linear-gradient(135deg,#7B6FD6,#5B8DEF);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:24px;font-family:'Arial Black',Arial,sans-serif;">404</div>
+
+    <!-- Title -->
+    <h1 style="font-size:clamp(22px,4vw,32px);font-weight:700;color:var(--color-pv-fg,#e8eaf2);margin-bottom:16px;letter-spacing:-0.5px;">Page introuvable</h1>
+
+    <!-- Description -->
+    <p style="font-size:16px;color:var(--color-pv-mu,#6b7280);line-height:1.7;margin-bottom:40px;">
+      La page que vous cherchez n'existe pas ou a été déplacée.<br>
+      Retournez à l'accueil pour continuer.
+    </p>
+
+    <!-- CTA -->
+    <a href="/" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#7B6FD6,#5B8DEF);color:#fff;text-decoration:none;padding:14px 32px;border-radius:10px;font-size:15px;font-weight:600;letter-spacing:0.3px;transition:opacity .2s,transform .2s;" onmouseover="this.style.opacity='.85';this.style.transform='translateY(-1px)'" onmouseout="this.style.opacity='1';this.style.transform='translateY(0)'">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8l4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Retour à l'accueil
+    </a>
+
+  </div>
+</section>
+
+<!-- ── Cookie Banner PIVTEK ── -->
+<div class="pv-cookie" id="pvCookie" role="dialog" aria-label="Gestion des cookies" aria-live="polite">
+
+  <div class="pv-cookie-top">
+    <div class="pv-cookie-icon">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <circle cx="11" cy="11" r="9" stroke="#7B6FD6" stroke-width="1.4" stroke-dasharray="3 2.5"/>
+        <circle cx="7.5" cy="9" r="1.4" fill="#7B6FD6"/>
+        <circle cx="13" cy="14" r="1.4" fill="#5B8DEF"/>
+        <circle cx="14" cy="7.5" r="1" fill="#7B6FD6" opacity=".55"/>
+        <circle cx="8.5" cy="14.5" r=".9" fill="#5B8DEF" opacity=".45"/>
+      </svg>
+    </div>
+    <div>
+      <div class="pv-cookie-title">Ce site utilise des cookies</div>
+      <div class="pv-cookie-desc">
+        Nous utilisons des cookies pour améliorer votre expérience et mesurer l'audience.
+        Consultez notre <a href="/politique-confidentialite">politique de confidentialité</a>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail panel (caché par défaut) -->
+  <div class="pv-cookie-detail" id="pvCookieDetail">
+    <div class="pv-cookie-row">
+      <div class="pv-cookie-row-info">
+        <div class="pv-cookie-row-name">Essentiels</div>
+        <div class="pv-cookie-row-d">Nécessaires au fonctionnement du site. Toujours actifs.</div>
+      </div>
+      <label class="pv-toggle">
+        <input type="checkbox" checked disabled>
+        <span class="pv-toggle-track"></span>
+      </label>
+    </div>
+    <div class="pv-cookie-row">
+      <div class="pv-cookie-row-info">
+        <div class="pv-cookie-row-name">Analytiques</div>
+        <div class="pv-cookie-row-d">Mesure d'audience anonymisée — pages vues, durée de visite.</div>
+      </div>
+      <label class="pv-toggle">
+        <input type="checkbox" id="pvCookieAnalytics">
+        <span class="pv-toggle-track"></span>
+      </label>
+    </div>
+    <div class="pv-cookie-row">
+      <div class="pv-cookie-row-info">
+        <div class="pv-cookie-row-name">Marketing</div>
+        <div class="pv-cookie-row-d">Personnalisation et suivi publicitaire.</div>
+      </div>
+      <label class="pv-toggle">
+        <input type="checkbox" id="pvCookieMarketing">
+        <span class="pv-toggle-track"></span>
+      </label>
+    </div>
+    <button class="pv-cookie-save" onclick="pvSavePrefs()">Enregistrer mes choix</button>
+  </div>
+
+  <div class="pv-cookie-actions">
+    <button class="pv-cookie-accept" onclick="pvAcceptAll()">Tout accepter</button>
+    <button class="pv-cookie-refuse" onclick="pvRefuseAll()">Tout refuser</button>
+    <button class="pv-cookie-more" id="pvMoreBtn" onclick="pvToggleDetail()">
+      Personnaliser
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="transition:transform .25s cubic-bezier(.22,1,.36,1)">
+        <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var KEY    = 'pv_cookie_consent';
+  var banner = document.getElementById('pvCookie');
+
+  function dismiss(){
+    banner.style.transition = 'opacity .3s, transform .35s cubic-bezier(.55,0,1,.45)';
+    banner.style.opacity    = '0';
+    banner.style.transform  = 'translateX(-50%) translateY(32px)';
+    setTimeout(function(){ banner.style.display = 'none'; }, 360);
+  }
+
+  window.pvAcceptAll = function(){
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:true,marketing:true,ts:Date.now()}));
+    dismiss();
+  };
+  window.pvRefuseAll = function(){
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:false,marketing:false,ts:Date.now()}));
+    dismiss();
+  };
+  window.pvSavePrefs = function(){
+    var a = document.getElementById('pvCookieAnalytics');
+    var m = document.getElementById('pvCookieMarketing');
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:a&&a.checked,marketing:m&&m.checked,ts:Date.now()}));
+    dismiss();
+  };
+  window.pvToggleDetail = function(){
+    var d   = document.getElementById('pvCookieDetail');
+    var btn = document.getElementById('pvMoreBtn');
+    var svg = btn.querySelector('svg');
+    var open = d.classList.toggle('open');
+    if(svg) svg.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  };
+
+  // Show banner if no consent or expired (> 365 days)
+  try {
+    var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(!stored || (Date.now() - stored.ts > 365*24*3600*1000)){
+      setTimeout(function(){ banner.classList.add('show'); }, 600);
+    }
+  } catch(e){
+    setTimeout(function(){ banner.classList.add('show'); }, 600);
+  }
+})();
+</script>
+
+</body>
+</html>

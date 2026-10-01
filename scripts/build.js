@@ -10,7 +10,7 @@ const SRC  = path.join(__dirname, '..', 'src');
 const DIST = path.join(__dirname, '..', 'dist');
 
 // Pages to process
-const pages = ['index.html', 'cgv.html', 'mentions-legales.html', 'politique-confidentialite.html'];
+const pages = ['index.html', 'cgv.html', 'mentions-legales.html', 'politique-confidentialite.html', '404.html'];
 
 // Cookie banner partial
 const cookieBannerPath = path.join(SRC, 'partials', 'cookie-banner.html');
