@@ -501,15 +501,54 @@
 <!-- FOOTER -->
 <footer class="pv-footer">
   <div class="pv-wrap">
-    <div class="flex items-center gap-2.5 mb-2.5">
-      <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      <span class="text-[13px] font-semibold tracking-[3px]"><span class="text-pv-mu">PIV</span><span class="text-pv-pur">TEK</span></span>
+    <div class="pv-footer-grid">
+
+      <!-- Colonne 1 — Marque -->
+      <div>
+        <a class="pv-footer-logo" href="#" onclick="go('accueil');return false;">
+          <svg width="22" height="22" viewBox="0 0 28 28" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="pv-footer-logo-text"><span class="text-pv-mu">PIV</span><span class="text-pv-pur">TEK</span></span>
+        </a>
+        <p class="pv-footer-tagline">Vos projets digitaux, de A à Z. Web, mobile, IA et automatisation — pour toutes les tailles d'entreprise.</p>
+        <div class="pv-footer-contact">
+          <a href="mailto:contact@pivtek.fr">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.4"/><path d="M1 5l7 5 7-5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+            contact@pivtek.fr
+          </a>
+          <span class="pv-footer-contact-soon">
+            <svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1.5 3.5-1.8 1.1a8 8 0 0 0 3.7 3.7l1.1-1.8L14 10v3a1 1 0 0 1-1 1A11 11 0 0 1 2 3a1 1 0 0 1 1-1z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            Bientôt disponible
+          </span>
+        </div>
+      </div>
+
+      <!-- Colonne 2 — Navigation -->
+      <div>
+        <div class="pv-footer-col-title">Navigation</div>
+        <ul class="pv-footer-links">
+          <li><a href="#accueil" onclick="go('accueil');return false;">Accueil</a></li>
+          <li><a href="#solutions" onclick="go('solutions');return false;">Services</a></li>
+          <li><a href="#apropos" onclick="go('apropos');return false;">À propos</a></li>
+          <li><a href="#contact" onclick="go('contact');return false;">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Colonne 3 — Légal -->
+      <div>
+        <div class="pv-footer-col-title">Légal</div>
+        <ul class="pv-footer-links">
+          <li><a href="/cgv">CGV</a></li>
+          <li><a href="/mentions-legales">Mentions légales</a></li>
+          <li><a href="/politique-confidentialite">Confidentialité</a></li>
+        </ul>
+      </div>
+
     </div>
-    <div class="text-[11px] text-pv-mu2">© 2026 PIVTEK · Lyon, France</div>
-    <div class="flex gap-4 mt-2.5">
-      <a href="/cgv" class="text-[11px] text-pv-mu2 no-underline transition-colors duration-300 hover:text-pv-pur">CGV</a>
-      <a href="/mentions-legales" class="text-[11px] text-pv-mu2 no-underline transition-colors duration-300 hover:text-pv-pur">Mentions légales</a>
-      <a href="/politique-confidentialite" class="text-[11px] text-pv-mu2 no-underline transition-colors duration-300 hover:text-pv-pur">Confidentialité</a>
+
+    <!-- Barre copyright -->
+    <div class="pv-footer-bottom">
+      <span class="pv-footer-copy">© 2026 PIVTEK — Tous droits réservés</span>
+      <span class="pv-footer-badge"><span class="pv-footer-dot"></span>Lyon, France</span>
     </div>
   </div>
 </footer>
