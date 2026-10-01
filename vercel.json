@@ -1,4 +1,5 @@
 {
   "outputDirectory": "dist",
-  "cleanUrls": true
+  "cleanUrls": true,
+  "buildCommand": "npm run build"
 }
