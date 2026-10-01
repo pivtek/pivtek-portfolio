@@ -239,18 +239,18 @@ td strong{color:#f0f2f5;font-weight:600}
 
   <div class="pv-cookie-top">
     <div class="pv-cookie-icon">
-      <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
-        <path d="M9 1.5A7.5 7.5 0 1 0 16.5 9" stroke="#7B6FD6" stroke-width="1.5" stroke-linecap="round"/>
-        <circle cx="6" cy="7.5" r="1" fill="#7B6FD6"/>
-        <circle cx="10.5" cy="12" r="1" fill="#5B8DEF"/>
-        <circle cx="12" cy="5.5" r="1" fill="#7B6FD6" opacity=".6"/>
-        <path d="M13.5 1.5v3h3" stroke="#5B8DEF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" opacity=".7"/>
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <circle cx="11" cy="11" r="9" stroke="#7B6FD6" stroke-width="1.4" stroke-dasharray="3 2.5"/>
+        <circle cx="7.5" cy="9" r="1.4" fill="#7B6FD6"/>
+        <circle cx="13" cy="14" r="1.4" fill="#5B8DEF"/>
+        <circle cx="14" cy="7.5" r="1" fill="#7B6FD6" opacity=".55"/>
+        <circle cx="8.5" cy="14.5" r=".9" fill="#5B8DEF" opacity=".45"/>
       </svg>
     </div>
     <div>
       <div class="pv-cookie-title">Ce site utilise des cookies</div>
       <div class="pv-cookie-desc">
-        Nous utilisons des cookies pour améliorer votre expérience et analyser le trafic.
+        Nous utilisons des cookies pour améliorer votre expérience et mesurer l'audience.
         Consultez notre <a href="/politique-confidentialite">politique de confidentialité</a>.
       </div>
     </div>
@@ -260,7 +260,7 @@ td strong{color:#f0f2f5;font-weight:600}
   <div class="pv-cookie-detail" id="pvCookieDetail">
     <div class="pv-cookie-row">
       <div class="pv-cookie-row-info">
-        <div class="pv-cookie-row-name">Cookies essentiels</div>
+        <div class="pv-cookie-row-name">Essentiels</div>
         <div class="pv-cookie-row-d">Nécessaires au fonctionnement du site. Toujours actifs.</div>
       </div>
       <label class="pv-toggle">
@@ -270,8 +270,8 @@ td strong{color:#f0f2f5;font-weight:600}
     </div>
     <div class="pv-cookie-row">
       <div class="pv-cookie-row-info">
-        <div class="pv-cookie-row-name">Cookies analytiques</div>
-        <div class="pv-cookie-row-d">Mesure d'audience anonymisée (pages vues, durée de visite).</div>
+        <div class="pv-cookie-row-name">Analytiques</div>
+        <div class="pv-cookie-row-d">Mesure d'audience anonymisée — pages vues, durée de visite.</div>
       </div>
       <label class="pv-toggle">
         <input type="checkbox" id="pvCookieAnalytics">
@@ -280,7 +280,7 @@ td strong{color:#f0f2f5;font-weight:600}
     </div>
     <div class="pv-cookie-row">
       <div class="pv-cookie-row-info">
-        <div class="pv-cookie-row-name">Cookies marketing</div>
+        <div class="pv-cookie-row-name">Marketing</div>
         <div class="pv-cookie-row-d">Personnalisation et suivi publicitaire.</div>
       </div>
       <label class="pv-toggle">
@@ -294,36 +294,59 @@ td strong{color:#f0f2f5;font-weight:600}
   <div class="pv-cookie-actions">
     <button class="pv-cookie-accept" onclick="pvAcceptAll()">Tout accepter</button>
     <button class="pv-cookie-refuse" onclick="pvRefuseAll()">Tout refuser</button>
-    <button class="pv-cookie-more" onclick="pvToggleDetail()">Personnaliser</button>
+    <button class="pv-cookie-more" id="pvMoreBtn" onclick="pvToggleDetail()">
+      Personnaliser
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="transition:transform .25s cubic-bezier(.22,1,.36,1)">
+        <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
   </div>
 
 </div>
 
 <script>
 (function(){
-  var KEY = 'pv_cookie_consent';
+  var KEY    = 'pv_cookie_consent';
   var banner = document.getElementById('pvCookie');
 
-  function dismiss(){ banner.style.opacity='0'; banner.style.transform='translateX(-50%) translateY(120%)'; setTimeout(function(){ banner.style.display='none'; },400); }
+  function dismiss(){
+    banner.style.transition = 'opacity .3s, transform .35s cubic-bezier(.55,0,1,.45)';
+    banner.style.opacity    = '0';
+    banner.style.transform  = 'translateX(-50%) translateY(32px)';
+    setTimeout(function(){ banner.style.display = 'none'; }, 360);
+  }
 
-  window.pvAcceptAll  = function(){ localStorage.setItem(KEY,JSON.stringify({essential:true,analytics:true,marketing:true,ts:Date.now()})); dismiss(); };
-  window.pvRefuseAll  = function(){ localStorage.setItem(KEY,JSON.stringify({essential:true,analytics:false,marketing:false,ts:Date.now()})); dismiss(); };
-  window.pvSavePrefs  = function(){
+  window.pvAcceptAll = function(){
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:true,marketing:true,ts:Date.now()}));
+    dismiss();
+  };
+  window.pvRefuseAll = function(){
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:false,marketing:false,ts:Date.now()}));
+    dismiss();
+  };
+  window.pvSavePrefs = function(){
     var a = document.getElementById('pvCookieAnalytics');
     var m = document.getElementById('pvCookieMarketing');
-    localStorage.setItem(KEY,JSON.stringify({essential:true,analytics:a&&a.checked,marketing:m&&m.checked,ts:Date.now()}));
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:a&&a.checked,marketing:m&&m.checked,ts:Date.now()}));
     dismiss();
   };
   window.pvToggleDetail = function(){
-    var d = document.getElementById('pvCookieDetail');
-    d.classList.toggle('open');
+    var d   = document.getElementById('pvCookieDetail');
+    var btn = document.getElementById('pvMoreBtn');
+    var svg = btn.querySelector('svg');
+    var open = d.classList.toggle('open');
+    if(svg) svg.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
   };
 
-  // Show banner only if no consent stored yet (or > 365 days)
+  // Show banner if no consent or expired (> 365 days)
   try {
-    var stored = JSON.parse(localStorage.getItem(KEY)||'null');
-    if(!stored || (Date.now()-stored.ts > 365*24*3600*1000)){ setTimeout(function(){ banner.classList.add('show'); },600); }
-  } catch(e){ setTimeout(function(){ banner.classList.add('show'); },600); }
+    var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(!stored || (Date.now() - stored.ts > 365*24*3600*1000)){
+      setTimeout(function(){ banner.classList.add('show'); }, 600);
+    }
+  } catch(e){
+    setTimeout(function(){ banner.classList.add('show'); }, 600);
+  }
 })();
 </script>
 

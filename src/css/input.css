@@ -785,16 +785,21 @@
     transform: translateX(-50%) translateY(120%);
     z-index: 9999;
     width: calc(100% - 32px);
-    max-width: 620px;
-    background: var(--color-pv-s);
+    max-width: 600px;
+    background: rgba(21,24,32,.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--ln2);
-    border-radius: 16px;
-    padding: 20px 24px;
+    border-radius: 18px;
+    padding: 22px 24px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
-    box-shadow: 0 8px 40px rgba(0,0,0,.45);
-    transition: transform .4s cubic-bezier(.22,1,.36,1), opacity .3s;
+    gap: 16px;
+    box-shadow:
+      0 2px 0 rgba(255,255,255,.06) inset,
+      0 24px 60px rgba(0,0,0,.6),
+      0 4px 16px rgba(0,0,0,.3);
+    transition: transform .45s cubic-bezier(.22,1,.36,1), opacity .3s;
     opacity: 0;
   }
   .pv-cookie.show {
@@ -809,10 +814,11 @@
   }
   .pv-cookie-icon {
     flex-shrink: 0;
-    width: 36px;
-    height: 36px;
-    border-radius: 9px;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
     background: rgba(123,111,214,.12);
+    border: 1px solid rgba(123,111,214,.2);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -821,18 +827,21 @@
     font-size: 14px;
     font-weight: 600;
     color: var(--color-pv-ink);
-    margin-bottom: 3px;
+    margin-bottom: 5px;
+    letter-spacing: -.01em;
   }
   .pv-cookie-desc {
     font-size: 12.5px;
     color: var(--color-pv-mu);
-    line-height: 1.6;
+    line-height: 1.65;
   }
   .pv-cookie-desc a {
     color: var(--color-pv-pur);
     text-decoration: none;
+    border-bottom: 1px solid rgba(123,111,214,.3);
+    transition: border-color .2s;
   }
-  .pv-cookie-desc a:hover { text-decoration: underline; }
+  .pv-cookie-desc a:hover { border-color: var(--color-pv-pur); }
 
   .pv-cookie-actions {
     display: flex;
@@ -845,39 +854,47 @@
     color: #fff;
     font-size: 12.5px;
     font-weight: 600;
-    padding: 8px 18px;
-    border-radius: 8px;
+    padding: 9px 20px;
+    border-radius: 9px;
     border: none;
     cursor: pointer;
-    transition: opacity .2s;
+    font-family: inherit;
+    letter-spacing: .01em;
+    transition: opacity .2s, transform .15s;
   }
-  .pv-cookie-accept:hover { opacity: .85; }
+  .pv-cookie-accept:hover { opacity: .88; transform: translateY(-1px); }
+  .pv-cookie-accept:active { transform: translateY(0); }
 
   .pv-cookie-refuse {
     background: transparent;
     color: var(--color-pv-mu);
     font-size: 12.5px;
     font-weight: 500;
-    padding: 8px 14px;
-    border-radius: 8px;
+    padding: 9px 16px;
+    border-radius: 9px;
     border: 1px solid var(--ln2);
     cursor: pointer;
-    transition: color .2s, border-color .2s;
+    font-family: inherit;
+    transition: color .2s, border-color .2s, background .2s;
   }
   .pv-cookie-refuse:hover {
     color: var(--color-pv-ink2);
-    border-color: var(--color-pv-mu2);
+    border-color: rgba(255,255,255,.22);
+    background: rgba(255,255,255,.03);
   }
 
   .pv-cookie-more {
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-size: 11.5px;
     color: var(--color-pv-mu2);
     background: none;
     border: none;
     cursor: pointer;
     margin-left: auto;
-    text-decoration: underline;
-    text-decoration-style: dotted;
+    font-family: inherit;
+    padding: 4px;
     transition: color .2s;
   }
   .pv-cookie-more:hover { color: var(--color-pv-mu); }
@@ -886,17 +903,16 @@
   .pv-cookie-detail {
     display: none;
     flex-direction: column;
-    gap: 10px;
+    gap: 12px;
     border-top: 1px solid var(--ln);
-    padding-top: 14px;
+    padding-top: 16px;
   }
   .pv-cookie-detail.open { display: flex; }
 
   .pv-cookie-row {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    gap: 16px;
   }
   .pv-cookie-row-info { flex: 1; }
   .pv-cookie-row-name {
@@ -914,45 +930,66 @@
   /* Toggle switch */
   .pv-toggle {
     position: relative;
-    width: 38px;
-    height: 22px;
+    width: 40px;
+    height: 23px;
     flex-shrink: 0;
+    cursor: pointer;
   }
   .pv-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
   .pv-toggle-track {
     position: absolute;
     inset: 0;
-    border-radius: 11px;
-    background: var(--color-pv-mu2);
-    cursor: pointer;
-    transition: background .2s;
+    border-radius: 12px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid rgba(255,255,255,.1);
+    transition: background .2s, border-color .2s;
   }
-  .pv-toggle input:checked + .pv-toggle-track { background: var(--color-pv-pur); }
-  .pv-toggle input:disabled + .pv-toggle-track { opacity: .5; cursor: not-allowed; }
+  .pv-toggle input:checked + .pv-toggle-track {
+    background: var(--color-pv-pur);
+    border-color: var(--color-pv-pur);
+  }
+  .pv-toggle input:disabled + .pv-toggle-track {
+    background: rgba(123,111,214,.35);
+    border-color: rgba(123,111,214,.25);
+    cursor: not-allowed;
+  }
   .pv-toggle-track::after {
     content: '';
     position: absolute;
     top: 3px; left: 3px;
-    width: 16px; height: 16px;
+    width: 15px; height: 15px;
     border-radius: 50%;
-    background: #fff;
-    transition: transform .2s;
+    background: rgba(255,255,255,.55);
+    box-shadow: 0 1px 3px rgba(0,0,0,.3);
+    transition: transform .2s, background .2s;
   }
-  .pv-toggle input:checked + .pv-toggle-track::after { transform: translateX(16px); }
+  .pv-toggle input:checked + .pv-toggle-track::after {
+    transform: translateX(17px);
+    background: #fff;
+  }
+  .pv-toggle input:disabled + .pv-toggle-track::after {
+    background: rgba(255,255,255,.8);
+    transform: translateX(17px);
+  }
 
   .pv-cookie-save {
-    background: var(--color-pv-pur);
-    color: #fff;
+    background: rgba(123,111,214,.15);
+    color: var(--color-pv-pur);
     font-size: 12px;
     font-weight: 600;
     padding: 8px 16px;
     border-radius: 8px;
-    border: none;
+    border: 1px solid rgba(123,111,214,.25);
     cursor: pointer;
     align-self: flex-end;
-    transition: opacity .2s;
+    font-family: inherit;
+    letter-spacing: .01em;
+    transition: background .2s, border-color .2s;
   }
-  .pv-cookie-save:hover { opacity: .85; }
+  .pv-cookie-save:hover {
+    background: rgba(123,111,214,.25);
+    border-color: rgba(123,111,214,.45);
+  }
 
 }
 
