@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PIVTEK — Ingénierie logicielle et intelligence artificielle · Lyon</title>
+<meta name="description" content="PIVTEK conçoit des plateformes digitales et des systèmes intelligents pour PME. Applications web, mobile, IA et automatisation sur mesure. Lyon et toute la France.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0e14'/%3E%3Cpath d='M18 6L8 16L18 26' stroke='%237B6FD6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M24 9L16 16L24 23' stroke='%235B8DEF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pivtek.fr">
+<meta property="og:title" content="PIVTEK — Ingénierie logicielle et intelligence artificielle">
+<meta property="og:description" content="Applications web, mobile, IA et automatisation pour PME. Un partenaire technique unique, de la stratégie à la production. Lyon et toute la France.">
+<meta property="og:image" content="https://pivtek.fr/og-image.png">
+<meta property="og:locale" content="fr_FR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="PIVTEK — Ingénierie logicielle et IA · Lyon">
+<meta name="twitter:description" content="Applications web, mobile, IA et automatisation pour PME.">
+<meta name="twitter:image" content="https://pivtek.fr/og-image.png">
+<meta name="robots" content="index, follow">
+<meta name="author" content="PIVTEK">
+<meta name="geo.region" content="FR-69">
+<meta name="geo.placename" content="Lyon">
+<link rel="canonical" href="https://pivtek.fr">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"PIVTEK","description":"Ingénierie logicielle et intelligence artificielle. Applications web, mobile, IA et automatisation pour PME. Basé à Lyon, nous accompagnons les entreprises dans toute la France.","url":"https://pivtek.fr","logo":"https://pivtek.fr/og-image.png","image":"https://pivtek.fr/og-image.png","telephone":"+33618705935","email":"contact@pivtek.fr","address":{"@type":"PostalAddress","addressLocality":"Lyon","addressRegion":"Auvergne-Rhône-Alpes","addressCountry":"FR"},"geo":{"@type":"GeoCoordinates","latitude":45.76,"longitude":4.84},"areaServed":[{"@type":"Country","name":"France"},{"@type":"City","name":"Lyon"},{"@type":"City","name":"Villeurbanne"},{"@type":"City","name":"Saint-Étienne"},{"@type":"AdministrativeArea","name":"Auvergne-Rhône-Alpes"}],"serviceType":["Développement web","Développement application mobile","Intelligence artificielle","Automatisation","Conseil technique"],"priceRange":"890€ - 7500€","currenciesAccepted":"EUR","paymentAccepted":"Virement bancaire","openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"},"founder":{"@type":"Person","name":"Philippe Jordan Nken","jobTitle":"Fondateur et développeur"},"foundingDate":"2026-09-03","sameAs":[]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"PIVTEK","url":"https://pivtek.fr","description":"Ingénierie logicielle et intelligence artificielle pour PME — Lyon, France","inLanguage":"fr"}</script>
+<link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+<noscript>
+<h1>PIVTEK — Ingénierie logicielle et intelligence artificielle · Lyon</h1>
+<p>PIVTEK conçoit des plateformes digitales et des systèmes intelligents pour PME. Applications web sur mesure, intelligence artificielle, automatisation et conseil technique. Basé à Lyon, nous accompagnons les entreprises dans toute la France.</p>
+</noscript>
+
+<!-- NAV -->
+<nav class="pv-nav">
+  <div class="pv-nav-inner">
+    <a class="pv-logo" onclick="go('accueil')">
+      <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="pv-logo-text"><span class="pv-logo-piv">PIV</span><span class="pv-logo-tek">TEK</span></span>
+    </a>
+    <div class="pv-nav-drawer" id="navLinks">
+      <a class="pv-nav-link" onclick="go('expertises')">Expertises</a>
+      <a class="pv-nav-link" onclick="go('realisations')">Réalisations</a>
+      <a class="pv-nav-link" onclick="go('solutions')">Solutions</a>
+      <a class="pv-nav-link" onclick="go('about')">À propos</a>
+      <a class="pv-nav-btn" onclick="go('contact')">Contact</a>
+    </div>
+    <button class="pv-ham text-pv-mu bg-transparent border-none text-xl cursor-pointer" onclick="document.getElementById('navLinks').classList.toggle('open')">☰</button>
+  </div>
+</nav>
+
+<!-- Back to top -->
+<button class="pv-btt" id="btt" onclick="window.scrollTo({top:0})">↑</button>
+
+<!-- ==================== ACCUEIL ==================== -->
+<div class="page active" id="p-accueil">
+
+  <header class="pt-[clamp(60px,10vw,100px)] pb-[60px]">
+    <div class="pv-wrap">
+      <div class="pv-tag">Ingénierie logicielle et intelligence artificielle · Lyon</div>
+      <h1 class="font-serif text-[clamp(34px,6vw,52px)] font-normal leading-[1.1] mb-5">L'ingénierie logicielle au service de votre croissance.</h1>
+      <p class="text-[16px] text-pv-mu max-w-[520px] leading-[1.75] mb-9">Nous concevons des <strong class="text-pv-ink2 font-semibold">plateformes digitales</strong> et des <strong class="text-pv-ink2 font-semibold">systèmes intelligents</strong> qui transforment vos opérations. Un partenaire technique unique, de la stratégie à la production.</p>
+      <div class="flex gap-3 flex-wrap">
+        <a class="pv-btn" onclick="go('contact')">Démarrer un projet</a>
+        <a class="pv-btn-outline" onclick="go('solutions')">Nos solutions</a>
+      </div>
+      <!-- Stats bar -->
+      <div class="flex border rounded-[14px] overflow-hidden mt-12 bg-pv-s" style="border-color:var(--ln)">
+        <div class="pv-stat"><div class="pv-stat-value">24h</div><div class="pv-stat-label">Réponse</div></div>
+        <div class="pv-stat"><div class="pv-stat-value">100%</div><div class="pv-stat-label">Code propriétaire</div></div>
+        <div class="pv-stat"><div class="pv-stat-value">0</div><div class="pv-stat-label">Intermédiaire</div></div>
+        <div class="pv-stat"><div class="pv-stat-value">48h</div><div class="pv-stat-label">Analyse gratuite</div></div>
+      </div>
+    </div>
+  </header>
+
+  <hr class="pv-divider">
+
+  <section class="py-20">
+    <div class="pv-wrap">
+      <div class="pv-tag">Expertises</div>
+      <h2 class="pv-heading-md">Quatre piliers, un engagement.</h2>
+      <div class="grid grid-cols-2 gap-3 mb-8 max-[380px]:grid-cols-1">
+        <div class="pv-preview-card" onclick="go('conception')">
+          <div class="w-20 h-20 mb-3.5"><svg viewBox="0 0 80 80" fill="none"><rect x="8" y="12" width="64" height="44" rx="6" stroke="#7B6FD6" stroke-width="1.5"/><rect x="14" y="18" width="22" height="3" rx="1.5" fill="#7B6FD6" opacity=".5"/><rect x="14" y="24" width="16" height="3" rx="1.5" fill="#5B8DEF" opacity=".4"/><rect x="14" y="30" width="28" height="3" rx="1.5" fill="#7B6FD6" opacity=".3"/><rect x="28" y="62" width="24" height="4" rx="2" fill="#7B6FD6" opacity=".2"/></svg></div>
+          <div class="text-[15px] font-semibold mb-0.5">Conception logicielle</div>
+          <div class="text-[12px] text-pv-mu">Applications web, mobile, SaaS</div>
+        </div>
+        <div class="pv-preview-card" onclick="go('ia')">
+          <div class="w-20 h-20 mb-3.5"><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="36" r="10" stroke="#7B6FD6" stroke-width="1.5"/><circle cx="40" cy="36" r="3" fill="#5B8DEF" opacity=".6"/><circle cx="20" cy="24" r="5" stroke="#5B8DEF" stroke-width="1" opacity=".5"/><circle cx="60" cy="24" r="5" stroke="#5B8DEF" stroke-width="1" opacity=".5"/><line x1="30" y1="30" x2="24" y2="26" stroke="#7B6FD6" stroke-width="1" opacity=".3"/><line x1="50" y1="30" x2="56" y2="26" stroke="#5B8DEF" stroke-width="1" opacity=".3"/></svg></div>
+          <div class="text-[15px] font-semibold mb-0.5">Intelligence artificielle</div>
+          <div class="text-[12px] text-pv-mu">Agents, RAG, automatisation</div>
+        </div>
+        <div class="pv-preview-card" onclick="go('automatisation')">
+          <div class="w-20 h-20 mb-3.5"><svg viewBox="0 0 80 80" fill="none"><path d="M16 40h12" stroke="#5B8DEF" stroke-width="1.5"/><rect x="28" y="32" width="24" height="16" rx="4" stroke="#7B6FD6" stroke-width="1.5"/><path d="M52 40h12" stroke="#5B8DEF" stroke-width="1.5"/><path d="M36 38l4 4 6-8" stroke="#5B8DEF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/></svg></div>
+          <div class="text-[15px] font-semibold mb-0.5">Automatisation</div>
+          <div class="text-[12px] text-pv-mu">Workflows et orchestration</div>
+        </div>
+        <div class="pv-preview-card" onclick="go('conseil')">
+          <div class="w-20 h-20 mb-3.5"><svg viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="#7B6FD6" stroke-width="1" opacity=".2"/><circle cx="40" cy="40" r="15" stroke="#5B8DEF" stroke-width="1" opacity=".3"/><circle cx="40" cy="40" r="6" fill="#7B6FD6" opacity=".15"/><path d="M40 18v10" stroke="#7B6FD6" stroke-width="1.5" opacity=".5"/><path d="M52 40h10" stroke="#5B8DEF" stroke-width="1.5" opacity=".5"/><circle cx="40" cy="40" r="2" fill="#5B8DEF" opacity=".6"/></svg></div>
+          <div class="text-[15px] font-semibold mb-0.5">Conseil technique</div>
+          <div class="text-[12px] text-pv-mu">Audit, architecture, stratégie</div>
+        </div>
+      </div>
+      <div class="text-center"><a class="pv-btn-outline inline-block" onclick="go('expertises')">Découvrir nos expertises →</a></div>
+    </div>
+  </section>
+
+  <hr class="pv-divider">
+
+  <section class="py-20">
+    <div class="pv-wrap">
+      <div class="pv-quote">
+        <blockquote class="text-[14px] text-pv-ink2 leading-[1.75] italic mb-2.5">Depuis qu'on utilise l'application, on ne perd plus aucun ticket. Les techniciens accèdent à tout depuis leur téléphone, et moi j'ai enfin un tableau de bord en temps réel.</blockquote>
+        <cite class="text-[12px] text-pv-mu not-italic"><strong class="text-pv-ink font-bold">Responsable SAV</strong> — Industriel du chauffage</cite>
+      </div>
+    </div>
+  </section>
+
+  <hr class="pv-divider">
+
+  <section class="pv-cta">
+    <div class="pv-wrap">
+      <h2 class="font-serif text-[clamp(24px,4vw,32px)] font-normal mb-2.5">Parlons de votre projet.</h2>
+      <p class="text-pv-mu max-w-[420px] mx-auto mb-7 text-[14px]">Première analyse et orientation sous 24 heures ouvrées.</p>
+      <a class="pv-btn" onclick="go('contact')">Démarrer un projet</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- ==================== EXPERTISES ==================== -->
+<div class="page" id="p-expertises">
+  <section class="py-20">
+    <div class="pv-wrap">
+      <div class="pv-tag">Expertises</div>
+      <h2 class="pv-heading">Quatre piliers, un engagement.</h2>
+      <p class="pv-desc">De la conception logicielle à l'intelligence artificielle, un socle technique complet pour transformer vos opérations.</p>
+      <div style="border-top:1px solid var(--ln)">
+        <div class="pv-exp-row" onclick="go('conception')">
+          <div class="flex items-center gap-3.5">
+            <svg width="24" height="24" viewBox="0 0 80 80" fill="none"><rect x="8" y="12" width="64" height="44" rx="6" stroke="#7B6FD6" stroke-width="2"/><rect x="16" y="20" width="20" height="3" rx="1.5" fill="#7B6FD6" opacity=".5"/><rect x="16" y="26" width="14" height="3" rx="1.5" fill="#5B8DEF" opacity=".4"/><rect x="16" y="32" width="24" height="3" rx="1.5" fill="#7B6FD6" opacity=".3"/><rect x="28" y="62" width="24" height="4" rx="2" fill="#7B6FD6" opacity=".2"/></svg>
+            <div><div class="pv-exp-name">Conception logicielle</div><div class="pv-exp-sub">Applications web, mobile et plateformes SaaS</div></div>
+          </div>
+          <span class="pv-exp-arrow">→</span>
+        </div>
+        <div class="pv-exp-row" onclick="go('ia')">
+          <div class="flex items-center gap-3.5">
+            <svg width="24" height="24" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="36" r="10" stroke="#7B6FD6" stroke-width="2"/><circle cx="40" cy="36" r="3" fill="#5B8DEF" opacity=".6"/><circle cx="20" cy="24" r="5" stroke="#5B8DEF" stroke-width="1.5" opacity=".5"/><circle cx="60" cy="24" r="5" stroke="#5B8DEF" stroke-width="1.5" opacity=".5"/><line x1="30" y1="30" x2="24" y2="26" stroke="#7B6FD6" stroke-width="1" opacity=".4"/><line x1="50" y1="30" x2="56" y2="26" stroke="#5B8DEF" stroke-width="1" opacity=".4"/></svg>
+            <div><div class="pv-exp-name">Intelligence artificielle</div><div class="pv-exp-sub">Agents conversationnels, RAG et analyse documentaire</div></div>
+          </div>
+          <span class="pv-exp-arrow">→</span>
+        </div>
+        <div class="pv-exp-row" onclick="go('automatisation')">
+          <div class="flex items-center gap-3.5">
+            <svg width="24" height="24" viewBox="0 0 80 80" fill="none"><path d="M16 40h12" stroke="#5B8DEF" stroke-width="2"/><rect x="28" y="32" width="24" height="16" rx="4" stroke="#7B6FD6" stroke-width="2"/><path d="M52 40h12" stroke="#5B8DEF" stroke-width="2"/><path d="M36 38l4 4 6-8" stroke="#5B8DEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/></svg>
+            <div><div class="pv-exp-name">Automatisation</div><div class="pv-exp-sub">Élimination des tâches répétitives et orchestration</div></div>
+          </div>
+          <span class="pv-exp-arrow">→</span>
+        </div>
+        <div class="pv-exp-row" onclick="go('conseil')">
+          <div class="flex items-center gap-3.5">
+            <svg width="24" height="24" viewBox="0 0 80 80" fill="none"><circle cx="40" cy="40" r="22" stroke="#7B6FD6" stroke-width="1.5" opacity=".3"/><circle cx="40" cy="40" r="14" stroke="#5B8DEF" stroke-width="1.5" opacity=".4"/><circle cx="40" cy="40" r="2" fill="#5B8DEF" opacity=".6"/><path d="M40 18v10" stroke="#7B6FD6" stroke-width="2" opacity=".5"/><path d="M52 40h10" stroke="#5B8DEF" stroke-width="2" opacity=".5"/></svg>
+            <div><div class="pv-exp-name">Conseil et audit technique</div><div class="pv-exp-sub">Diagnostic, architecture et accompagnement stratégique</div></div>
+          </div>
+          <span class="pv-exp-arrow">→</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="pv-divider">
+
+  <section class="py-20">
+    <div class="pv-wrap">
+      <div class="pv-tag">Secteurs</div>
+      <h2 class="pv-heading-md">Une connaissance intime de vos enjeux.</h2>
+      <div class="grid grid-cols-2 gap-2.5 mt-8 max-[500px]:grid-cols-1">
+        <div class="pv-sector"><div class="text-xl mb-2"><svg width="24" height="24" viewBox="0 0 40 40" fill="none"><rect x="6" y="14" width="12" height="18" rx="2" stroke="#7B6FD6" stroke-width="1.5" opacity=".6"/><rect x="22" y="8" width="12" height="24" rx="2" stroke="#5B8DEF" stroke-width="1.5" opacity=".5"/></svg></div><div class="pv-sector-name">Bâtiment et négoce</div><div class="pv-sector-desc">Devis, planification, suivi de chantier</div></div>
+        <div class="pv-sector"><div class="text-xl mb-2"><svg width="24" height="24" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="10" stroke="#7B6FD6" stroke-width="1.5" opacity=".5"/><circle cx="20" cy="20" r="4" stroke="#5B8DEF" stroke-width="1.5" opacity=".6"/></svg></div><div class="pv-sector-name">Industrie et SAV</div><div class="pv-sector-desc">Interventions terrain, diagnostic, reporting</div></div>
+        <div class="pv-sector"><div class="text-xl mb-2"><svg width="24" height="24" viewBox="0 0 40 40" fill="none"><rect x="8" y="6" width="24" height="28" rx="3" stroke="#7B6FD6" stroke-width="1.5" opacity=".5"/><path d="M14 14h12M14 20h8M14 26h10" stroke="#5B8DEF" stroke-width="1.5" opacity=".4"/></svg></div><div class="pv-sector-name">Professions libérales</div><div class="pv-sector-desc">Outils métier, gestion documentaire</div></div>
+        <div class="pv-sector"><div class="text-xl mb-2"><svg width="24" height="24" viewBox="0 0 40 40" fill="none"><rect x="8" y="12" width="24" height="18" rx="3" stroke="#7B6FD6" stroke-width="1.5" opacity=".5"/><path d="M14 12V8h12v4" stroke="#5B8DEF" stroke-width="1.5" opacity=".4"/><circle cx="20" cy="22" r="3" stroke="#5B8DEF" stroke-width="1.5" opacity=".5"/></svg></div><div class="pv-sector-name">Commerce et retail</div><div class="pv-sector-desc">E-commerce, fidélisation, catalogues</div></div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="pv-divider">
+
+  <section class="py-20">
+    <div class="pv-wrap">
+      <div class="pv-tag">Méthode</div>
+      <h2 class="pv-heading-md">Un cadre rigoureux, des résultats mesurables.</h2>
+      <p class="pv-desc">Vous savez ce que vous aurez, quand, et à quel prix.</p>
+      <div class="pv-step"><div class="pv-step-number">01</div><div><div class="pv-step-title">Cadrage stratégique</div><div class="pv-step-desc">Analyse de vos enjeux métier, définition du périmètre technique et des indicateurs de succès.</div></div></div>
+      <div class="pv-step"><div class="pv-step-number">02</div><div><div class="pv-step-title">Architecture et prototypage</div><div class="pv-step-desc">Conception technique, choix de stack, prototype fonctionnel validé avant développement.</div></div></div>
+      <div class="pv-step"><div class="pv-step-number">03</div><div><div class="pv-step-title">Réalisation par jalons</div><div class="pv-step-desc">Cycles courts, livrables intermédiaires que vous validez, transparence totale.</div></div></div>
+      <div class="pv-step"><div class="pv-step-number">04</div><div><div class="pv-step-title">Déploiement et continuité</div><div class="pv-step-desc">Mise en production, transfert de compétences, maintenance et évolutions dans la durée.</div></div></div>
+    </div>
+  </section>
+
+  <hr class="pv-divider">
+
+  <section class="py-20">
+    <div class="pv-wrap">
+      <div class="pv-tag">Technologies</div>
+      <h2 class="pv-heading-md">Notre stack.</h2>
+      <p class="pv-desc" style="margin-bottom:24px">Technologies modernes, open-source et conformes RGPD.</p>
+      <div class="grid grid-cols-2 gap-7 max-[600px]:grid-cols-1">
+        <div>
+          <h4 class="text-2xs tracking-[.12em] uppercase text-pv-pur mb-3.5 pb-2.5" style="border-bottom:1px solid var(--ln)">Frontend &amp; Mobile</h4>
+          <div class="pv-tech-row"><span class="pv-tech-label">Applications web</span><span class="pv-tech-value">React / Next.js</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Applications mobiles</span><span class="pv-tech-value">Capacitor</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Langages</span><span class="pv-tech-value">TypeScript</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Design</span><span class="pv-tech-value">Tailwind CSS</span></div>
+        </div>
+        <div>
+          <h4 class="text-2xs tracking-[.12em] uppercase text-pv-pur mb-3.5 pb-2.5" style="border-bottom:1px solid var(--ln)">Backend &amp; Infrastructure</h4>
+          <div class="pv-tech-row"><span class="pv-tech-label">Base de données</span><span class="pv-tech-value">PostgreSQL / Supabase</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">API &amp; serveur</span><span class="pv-tech-value">Node.js / Python / FastAPI</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Auth &amp; sécurité</span><span class="pv-tech-value">Rôles, RLS, chiffrement</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Hébergement</span><span class="pv-tech-value">Vercel / OVH / GitHub</span></div>
+        </div>
+      </div>
+      <div class="grid grid-cols-2 gap-7 mt-5 max-[600px]:grid-cols-1">
+        <div>
+          <h4 class="text-2xs tracking-[.12em] uppercase text-pv-pur mb-3.5 pb-2.5" style="border-bottom:1px solid var(--ln)">IA &amp; Automatisation</h4>
+          <div class="pv-tech-row"><span class="pv-tech-label">Intégration LLM</span><span class="pv-tech-value">Claude API / OpenAI</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Analyse documentaire</span><span class="pv-tech-value">RAG / LangChain</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Workflows</span><span class="pv-tech-value">n8n / Webhooks</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Connecteurs</span><span class="pv-tech-value">REST / API tierces</span></div>
+        </div>
+        <div>
+          <h4 class="text-2xs tracking-[.12em] uppercase text-pv-pur mb-3.5 pb-2.5" style="border-bottom:1px solid var(--ln)">Services intégrés</h4>
+          <div class="pv-tech-row"><span class="pv-tech-label">Paiements</span><span class="pv-tech-value">Stripe</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Emails</span><span class="pv-tech-value">Resend / SMTP</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Documents</span><span class="pv-tech-value">PDF / Excel / exports</span></div>
+          <div class="pv-tech-row"><span class="pv-tech-label">Cartographie</span><span class="pv-tech-value">Maps / géolocalisation</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ==================== CONCEPTION LOGICIELLE ==================== -->
+<div class="page" id="p-conception">
+  <section class="py-20"><div class="pv-wrap">
+    <a class="pv-back-btn" onclick="go('expertises')">← Expertises</a>
+    <div class="pv-tag">Conception logicielle</div>
+    <h2 class="pv-heading">Des applications qui résolvent de vrais problèmes.</h2>
+    <p class="pv-desc">Sites web, plateformes SaaS, applications mobiles — nous concevons des outils numériques sur mesure, pensés pour votre métier et vos utilisateurs.</p>
+    <div class="pv-tag">Ce que nous livrons</div>
+    <div class="pv-solution"><div class="pv-solution-name">Sites web &amp; vitrines</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Design responsive sur mesure, optimisé SEO, avec espace d'administration pour que vous puissiez gérer votre contenu en autonomie. Formation à la prise en main incluse.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Applications web métier</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Plateformes complètes avec gestion des utilisateurs, rôles, logique métier, tableaux de bord et exports. Back-office inclus, intégrations tierces possibles.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Applications mobiles</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Apps cross-platform iOS et Android depuis une seule codebase. Photos, signatures, géolocalisation, mode hors-ligne et synchronisation temps réel.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Plateformes SaaS</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Architecture multi-tenant, abonnements, facturation récurrente (Stripe), onboarding utilisateur et tableaux de bord par client.</p></div>
+  </div></section>
+  <hr class="pv-divider">
+  <section class="py-20"><div class="pv-wrap">
+    <div class="pv-tag">Technologies utilisées</div>
+    <div class="grid grid-cols-2 gap-7 max-[600px]:grid-cols-1">
+      <div><div class="pv-tech-row"><span class="pv-tech-label">Frontend</span><span class="pv-tech-value">React / Next.js / TypeScript</span></div><div class="pv-tech-row"><span class="pv-tech-label">Mobile</span><span class="pv-tech-value">Capacitor (iOS + Android)</span></div><div class="pv-tech-row"><span class="pv-tech-label">Design</span><span class="pv-tech-value">Tailwind CSS / Figma</span></div></div>
+      <div><div class="pv-tech-row"><span class="pv-tech-label">Backend</span><span class="pv-tech-value">Supabase / PostgreSQL</span></div><div class="pv-tech-row"><span class="pv-tech-label">Auth</span><span class="pv-tech-value">Rôles, RLS, chiffrement</span></div><div class="pv-tech-row"><span class="pv-tech-label">Déploiement</span><span class="pv-tech-value">Vercel / GitHub CI</span></div></div>
+    </div>
+  </div></section>
+  <hr class="pv-divider">
+  <section class="pv-cta"><div class="pv-wrap">
+    <h2 class="font-serif text-[clamp(24px,4vw,32px)] font-normal mb-2.5">Un projet de site ou d'application ?</h2>
+    <p class="text-pv-mu max-w-[420px] mx-auto mb-7 text-[14px]">Décrivez-nous votre besoin — première analyse gratuite sous 48h.</p>
+    <div class="flex gap-3 justify-center flex-wrap"><a class="pv-btn" onclick="go('contact')">Nous contacter</a><a class="pv-btn-outline" onclick="go('solutions')">Voir nos tarifs</a></div>
+  </div></section>
+</div>
+
+<!-- ==================== INTELLIGENCE ARTIFICIELLE ==================== -->
+<div class="page" id="p-ia">
+  <section class="py-20"><div class="pv-wrap">
+    <a class="pv-back-btn" onclick="go('expertises')">← Expertises</a>
+    <div class="pv-tag">Intelligence artificielle</div>
+    <h2 class="pv-heading">L'IA au service de votre productivité.</h2>
+    <p class="pv-desc">Nous intégrons l'intelligence artificielle dans vos outils existants pour automatiser l'analyse, accélérer les décisions et augmenter la valeur de vos données.</p>
+    <div class="pv-tag">Ce que nous livrons</div>
+    <div class="pv-solution"><div class="pv-solution-name">Agents conversationnels</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Chatbots intelligents connectés à vos données, capables de répondre à vos clients ou d'assister vos équipes en interne. Déployés sur votre site, WhatsApp ou Slack.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Analyse documentaire (RAG)</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Interrogez vos documents (contrats, manuels techniques, procédures) en langage naturel. L'IA trouve la réponse et cite ses sources.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Assistants métier</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Outils d'aide à la rédaction, au diagnostic ou à la décision, entraînés sur vos données et vos processus internes.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Classification et extraction</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Tri automatique d'emails, extraction de données depuis des factures ou formulaires, catégorisation intelligente de vos flux entrants.</p></div>
+  </div></section>
+  <hr class="pv-divider">
+  <section class="py-20"><div class="pv-wrap">
+    <div class="pv-tag">Technologies utilisées</div>
+    <div class="grid grid-cols-2 gap-7 max-[600px]:grid-cols-1">
+      <div><div class="pv-tech-row"><span class="pv-tech-label">Modèles</span><span class="pv-tech-value">Claude API / OpenAI</span></div><div class="pv-tech-row"><span class="pv-tech-label">RAG</span><span class="pv-tech-value">LangChain / Embeddings</span></div><div class="pv-tech-row"><span class="pv-tech-label">Orchestration</span><span class="pv-tech-value">Python / FastAPI</span></div></div>
+      <div><div class="pv-tech-row"><span class="pv-tech-label">Base vectorielle</span><span class="pv-tech-value">Supabase pgvector</span></div><div class="pv-tech-row"><span class="pv-tech-label">Interface</span><span class="pv-tech-value">React / Next.js</span></div><div class="pv-tech-row"><span class="pv-tech-label">Déploiement</span><span class="pv-tech-value">Vercel / Edge Functions</span></div></div>
+    </div>
+  </div></section>
+  <hr class="pv-divider">
+  <section class="pv-cta"><div class="pv-wrap">
+    <h2 class="font-serif text-[clamp(24px,4vw,32px)] font-normal mb-2.5">Prêt à intégrer l'IA dans votre métier ?</h2>
+    <p class="text-pv-mu max-w-[420px] mx-auto mb-7 text-[14px]">On identifie ensemble les cas d'usage à fort impact pour votre activité.</p>
+    <div class="flex gap-3 justify-center flex-wrap"><a class="pv-btn" onclick="go('contact')">Nous contacter</a><a class="pv-btn-outline" onclick="go('solutions')">Voir nos tarifs</a></div>
+  </div></section>
+</div>
+
+<!-- ==================== AUTOMATISATION ==================== -->
+<div class="page" id="p-automatisation">
+  <section class="py-20"><div class="pv-wrap">
+    <a class="pv-back-btn" onclick="go('expertises')">← Expertises</a>
+    <div class="pv-tag">Automatisation</div>
+    <h2 class="pv-heading">Éliminez ce qui vous ralentit.</h2>
+    <p class="pv-desc">Chaque tâche répétitive est un coût caché. Nous connectons vos outils entre eux et automatisons vos processus pour libérer du temps sur ce qui compte.</p>
+    <div class="pv-tag">Ce que nous livrons</div>
+    <div class="pv-solution"><div class="pv-solution-name">Workflows automatisés</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Création de chaînes d'actions automatiques : un formulaire rempli déclenche un email, crée une fiche client, envoie une notification Slack et met à jour votre CRM.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Connexion entre outils</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Synchronisation de vos outils existants (Google Sheets, Notion, ERP, logiciel de facturation) via des connecteurs sur mesure.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Génération automatique de documents</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Devis, factures, rapports d'intervention, comptes-rendus — générés automatiquement à partir de vos données, au format PDF ou Excel.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Alertes et monitoring</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Surveillance de KPIs, alertes en cas d'anomalie, rapports périodiques automatisés. Vous êtes informé avant que le problème n'arrive.</p></div>
+  </div></section>
+  <hr class="pv-divider">
+  <section class="pv-cta"><div class="pv-wrap">
+    <h2 class="font-serif text-[clamp(24px,4vw,32px)] font-normal mb-2.5">Des processus à automatiser ?</h2>
+    <p class="text-pv-mu max-w-[420px] mx-auto mb-7 text-[14px]">Décrivez vos tâches répétitives — on vous dit ce qu'on peut automatiser et en combien de temps.</p>
+    <div class="flex gap-3 justify-center flex-wrap"><a class="pv-btn" onclick="go('contact')">Nous contacter</a><a class="pv-btn-outline" onclick="go('solutions')">Voir nos tarifs</a></div>
+  </div></section>
+</div>
+
+<!-- ==================== CONSEIL ET AUDIT ==================== -->
+<div class="page" id="p-conseil">
+  <section class="py-20"><div class="pv-wrap">
+    <a class="pv-back-btn" onclick="go('expertises')">← Expertises</a>
+    <div class="pv-tag">Conseil et audit technique</div>
+    <h2 class="pv-heading">Prenez les bonnes décisions techniques.</h2>
+    <p class="pv-desc">Avant de développer, il faut comprendre. Nous auditons votre existant, définissons l'architecture cible et vous accompagnons dans vos choix technologiques.</p>
+    <div class="pv-tag">Ce que nous livrons</div>
+    <div class="pv-solution"><div class="pv-solution-name">Audit technique</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Analyse de votre infrastructure existante, identification des points de fragilité, recommandations d'amélioration priorisées par impact et faisabilité.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Cadrage de projet</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Définition du périmètre fonctionnel, choix de stack, estimation budgétaire et calendrier réaliste. Le document de cadrage qui évite les dérapages.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Architecture logicielle</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Conception du schéma de base de données, des flux de données, des rôles et permissions. Le plan technique avant la première ligne de code.</p></div>
+    <div class="pv-solution"><div class="pv-solution-name">Accompagnement stratégique</div><div class="pv-sep"></div><p class="text-[14px] text-pv-mu leading-[1.7]">Points réguliers, revue de code, montée en compétences de vos équipes, feuille de route technologique. Un CTO externalisé, sans le coût d'un CDI.</p></div>
+  </div></section>
+  <hr class="pv-divider">
+  <section class="pv-cta"><div class="pv-wrap">
+    <h2 class="font-serif text-[clamp(24px,4vw,32px)] font-normal mb-2.5">Besoin d'un regard technique extérieur ?</h2>
+    <p class="text-pv-mu max-w-[420px] mx-auto mb-7 text-[14px]">Premier échange gratuit pour comprendre votre contexte et identifier les quick wins.</p>
+    <div class="flex gap-3 justify-center flex-wrap"><a class="pv-btn" onclick="go('contact')">Nous contacter</a><a class="pv-btn-outline" onclick="go('solutions')">Voir nos tarifs</a></div>
+  </div></section>
+</div>
+
+<!-- ==================== RÉALISATIONS ==================== -->
+<div class="page" id="p-realisations">
+  <section class="py-20"><div class="pv-wrap">
+    <div class="pv-tag">Réalisations</div>
+    <h2 class="pv-heading">Ce que nous avons livré.</h2>
+    <p class="pv-desc">Des projets concrets, en production, qui résolvent de vrais problèmes métier.</p>
+    <div class="pv-project">
+      <div class="pv-project-top"><div><div class="text-[16px] font-bold">Suite de gestion SAV — Web + Mobile</div><div class="text-[11px] text-pv-mu mt-0.5">Industriel du chauffage · Full-stack</div></div><span class="pv-project-badge-blue">● En production</span></div>
+      <div class="grid grid-cols-2 gap-5 px-6 py-5 max-[600px]:grid-cols-1">
+        <div><h4 class="text-2xs tracking-[.12em] uppercase text-pv-pur mb-2.5">Problème</h4><ul class="list-none"><li class="pl-3.5 relative text-[13px] text-pv-mu py-1 before:content-['→'] before:absolute before:left-0 before:text-pv-pur before:text-[11px]">Suivi dispersé, sans centralisation</li><li class="pl-3.5 relative text-[13px] text-pv-mu py-1 before:content-['→'] before:absolute before:left-0 before:text-pv-pur before:text-[11px]">Aucun accès mobile terrain</li><li class="pl-3.5 relative text-[13px] text-pv-mu py-1 before:content-['→'] before:absolute before:left-0 before:text-pv-pur before:text-[11px]">Besoin sécurité forte + multilingue</li></ul></div>
+        <div><h4 class="text-2xs tracking-[.12em] uppercase text-pv-pur mb-2.5">Solution</h4><ul class="list-none"><li class="pl-3.5 relative text-[13px] text-pv-mu py-1 before:content-['→'] before:absolute before:left-0 before:text-pv-pur before:text-[11px]">App Android : tickets, interventions</li><li class="pl-3.5 relative text-[13px] text-pv-mu py-1 before:content-['→'] before:absolute before:left-0 before:text-pv-pur before:text-[11px]">Chiffrement, PIN, sessions par rôle</li><li class="pl-3.5 relative text-[13px] text-pv-mu py-1 before:content-['→'] before:absolute before:left-0 before:text-pv-pur before:text-[11px]">Dashboard temps réel + exports</li><li class="pl-3.5 relative text-[13px] text-pv-mu py-1 before:content-['→'] before:absolute before:left-0 before:text-pv-pur before:text-[11px]">Multilingue FR/EN/IT</li></ul></div>
+      </div>
+      <div class="px-6 py-3.5 flex flex-wrap gap-1.5" style="border-top:1px solid var(--ln)"><span class="text-2xs px-2.5 py-1 rounded font-medium" style="background:rgba(123,111,214,.08);color:#7B6FD6">React</span><span class="text-2xs px-2.5 py-1 rounded font-medium" style="background:rgba(123,111,214,.08);color:#7B6FD6">Capacitor</span><span class="text-2xs px-2.5 py-1 rounded font-medium" style="background:rgba(123,111,214,.08);color:#7B6FD6">Supabase</span><span class="text-2xs px-2.5 py-1 rounded font-medium" style="background:rgba(123,111,214,.08);color:#7B6FD6">Vercel</span></div>
+    </div>
+  </div></section>
+</div>
+
+<!-- ==================== SOLUTIONS ==================== -->
+<div class="page" id="p-solutions">
+  <section class="py-20"><div class="pv-wrap">
+    <a class="pv-back-btn" onclick="history.back()">← Retour</a>
+    <div class="pv-tag">Nos solutions</div>
+    <h2 class="pv-heading">Chaque projet a son cadre. Voici les nôtres.</h2>
+    <p class="pv-desc">Des formats pensés pour les PME qui veulent avancer concrètement, sans cahier des charges de 50 pages.</p>
+    <div class="pv-tag">Par projet</div>
+    <div class="pv-solution">
+      <div class="flex justify-between items-start gap-3"><div><div class="pv-solution-name">Présence digitale</div><div class="text-[13px] text-pv-mu">Site institutionnel ou vitrine métier</div></div><div class="text-[12px] text-pv-mu shrink-0 mt-0.5">2 à 4 sem.</div></div>
+      <div class="pv-sep"></div>
+      <p class="text-[14px] text-pv-mu leading-[1.7] mb-4">Design sur mesure responsive, architecture SEO, espace d'administration, formulaires qualifiés, formation.</p>
+      <div class="pv-solution-price">890 € — 2 400 €</div>
+    </div>
+    <div class="pv-solution pv-card-featured relative">
+      <div class="pv-card-badge" style="background:linear-gradient(135deg,#5B8DEF,#7B6FD6)">Recommandé</div>
+      <div class="flex justify-between items-start gap-3"><div><div class="pv-solution-name">Plateforme métier</div><div class="text-[13px] text-pv-mu">Application web, outil interne ou SaaS</div></div><div class="text-[12px] text-pv-mu shrink-0 mt-0.5">5 à 10 sem.</div></div>
+      <div class="pv-sep"></div>
+      <p class="text-[14px] text-pv-mu leading-[1.7] mb-4">Back-office avancé, gestion utilisateurs et rôles, logique métier, intégrations tierces, base de données, tests et documentation.</p>
+      <div class="pv-solution-price">3 200 € — 7 500 €</div>
+    </div>
+    <div class="pv-solution">
+      <div class="flex justify-between items-start gap-3"><div><div class="pv-solution-name">Système intelligent</div><div class="text-[13px] text-pv-mu">Agent IA, automatisation, assistant documentaire</div></div><div class="text-[12px] text-pv-mu shrink-0 mt-0.5">3 à 6 sem.</div></div>
+      <div class="pv-sep"></div>
+      <p class="text-[14px] text-pv-mu leading-[1.7] mb-4">Agents conversationnels, analyse documentaire, orchestration de workflows, connexion à vos outils existants.</p>
+      <div class="pv-solution-price">1 800 € — 5 500 €</div>
+    </div>
+    <div class="pv-solution">
+      <div class="flex justify-between items-start gap-3"><div><div class="pv-solution-name">Projet sur mesure</div><div class="text-[13px] text-pv-mu">Mobile natif, refonte critique, architecture complexe</div></div></div>
+      <div class="pv-sep"></div>
+      <div class="pv-solution-price">Sur étude</div>
+    </div>
+    <div class="pv-tag mt-10">Accompagnement continu</div>
+    <div class="pv-solution">
+      <div class="flex justify-between items-start gap-3"><div class="pv-solution-name">Maintien en condition</div><div class="pv-solution-price-mo">79 €<span class="font-sans text-[13px] text-pv-mu font-normal">/mois</span></div></div>
+      <ul class="pv-checklist"><li>Hébergement production + SSL</li><li>Base de données, authentification et stockage</li><li>Nom de domaine + e-mail professionnel inclus</li><li>Sauvegardes quotidiennes + monitoring 24/7</li><li>Mises à jour de sécurité et dépendances</li><li>Support e-mail sous 48h ouvrées</li></ul>
+    </div>
+    <div class="pv-solution">
+      <div class="flex justify-between items-start gap-3"><div class="pv-solution-name">Évolution continue</div><div class="pv-solution-price-mo">159 €<span class="font-sans text-[13px] text-pv-mu font-normal">/mois</span></div></div>
+      <ul class="pv-checklist"><li>Tout le maintien en condition inclus</li><li>2 heures de modifications incluses / mois</li><li>Point mensuel conseil et feuille de route</li><li>Support prioritaire sous 24h</li><li>Rapport mensuel performances et uptime</li></ul>
+    </div>
+    <div class="pv-incl"><div class="text-[17px] font-bold mb-0.5">Toujours inclus</div><ul class="pv-checklist"><li>Code source livré, propriété pleine et entière</li><li>Aucun abonnement obligatoire après livraison</li><li>Documentation technique et formation</li><li>Interlocuteur unique de bout en bout</li><li>Conformité RGPD garantie</li></ul></div>
+  </div></section>
+</div>
+
+<!-- ==================== À PROPOS ==================== -->
+<div class="page" id="p-about">
+  <section class="py-20"><div class="pv-wrap">
+    <div class="pv-tag">À propos</div>
+    <div class="font-serif text-[clamp(24px,4vw,34px)] leading-[1.15] mb-7">Nous ne vendons pas des lignes de code. <span class="text-pv-pur">Nous résolvons des problèmes.</span></div>
+    <p class="text-[14px] text-pv-mu leading-[1.75] mb-3.5">Trop de projets logiciels échouent parce que le développeur ne comprend pas le métier du client. Chez Pivtek, nous commençons par comprendre votre réalité avant d'écrire la première ligne de code.</p>
+    <p class="text-[14px] text-pv-mu leading-[1.75] mb-3.5">Notre force : une double compétence terrain et technique. Nous avons vécu les contraintes du SAV et des interventions. Moins d'allers-retours, des outils qui tombent juste.</p>
+    <div class="pv-founder max-[500px]:flex-col">
+      <div class="pv-founder-avatar">P</div>
+      <div>
+        <div class="text-[15px] font-bold mb-0.5">Philippe — Fondateur</div>
+        <div class="text-2xs tracking-[.1em] uppercase text-pv-pur mb-2">Conception logicielle et systèmes intelligents</div>
+        <p class="text-[13px] text-pv-mu leading-[1.65]">Avant de développer des logiciels, Philippe a travaillé sur le terrain dans l'industrie. Pivtek est né de cette double compétence — comprendre le métier et maîtriser la technique pour livrer des outils qui fonctionnent vraiment.</p>
+      </div>
+    </div>
+    <div class="pv-quote">
+      <blockquote class="text-[14px] text-pv-ink2 leading-[1.75] italic mb-2.5">Depuis qu'on utilise l'application, on ne perd plus aucun ticket. Les techniciens accèdent à tout depuis leur téléphone, et moi j'ai enfin un tableau de bord en temps réel.</blockquote>
+      <cite class="text-[12px] text-pv-mu not-italic"><strong class="text-pv-ink font-bold">Responsable SAV</strong> — Industriel du chauffage</cite>
+    </div>
+  </div></section>
+</div>
+
+<!-- ==================== CONTACT ==================== -->
+<div class="page" id="p-contact">
+  <section class="py-20"><div class="pv-wrap">
+    <div class="pv-tag">Contact</div>
+    <h2 class="pv-heading">Un projet en tête ?</h2>
+    <p class="pv-desc">Remplissez le formulaire ci-dessous. Nous vous répondons sous 48h avec une première analyse gratuite.</p>
+    <div id="contactForm">
+      <div class="grid grid-cols-2 gap-3 max-[500px]:grid-cols-1">
+        <div class="mb-4"><label class="pv-label">Nom *</label><input class="pv-input" type="text" id="f-name" required placeholder="Votre nom"></div>
+        <div class="mb-4"><label class="pv-label">Société</label><input class="pv-input" type="text" id="f-company" placeholder="Nom de votre entreprise"></div>
+      </div>
+      <div class="grid grid-cols-2 gap-3 max-[500px]:grid-cols-1">
+        <div class="mb-4"><label class="pv-label">E-mail *</label><input class="pv-input" type="email" id="f-email" required placeholder="vous@exemple.fr"></div>
+        <div class="mb-4"><label class="pv-label">Téléphone</label><input class="pv-input" type="tel" id="f-phone" placeholder="06 00 00 00 00"></div>
+      </div>
+      <div class="mb-4"><label class="pv-label">Type de projet</label>
+        <select class="pv-select" id="f-type">
+          <option value="">— Sélectionnez —</option>
+          <option>Site web / vitrine</option><option>Application web métier</option><option>Application mobile</option>
+          <option>Intelligence artificielle / chatbot</option><option>Automatisation</option>
+          <option>Audit / conseil technique</option><option>Autre</option>
+        </select>
+      </div>
+      <div class="mb-4"><label class="pv-label">Décrivez votre projet *</label><textarea class="pv-textarea" id="f-message" required placeholder="Décrivez votre besoin, vos objectifs et vos contraintes éventuelles..."></textarea></div>
+      <div class="mb-4"><label class="pv-label">Budget estimé</label>
+        <select class="pv-select" id="f-budget">
+          <option value="">— Sélectionnez —</option>
+          <option>Moins de 2 000 €</option><option>2 000 – 5 000 €</option><option>5 000 – 10 000 €</option>
+          <option>Plus de 10 000 €</option><option>À définir ensemble</option>
+        </select>
+      </div>
+      <button class="pv-form-submit" onclick="submitForm()">Envoyer ma demande</button>
+    </div>
+    <div id="contactSuccess" class="hidden text-center py-10">
+      <h3 class="font-serif text-2xl mb-2">Message envoyé !</h3>
+      <p class="text-pv-mu text-[14px]">Merci pour votre demande. Nous vous répondons sous 48h avec une première analyse.</p>
+      <br><a class="pv-btn-outline mt-4 inline-block" onclick="resetForm()">Envoyer un autre message</a>
+    </div>
+    <div class="flex justify-center gap-6 flex-wrap mt-8">
+      <div class="text-[12px] text-pv-mu flex items-center gap-1.5"><span class="text-pv-pur font-bold">✓</span> Premier échange gratuit</div>
+      <div class="text-[12px] text-pv-mu flex items-center gap-1.5"><span class="text-pv-pur font-bold">✓</span> Sans engagement</div>
+      <div class="text-[12px] text-pv-mu flex items-center gap-1.5"><span class="text-pv-pur font-bold">✓</span> Devis sous 24h</div>
+      <div class="text-[12px] text-pv-mu flex items-center gap-1.5"><span class="text-pv-pur font-bold">✓</span> Forfait fixe</div>
+    </div>
+  </div></section>
+  <hr class="pv-divider">
+  <section class="pv-cta"><div class="pv-wrap">
+    <h2 class="font-serif text-[clamp(24px,4vw,32px)] font-normal mb-2.5">Dimensionnons votre projet ensemble.</h2>
+    <p class="text-pv-mu max-w-[420px] mx-auto mb-7 text-[14px]">30 minutes suffisent pour une estimation précise et un calendrier réaliste.</p>
+    <a class="pv-btn" onclick="go('solutions')">Voir nos solutions</a>
+  </div></section>
+</div>
+
+<!-- FOOTER -->
+<footer class="pv-footer">
+  <div class="pv-wrap">
+    <div class="flex items-center gap-2.5 mb-2.5">
+      <svg width="20" height="20" viewBox="0 0 28 28" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span class="text-[13px] font-semibold tracking-[3px]"><span class="text-pv-mu">PIV</span><span class="text-pv-pur">TEK</span></span>
+    </div>
+    <div class="text-[11px] text-pv-mu2">© 2026 PIVTEK · Lyon, France</div>
+    <div class="flex gap-4 mt-2.5">
+      <a href="/cgv" class="text-[11px] text-pv-mu2 no-underline transition-colors duration-300 hover:text-pv-pur">CGV</a>
+      <a href="/mentions-legales" class="text-[11px] text-pv-mu2 no-underline transition-colors duration-300 hover:text-pv-pur">Mentions légales</a>
+      <a href="/politique-confidentialite" class="text-[11px] text-pv-mu2 no-underline transition-colors duration-300 hover:text-pv-pur">Confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Modals (legacy, conservés) -->
+<div class="pv-modal" id="ml"><div class="pv-modal-inner"><button class="absolute top-3.5 right-[18px] bg-transparent border-none text-pv-mu text-lg cursor-pointer" onclick="closeModal('ml')">✕</button><h2 class="font-serif text-xl font-normal mb-5">Mentions légales</h2><p class="text-[13px] text-pv-mu leading-[1.8] mb-3.5">Voir <a href="/mentions-legales" class="text-pv-pur">pivtek.fr/mentions-legales</a></p></div></div>
+<div class="pv-modal" id="pp"><div class="pv-modal-inner"><button class="absolute top-3.5 right-[18px] bg-transparent border-none text-pv-mu text-lg cursor-pointer" onclick="closeModal('pp')">✕</button><h2 class="font-serif text-xl font-normal mb-5">Politique de confidentialité</h2><p class="text-[13px] text-pv-mu leading-[1.8] mb-3.5">Voir <a href="/politique-confidentialite" class="text-pv-pur">pivtek.fr/politique-confidentialite</a></p></div></div>
+
+<!-- Page hidden by default -->
+<style>
+  .page { display: none; }
+  .page.active { display: block; }
+</style>
+
+<script>
+function go(p){
+  document.querySelectorAll('.page').forEach(e=>e.classList.remove('active'));
+  const pg=document.getElementById('p-'+p);
+  if(pg){pg.classList.add('active');initReveals()}
+  document.querySelectorAll('.pv-nav-link').forEach(a=>{a.classList.toggle('on',a.textContent.toLowerCase().includes(p==='accueil'?'xxx':p.substring(0,4)))});
+  document.getElementById('navLinks').classList.remove('open');
+  window.scrollTo({top:0,behavior:'smooth'});
+  history.pushState(null,null,'#'+p);
+}
+window.addEventListener('hashchange',()=>{const h=location.hash.slice(1);if(h&&document.getElementById('p-'+h))go(h)});
+window.addEventListener('load',()=>{const h=location.hash.slice(1);if(h&&document.getElementById('p-'+h))go(h);initReveals()});
+window.addEventListener('scroll',()=>{document.getElementById('btt').classList.toggle('show',window.scrollY>400)});
+function openModal(id){document.getElementById(id).classList.add('show')}
+function closeModal(id){document.getElementById(id).classList.remove('show')}
+document.querySelectorAll('.pv-modal').forEach(m=>{m.addEventListener('click',e=>{if(e.target===m)m.classList.remove('show')})});
+
+function initReveals(){
+  const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.page.active section,.page.active .pv-solution,.page.active .pv-preview-card,.page.active .pv-project,.page.active .pv-sector,.page.active .pv-exp-row,.page.active .pv-step,.page.active .pv-quote,.page.active .pv-founder,.page.active .pv-incl').forEach(el=>{if(!el.classList.contains('visible')){el.classList.add('pv-reveal');obs.observe(el)}});
+}
+setTimeout(initReveals,100);
+
+function submitForm(){
+  const name=document.getElementById('f-name').value.trim();
+  const email=document.getElementById('f-email').value.trim();
+  const msg=document.getElementById('f-message').value.trim();
+  if(!name||!email||!msg){alert('Veuillez remplir les champs obligatoires (nom, e-mail, message).');return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){alert('Veuillez entrer une adresse e-mail valide.');return}
+  const btn=document.querySelector('.pv-form-submit');
+  btn.textContent='Envoi en cours...';btn.disabled=true;
+  fetch('https://formspree.io/f/mljewzdb',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name,_replyto:email,email,company:document.getElementById('f-company').value,phone:document.getElementById('f-phone').value,type:document.getElementById('f-type').value,message:msg,budget:document.getElementById('f-budget').value})}).then(r=>{if(r.ok){document.getElementById('contactForm').style.display='none';document.getElementById('contactSuccess').classList.remove('hidden');document.getElementById('contactSuccess').classList.add('flex','flex-col','items-center')}else{alert('Erreur lors de l\'envoi. Veuillez réessayer.')}btn.textContent='Envoyer ma demande';btn.disabled=false}).catch(()=>{alert('Erreur de connexion. Vérifiez votre connexion internet.');btn.textContent='Envoyer ma demande';btn.disabled=false});
+}
+function resetForm(){
+  document.getElementById('contactForm').style.display='block';
+  document.getElementById('contactSuccess').classList.add('hidden');
+  ['f-name','f-email','f-company','f-phone','f-message'].forEach(id=>document.getElementById(id).value='');
+  ['f-type','f-budget'].forEach(id=>document.getElementById(id).selectedIndex=0);
+}
+</script>
+</body>
+</html>

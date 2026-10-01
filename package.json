@@ -1,0 +1,17 @@
+{
+  "name": "pivtek-portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio Pivtek — Software Engineering",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/css/input.css -o ./dist/styles.css --watch",
+    "build": "npx tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify && node scripts/build.js",
+    "build:css": "npx tailwindcss -i ./src/css/input.css -o ./dist/styles.css --minify"
+  },
+  "devDependencies": {
+    "tailwindcss": "^4.1.11"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pivtek/pivtek-portfolio.git"
+  }
+}
