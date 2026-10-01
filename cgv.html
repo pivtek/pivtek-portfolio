@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conditions Générales de Vente — PIVTEK</title>
+<meta name="description" content="Conditions générales de vente de PIVTEK — prestations de développement web, applications et intelligence artificielle. SIREN 109 542 860.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://pivtek.fr/cgv">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230c0e14'/%3E%3Cpath d='M18 6L8 16L18 26' stroke='%237B6FD6' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3Cpath d='M24 9L16 16L24 23' stroke='%235B8DEF' stroke-width='3' stroke-linecap='round' stroke-linejoin='round' fill='none'/%3E%3C/svg%3E">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700&display=swap');
+:root{--bg:#0c0e14;--s:#151820;--s2:#1c1f2a;--ln:rgba(255,255,255,.07);--ln2:rgba(255,255,255,.12);--ink:#f0f2f5;--ink2:#c9d1d9;--mu:#8b949e;--mu2:#484f58;--pur:#7B6FD6;--blu:#5B8DEF;--grn:#10b981;--r:14px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font-family:'Inter',system-ui,sans-serif;line-height:1.65;-webkit-font-smoothing:antialiased}
+::selection{background:var(--pur);color:#fff}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(12,14,20,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--ln)}
+.nav-inner{max-width:720px;margin:0 auto;padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo svg{width:28px;height:28px}
+.logo-t{font-size:15px;font-weight:600;letter-spacing:4px}
+.logo-t .g{color:var(--mu)}.logo-t .p{color:var(--pur)}
+.nav-links{display:flex;gap:20px;align-items:center}
+.nav-links a{color:var(--mu);text-decoration:none;font-size:13px;font-weight:500;transition:color .3s}
+.nav-links a:hover{color:var(--pur)}
+.nav-btn{background:var(--ink);color:var(--bg);padding:8px 18px;border-radius:8px;font-weight:600;font-size:12px;text-decoration:none;transition:opacity .3s}
+.nav-btn:hover{opacity:.9}
+.nav-tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--pur);font-weight:600}
+@media(max-width:700px){.nav-links a:not(.nav-btn):not(.nav-tag){display:none}}
+
+/* LAYOUT */
+.wrap{max-width:720px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.hero{padding:64px 0 40px}
+.hero-tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--pur);margin-bottom:16px;font-weight:600}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(30px,5vw,44px);font-weight:400;line-height:1.1;margin-bottom:14px}
+.hero-meta{font-size:13px;color:var(--mu2);display:flex;gap:20px;flex-wrap:wrap}
+.hero-meta span::before{content:"·";margin-right:20px;opacity:.4}
+.hero-meta span:first-child::before{display:none}
+
+/* TOC */
+.toc{background:var(--s);border:1px solid var(--ln);border-radius:var(--r);padding:20px 24px;margin:32px 0 40px;display:grid;grid-template-columns:1fr 1fr;gap:2px 24px}
+.toc-title{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--pur);font-weight:600;margin-bottom:14px;grid-column:1/-1}
+.toc a{font-size:13px;color:var(--mu);text-decoration:none;padding:4px 0;transition:color .2s;display:flex;gap:8px;align-items:baseline}
+.toc a:hover{color:var(--ink)}
+.toc-n{color:var(--mu2);font-size:11px;font-variant-numeric:tabular-nums;flex-shrink:0}
+@media(max-width:520px){.toc{grid-template-columns:1fr}}
+
+/* ARTICLES */
+.article{border-top:1px solid var(--ln);padding:32px 0}
+.article:first-of-type{border-top:none}
+.art-n{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--pur);font-weight:600;margin-bottom:8px}
+.art-t{font-family:'DM Serif Display',serif;font-size:clamp(18px,3vw,24px);font-weight:400;margin-bottom:18px;line-height:1.2}
+.article p{font-size:14px;color:var(--mu);line-height:1.75;margin-bottom:12px}
+.article p:last-child{margin-bottom:0}
+.article strong{color:var(--ink);font-weight:600}
+.article ul{list-style:none;margin:12px 0}
+.article ul li{font-size:14px;color:var(--mu);padding:4px 0 4px 18px;position:relative;line-height:1.6}
+.article ul li::before{content:"";position:absolute;left:0;top:13px;width:4px;height:4px;border-radius:50%;background:var(--pur);opacity:.6}
+.article a{color:var(--pur);text-decoration:none}
+.article a:hover{text-decoration:underline}
+
+/* PAYMENT STEPS */
+.pay-steps{display:flex;border:1px solid var(--ln);border-radius:var(--r);overflow:hidden;background:var(--s);margin:20px 0}
+.pay-s{flex:1;padding:18px 16px;text-align:center;border-right:1px solid var(--ln)}
+.pay-s:last-child{border-right:none}
+.pay-pct{font-family:'DM Serif Display',serif;font-size:30px;color:var(--pur);line-height:1;margin-bottom:4px}
+.pay-lbl{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mu2);margin-bottom:4px;font-weight:600}
+.pay-d{font-size:11px;color:var(--mu);line-height:1.4}
+@media(max-width:500px){.pay-steps{flex-direction:column}.pay-s{border-right:none;border-bottom:1px solid var(--ln)}.pay-s:last-child{border-bottom:none}}
+
+/* CALLOUT BOXES */
+.hl{background:rgba(123,111,214,.06);border:1px solid rgba(123,111,214,.2);border-radius:10px;padding:16px 18px;margin:16px 0}
+.hl p{font-size:13.5px;color:var(--mu);margin:0}
+.warn{background:rgba(232,123,107,.06);border:1px solid rgba(232,123,107,.2);border-radius:10px;padding:16px 18px;margin:16px 0}
+.warn p{font-size:13.5px;color:var(--mu);margin:0}
+
+/* TABLE */
+.tbl-wrap{overflow-x:auto;margin:16px 0;border-radius:10px;border:1px solid var(--ln)}
+table{width:100%;border-collapse:collapse;font-size:13px;min-width:400px}
+th{background:var(--s2);color:var(--pur);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;padding:10px 14px;text-align:left}
+td{padding:10px 14px;color:var(--mu);border-top:1px solid var(--ln);vertical-align:top;line-height:1.55}
+
+/* FOOTER */
+footer{border-top:1px solid var(--ln);padding:36px 0}
+.ft{max-width:720px;margin:0 auto;padding:0 24px}
+.ft-top{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.ft-c{font-size:11px;color:var(--mu2)}
+.ft-links{display:flex;gap:16px;margin-top:10px}
+.ft-links a{font-size:11px;color:var(--mu2);text-decoration:none;transition:color .3s}
+.ft-links a:hover{color:var(--pur)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="logo" href="/">
+      <svg viewBox="0 0 28 28" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="logo-t"><span class="g">PIV</span><span class="p">TEK</span></div>
+    </a>
+    <div class="nav-links">
+      <a href="/#expertises">Expertises</a>
+      <a href="/#realisations">Réalisations</a>
+      <a href="/#solutions">Solutions</a>
+      <a href="/#apropos">À propos</a>
+      <span class="nav-tag">CGV</span>
+      <a class="nav-btn" href="/#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+  <div class="hero">
+    <p class="hero-tag">Documents contractuels</p>
+    <h1>Conditions Générales de Vente</h1>
+    <div class="hero-meta">
+      <span>PIVTEK — SIREN 109 542 860</span>
+      <span>En vigueur au 5 septembre 2026</span>
+      <span>B2B &amp; B2C</span>
+    </div>
+  </div>
+
+  <nav class="toc" aria-label="Sommaire">
+    <div class="toc-title">Sommaire</div>
+    <a href="#art1"><span class="toc-n">01</span>Objet et champ d'application</a>
+    <a href="#art2"><span class="toc-n">02</span>Prestations</a>
+    <a href="#art3"><span class="toc-n">03</span>Devis et formation du contrat</a>
+    <a href="#art4"><span class="toc-n">04</span>Délais d'exécution</a>
+    <a href="#art5"><span class="toc-n">05</span>Conditions financières</a>
+    <a href="#art6"><span class="toc-n">06</span>Retard de paiement</a>
+    <a href="#art7"><span class="toc-n">07</span>Propriété intellectuelle</a>
+    <a href="#art8"><span class="toc-n">08</span>Obligations des parties</a>
+    <a href="#art9"><span class="toc-n">09</span>Responsabilité et garanties</a>
+    <a href="#art10"><span class="toc-n">10</span>Confidentialité</a>
+    <a href="#art11"><span class="toc-n">11</span>Résiliation</a>
+    <a href="#art12"><span class="toc-n">12</span>Données personnelles</a>
+    <a href="#art13"><span class="toc-n">13</span>Droit de rétractation</a>
+    <a href="#art14"><span class="toc-n">14</span>Médiation et litiges</a>
+    <a href="#art15"><span class="toc-n">15</span>Dispositions finales</a>
+  </nav>
+
+  <div class="article" id="art1">
+    <div class="art-n">Article 01</div>
+    <h2 class="art-t">Objet et champ d'application</h2>
+    <p>Les présentes Conditions Générales de Vente (CGV) régissent l'ensemble des prestations de services proposées par <strong>PIVTEK</strong>, entreprise individuelle exploitée par Philippe Jordan NKEN, SIREN 109 542 860, SIRET 109 542 860 00019, Code APE 6201Z, dont le siège social est établi en France.</p>
+    <p>Elles s'appliquent à toute relation commerciale entre PIVTEK et ses clients, qu'ils soient <strong>professionnels (B2B)</strong> ou <strong>consommateurs au sens du Code de la consommation (B2C)</strong>. Toute commande implique l'acceptation pleine et entière des présentes CGV, qui prévalent sur tout autre document émanant du Client, sauf accord écrit contraire.</p>
+    <p>Des dispositions spécifiques sont prévues pour les consommateurs aux articles concernés, conformément aux articles L.111-1 et suivants du Code de la consommation.</p>
+  </div>
+
+  <div class="article" id="art2">
+    <div class="art-n">Article 02</div>
+    <h2 class="art-t">Prestations</h2>
+    <p>PIVTEK propose les prestations suivantes, dont les modalités détaillées figurent dans le devis :</p>
+    <ul>
+      <li><strong>Présence digitale</strong> — création de sites web, landing pages, identité numérique</li>
+      <li><strong>Plateforme métier</strong> — applications web et mobiles sur mesure, SaaS, espaces clients</li>
+      <li><strong>Système intelligent</strong> — intégration d'intelligence artificielle, agents IA, automatisation RAG</li>
+      <li><strong>Conseil technique</strong> — audit d'architecture, accompagnement stratégique, formation</li>
+    </ul>
+    <p>Chaque prestation fait l'objet d'un devis individualisé. Les caractéristiques essentielles, le périmètre et les livrables sont décrits dans le devis accepté par le Client.</p>
+  </div>
+
+  <div class="article" id="art3">
+    <div class="art-n">Article 03</div>
+    <h2 class="art-t">Devis et formation du contrat</h2>
+    <p>Tout devis établi par PIVTEK est valable <strong>30 jours calendaires</strong> à compter de sa date d'émission. Le contrat est formé dès réception par PIVTEK du devis signé accompagné du versement de l'acompte prévu à l'article 5.</p>
+    <p>Le devis signé et les présentes CGV constituent l'intégralité du contrat entre les parties. Toute modification de périmètre en cours d'exécution fait l'objet d'un avenant écrit signé par les deux parties.</p>
+    <div class="hl"><p>Aucune prestation ne sera démarrée sans devis signé et acompte reçu. La signature électronique (via un service qualifié) a la même valeur juridique qu'une signature manuscrite.</p></div>
+  </div>
+
+  <div class="article" id="art4">
+    <div class="art-n">Article 04</div>
+    <h2 class="art-t">Délais d'exécution</h2>
+    <p>Les délais de réalisation indiqués dans le devis sont donnés à titre prévisionnel. Ils courent à compter de la réception de l'acompte et de l'ensemble des éléments nécessaires à l'exécution de la prestation (contenus, accès, validations).</p>
+    <p>Tout retard imputable au Client — absence de retour, fourniture tardive de contenus, validations différées — entraîne de plein droit la suspension des délais d'exécution et pourra donner lieu à une révision du planning contractuel, sans engager la responsabilité de PIVTEK.</p>
+  </div>
+
+  <div class="article" id="art5">
+    <div class="art-n">Article 05</div>
+    <h2 class="art-t">Conditions financières</h2>
+    <p>Les prestations sont facturées selon le calendrier de paiement en trois étapes suivant :</p>
+    <div class="pay-steps">
+      <div class="pay-s">
+        <div class="pay-pct">30%</div>
+        <div class="pay-lbl">Étape 1</div>
+        <div class="pay-d">À la signature du devis — acompte de démarrage</div>
+      </div>
+      <div class="pay-s">
+        <div class="pay-pct">30%</div>
+        <div class="pay-lbl">Étape 2</div>
+        <div class="pay-d">Après validation de la première livraison intermédiaire</div>
+      </div>
+      <div class="pay-s">
+        <div class="pay-pct">40%</div>
+        <div class="pay-lbl">Étape 3</div>
+        <div class="pay-d">À la livraison finale et recette du projet</div>
+      </div>
+    </div>
+    <p>Les factures sont payables par <strong>virement bancaire</strong>, <strong>carte bancaire</strong> ou <strong>prélèvement SEPA</strong> via la plateforme de paiement Stancer (ILIAD 78 SAS, agrément ACPR n°11758). TVA non applicable, art. 293 B du CGI.</p>
+    <p>Tout devis est libellé en euros TTC. Les tarifs indicatifs publiés sur pivtek.fr ne constituent pas un engagement contractuel ; seul le devis signé fait foi.</p>
+  </div>
+
+  <div class="article" id="art6">
+    <div class="art-n">Article 06</div>
+    <h2 class="art-t">Retard de paiement</h2>
+    <p>Toute somme non réglée à l'échéance convenue donne lieu, de plein droit et sans mise en demeure préalable, à l'application de <strong>pénalités de retard au taux de 1,5 % par mois</strong> (soit 18 % annuels), calculées sur le montant TTC dû, à compter du lendemain de la date d'échéance.</p>
+    <p>Conformément à l'article L.441-10 du Code de commerce, toute facture impayée due par un professionnel entraîne de plein droit une <strong>indemnité forfaitaire de recouvrement de 40 €</strong>. En cas de frais de recouvrement exposés au-delà de ce forfait (frais de relance, d'huissier, d'avocat), ils seront facturés en sus sur justificatifs.</p>
+    <div class="warn"><p><strong>Clause pénale (art. 1231-5 Code civil) :</strong> En cas de non-paiement persistant malgré une mise en demeure restée sans effet pendant 30 jours, le montant dû sera majoré de <strong>15 %</strong> à titre de clause pénale, destinée à couvrir les frais de gestion du litige et de procédure judiciaire éventuelle.</p></div>
+    <p>PIVTEK se réserve le droit de suspendre l'exécution de toute prestation en cours en cas de retard de paiement non régularisé sous 8 jours ouvrés suivant relance écrite.</p>
+  </div>
+
+  <div class="article" id="art7">
+    <div class="art-n">Article 07</div>
+    <h2 class="art-t">Propriété intellectuelle</h2>
+    <div class="hl"><p><strong>Réserve de propriété intellectuelle :</strong> L'ensemble des livrables produits par PIVTEK — code source, maquettes, designs, documentations — demeure la <strong>propriété exclusive de PIVTEK</strong> jusqu'au paiement intégral du prix convenu. Aucun droit d'exploitation, de modification ou de cession n'est transféré tant que le solde n'est pas soldé.</p></div>
+    <p>À compter du règlement complet, PIVTEK cède au Client, pour le territoire mondial et pour toute la durée légale de protection, les droits d'exploitation des livrables dans les conditions définies au devis (utilisation, reproduction, adaptation). PIVTEK conserve le droit de mentionner la réalisation à des fins de référence commerciale, sauf opposition écrite du Client.</p>
+    <p>Les outils, méthodes, bibliothèques open-source et savoir-faire utilisés par PIVTEK demeurent sa propriété ou celle de leurs auteurs respectifs et ne sont pas cédés.</p>
+  </div>
+
+  <div class="article" id="art8">
+    <div class="art-n">Article 08</div>
+    <h2 class="art-t">Obligations des parties</h2>
+    <p><strong>PIVTEK s'engage à :</strong> exécuter les prestations avec diligence et compétence ; respecter les délais convenus sauf cas de force majeure ou retard imputable au Client ; informer le Client de toute difficulté technique susceptible d'affecter la livraison.</p>
+    <p><strong>Le Client s'engage à :</strong> fournir en temps utile les informations, contenus et accès nécessaires ; désigner un interlocuteur disponible pour les validations ; répondre aux demandes de PIVTEK dans un délai raisonnable (5 jours ouvrés sauf accord contraire) ; régler les factures aux échéances convenues.</p>
+  </div>
+
+  <div class="article" id="art9">
+    <div class="art-n">Article 09</div>
+    <h2 class="art-t">Responsabilité et garanties</h2>
+    <p>La responsabilité de PIVTEK est limitée aux seuls dommages directs prouvés et <strong>plafonnée au montant total des sommes effectivement versées par le Client</strong> au titre du contrat en cause. PIVTEK ne saurait être tenu responsable des dommages indirects, pertes d'exploitation, manques à gagner ou atteintes à l'image.</p>
+    <p>PIVTEK garantit que les livrables sont conformes aux spécifications du devis et exempts de vices cachés pendant une durée de <strong>3 mois</strong> à compter de la livraison finale. Cette garantie est exclue pour les défauts résultant de modifications effectuées par le Client ou d'une utilisation non conforme.</p>
+  </div>
+
+  <div class="article" id="art10">
+    <div class="art-n">Article 10</div>
+    <h2 class="art-t">Confidentialité</h2>
+    <p>Chaque partie s'engage à garder strictement confidentielles toutes les informations de nature confidentielle communiquées par l'autre partie dans le cadre de l'exécution du contrat, et ce pendant toute la durée du contrat et pendant une période de <strong>3 ans</strong> après son expiration ou sa résiliation.</p>
+    <p>Sont notamment considérées comme confidentielles : les données techniques, commerciales, financières et stratégiques de chaque partie. Cette obligation ne s'applique pas aux informations déjà publiques ou communiquées par un tiers autorisé.</p>
+  </div>
+
+  <div class="article" id="art11">
+    <div class="art-n">Article 11</div>
+    <h2 class="art-t">Résiliation</h2>
+    <p>En cas de manquement grave de l'une des parties à ses obligations, l'autre partie peut résilier le contrat de plein droit après mise en demeure restée sans effet pendant <strong>15 jours ouvrés</strong>.</p>
+    <p>En cas de résiliation à l'initiative du Client hors motif légitime, les sommes déjà versées restent acquises à PIVTEK au titre des travaux réalisés. Les livrables produits jusqu'à la date de résiliation ne sont transmis qu'après règlement complet des sommes dues.</p>
+    <p>En cas de résiliation à l'initiative de PIVTEK pour motif légitime (non-paiement, manquement grave), PIVTEK remboursera les sommes correspondant aux travaux non réalisés.</p>
+  </div>
+
+  <div class="article" id="art12">
+    <div class="art-n">Article 12</div>
+    <h2 class="art-t">Données personnelles</h2>
+    <p>Dans le cadre des prestations, PIVTEK est susceptible de traiter des données personnelles pour le compte du Client. PIVTEK agit alors en qualité de <strong>sous-traitant</strong> au sens de l'article 28 du RGPD (UE 2016/679) et s'engage à traiter ces données uniquement selon les instructions documentées du Client, à mettre en œuvre les mesures de sécurité appropriées et à les restituer ou détruire à l'issue du contrat.</p>
+    <p>Les données personnelles des clients de PIVTEK sont traitées conformément à la <a href="/politique-confidentialite">politique de confidentialité</a> publiée sur pivtek.fr.</p>
+  </div>
+
+  <div class="article" id="art13">
+    <div class="art-n">Article 13</div>
+    <h2 class="art-t">Droit de rétractation <span style="font-family:'Inter',sans-serif;font-size:13px;color:var(--mu);font-weight:400">(consommateurs)</span></h2>
+    <p>Conformément aux articles L.221-18 et suivants du Code de la consommation, <strong>les consommateurs (B2C) disposent d'un délai de 14 jours calendaires</strong> à compter de la conclusion du contrat pour exercer leur droit de rétractation, sans motif ni pénalité.</p>
+    <p>La rétractation s'exerce par tout moyen écrit adressé à <a href="mailto:contact@pivtek.fr">contact@pivtek.fr</a>. Si le Client consommateur demande expressément le début de l'exécution avant l'expiration du délai de rétractation et que la prestation est intégralement réalisée avant ce terme, il perd son droit de rétractation (art. L.221-28 Code conso.).</p>
+    <div class="hl"><p>Ce droit de rétractation ne s'applique pas aux contrats B2B (professionnels).</p></div>
+  </div>
+
+  <div class="article" id="art14">
+    <div class="art-n">Article 14</div>
+    <h2 class="art-t">Médiation et litiges</h2>
+    <p>Les présentes CGV sont soumises au <strong>droit français</strong>. En cas de litige, les parties s'engagent à rechercher une solution amiable dans un délai de 30 jours.</p>
+    <p><strong>Pour les professionnels (B2B) :</strong> le Tribunal de commerce de Lyon sera seul compétent en cas de litige non résolu.</p>
+    <p><strong>Pour les consommateurs (B2C) :</strong> conformément à l'article L.612-1 du Code de la consommation, tout consommateur peut recourir gratuitement à un médiateur de la consommation. À défaut de résolution amiable, les tribunaux compétents sont ceux du domicile du consommateur.</p>
+  </div>
+
+  <div class="article" id="art15">
+    <div class="art-n">Article 15</div>
+    <h2 class="art-t">Dispositions finales</h2>
+    <p>Si l'une quelconque des clauses des présentes CGV était déclarée nulle ou inapplicable, les autres clauses resteraient en vigueur. PIVTEK se réserve le droit de modifier les présentes CGV à tout moment ; la version applicable est celle en vigueur à la date de signature du devis.</p>
+    <p>Les présentes CGV annulent et remplacent tout accord antérieur relatif à leur objet. En cas de contradiction entre les CGV et le devis signé, les stipulations du devis prévalent.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div class="ft">
+    <div class="ft-top">
+      <svg viewBox="0 0 28 28" width="20" height="20" fill="none"><path d="M16 4L6 14L16 24" stroke="#7B6FD6" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M22 7L14 14L22 21" stroke="#5B8DEF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <span style="font-size:13px;font-weight:600;letter-spacing:3px"><span style="color:var(--mu)">PIV</span><span style="color:var(--pur)">TEK</span></span>
+    </div>
+    <div class="ft-c">© 2026 PIVTEK · Lyon, France</div>
+    <div class="ft-links">
+      <a href="/">Accueil</a>
+      <a href="/mentions-legales">Mentions légales</a>
+      <a href="/politique-confidentialite">Confidentialité</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
