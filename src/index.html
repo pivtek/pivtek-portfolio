@@ -732,6 +732,122 @@
   </div>
 </footer>
 
+<!-- ── Cookie Banner PIVTEK ── -->
+<div class="pv-cookie" id="pvCookie" role="dialog" aria-label="Gestion des cookies" aria-live="polite">
+
+  <div class="pv-cookie-top">
+    <div class="pv-cookie-icon">
+      <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+        <circle cx="11" cy="11" r="9" stroke="#7B6FD6" stroke-width="1.4" stroke-dasharray="3 2.5"/>
+        <circle cx="7.5" cy="9" r="1.4" fill="#7B6FD6"/>
+        <circle cx="13" cy="14" r="1.4" fill="#5B8DEF"/>
+        <circle cx="14" cy="7.5" r="1" fill="#7B6FD6" opacity=".55"/>
+        <circle cx="8.5" cy="14.5" r=".9" fill="#5B8DEF" opacity=".45"/>
+      </svg>
+    </div>
+    <div>
+      <div class="pv-cookie-title">Ce site utilise des cookies</div>
+      <div class="pv-cookie-desc">
+        Nous utilisons des cookies pour améliorer votre expérience et mesurer l'audience.
+        Consultez notre <a href="/politique-confidentialite">politique de confidentialité</a>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Detail panel (caché par défaut) -->
+  <div class="pv-cookie-detail" id="pvCookieDetail">
+    <div class="pv-cookie-row">
+      <div class="pv-cookie-row-info">
+        <div class="pv-cookie-row-name">Essentiels</div>
+        <div class="pv-cookie-row-d">Nécessaires au fonctionnement du site. Toujours actifs.</div>
+      </div>
+      <label class="pv-toggle">
+        <input type="checkbox" checked disabled>
+        <span class="pv-toggle-track"></span>
+      </label>
+    </div>
+    <div class="pv-cookie-row">
+      <div class="pv-cookie-row-info">
+        <div class="pv-cookie-row-name">Analytiques</div>
+        <div class="pv-cookie-row-d">Mesure d'audience anonymisée — pages vues, durée de visite.</div>
+      </div>
+      <label class="pv-toggle">
+        <input type="checkbox" id="pvCookieAnalytics">
+        <span class="pv-toggle-track"></span>
+      </label>
+    </div>
+    <div class="pv-cookie-row">
+      <div class="pv-cookie-row-info">
+        <div class="pv-cookie-row-name">Marketing</div>
+        <div class="pv-cookie-row-d">Personnalisation et suivi publicitaire.</div>
+      </div>
+      <label class="pv-toggle">
+        <input type="checkbox" id="pvCookieMarketing">
+        <span class="pv-toggle-track"></span>
+      </label>
+    </div>
+    <button class="pv-cookie-save" onclick="pvSavePrefs()">Enregistrer mes choix</button>
+  </div>
+
+  <div class="pv-cookie-actions">
+    <button class="pv-cookie-accept" onclick="pvAcceptAll()">Tout accepter</button>
+    <button class="pv-cookie-refuse" onclick="pvRefuseAll()">Tout refuser</button>
+    <button class="pv-cookie-more" id="pvMoreBtn" onclick="pvToggleDetail()">
+      Personnaliser
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" style="transition:transform .25s cubic-bezier(.22,1,.36,1)">
+        <path d="M2 4l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var KEY    = 'pv_cookie_consent';
+  var banner = document.getElementById('pvCookie');
+
+  function dismiss(){
+    banner.style.transition = 'opacity .3s, transform .35s cubic-bezier(.55,0,1,.45)';
+    banner.style.opacity    = '0';
+    banner.style.transform  = 'translateX(-50%) translateY(32px)';
+    setTimeout(function(){ banner.style.display = 'none'; }, 360);
+  }
+
+  window.pvAcceptAll = function(){
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:true,marketing:true,ts:Date.now()}));
+    dismiss();
+  };
+  window.pvRefuseAll = function(){
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:false,marketing:false,ts:Date.now()}));
+    dismiss();
+  };
+  window.pvSavePrefs = function(){
+    var a = document.getElementById('pvCookieAnalytics');
+    var m = document.getElementById('pvCookieMarketing');
+    localStorage.setItem(KEY, JSON.stringify({essential:true,analytics:a&&a.checked,marketing:m&&m.checked,ts:Date.now()}));
+    dismiss();
+  };
+  window.pvToggleDetail = function(){
+    var d   = document.getElementById('pvCookieDetail');
+    var btn = document.getElementById('pvMoreBtn');
+    var svg = btn.querySelector('svg');
+    var open = d.classList.toggle('open');
+    if(svg) svg.style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+  };
+
+  // Show banner if no consent or expired (> 365 days)
+  try {
+    var stored = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if(!stored || (Date.now() - stored.ts > 365*24*3600*1000)){
+      setTimeout(function(){ banner.classList.add('show'); }, 600);
+    }
+  } catch(e){
+    setTimeout(function(){ banner.classList.add('show'); }, 600);
+  }
+})();
+</script>
+
 <!-- Modals (legacy, conservés) -->
 <div class="pv-modal" id="ml"><div class="pv-modal-inner"><button class="absolute top-3.5 right-[18px] bg-transparent border-none text-pv-mu text-lg cursor-pointer" onclick="closeModal('ml')">✕</button><h2 class="font-serif text-xl font-normal mb-5">Mentions légales</h2><p class="text-[13px] text-pv-mu leading-[1.8] mb-3.5">Voir <a href="/mentions-legales" class="text-pv-pur">pivtek.fr/mentions-legales</a></p></div></div>
 <div class="pv-modal" id="pp"><div class="pv-modal-inner"><button class="absolute top-3.5 right-[18px] bg-transparent border-none text-pv-mu text-lg cursor-pointer" onclick="closeModal('pp')">✕</button><h2 class="font-serif text-xl font-normal mb-5">Politique de confidentialité</h2><p class="text-[13px] text-pv-mu leading-[1.8] mb-3.5">Voir <a href="/politique-confidentialite" class="text-pv-pur">pivtek.fr/politique-confidentialite</a></p></div></div>
