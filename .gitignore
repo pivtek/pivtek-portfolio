@@ -1,2 +1,25 @@
 node_modules/
+
+# ── Credentials & secrets (JAMAIS dans git) ──────────────────
+.env
+config.py
+oauth_client.json
+token.json
+
+# ── Fichiers de quota et état local ──────────────────────────
 .send_count
+.google_places_quota
+.google_places_quota.json
+.insee_quota.json
+
+# ── Logs et données runtime ───────────────────────────────────
+.tracking_log.json
+tracking_log.json
+prospects_queue.json
+
+# ── Python ────────────────────────────────────────────────────
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
