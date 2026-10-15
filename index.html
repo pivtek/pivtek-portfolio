@@ -229,28 +229,39 @@ nav.scrolled {
   line-height: 1.15;
 }
 .section-header h2 em { font-style: italic; color: var(--accent) }
-.service-list { list-style: none }
-.service-item {
+
+/* services grid (4×2) */
+.service-grid {
   display: grid;
-  grid-template-columns: 3rem 1fr 1fr;
-  align-items: center;
-  gap: 2rem;
-  padding: 2rem 0;
-  border-bottom: 1px solid var(--border);
-  cursor: pointer;
-  transition: padding-left .3s;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
-.service-item:hover { padding-left: 1rem }
-.service-item:hover .service-num { color: var(--accent) }
-.service-num {
-  font-size: .7rem; font-weight: 600; letter-spacing: .1em;
-  color: var(--fg2); transition: color .2s;
+.service-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: background .2s, border-color .2s;
 }
-.service-name {
-  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
-  font-weight: 500;
+.service-card:hover {
+  background: rgba(250,255,243,.03);
+  border-color: rgba(192,245,61,.25);
 }
-.service-desc { font-size: .875rem; color: var(--fg2); line-height: 1.6 }
+.service-card.featured-card {
+  background: rgba(250,255,243,.04);
+  border-color: rgba(192,245,61,.35);
+}
+.service-icon {
+  width: 40px; height: 40px;
+  margin-bottom: 1.25rem;
+  opacity: .85;
+}
+.service-card h3 {
+  font-size: 1.1rem; font-weight: 600;
+  margin-bottom: .75rem;
+  line-height: 1.25;
+}
+.service-card h3 em { font-style: italic; color: var(--accent) }
+.service-card p { font-size: .875rem; color: var(--fg2); line-height: 1.65 }
 
 /* ── SECTEURS ───────────────────────────────────────────── */
 #sectors {
@@ -311,14 +322,27 @@ nav.scrolled {
   color: var(--bg);
   padding: 5rem max(40px, env(safe-area-inset-left,0px));
   text-align: center;
+  position: relative;
+  overflow: hidden;
 }
+/* globe badge */
+.pitch-badge {
+  position: absolute;
+  top: -32px; left: 50%; transform: translateX(-50%);
+  width: 64px; height: 64px;
+  background: var(--bg);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 3px solid var(--accent);
+}
+.pitch-badge svg { width: 36px; height: 36px }
 #pitch h2 {
   font-family: 'Playfair Display', serif;
   font-size: clamp(1.8rem, 4vw, 3rem);
   font-weight: 400;
   line-height: 1.3;
   max-width: 32ch;
-  margin: 0 auto 2rem;
+  margin: 2.5rem auto 2rem;
 }
 #pitch h2 em { font-style: italic }
 #pitch .label { color: rgba(10,13,4,.6); margin-bottom: 1rem }
@@ -438,11 +462,16 @@ nav.scrolled {
 /* ── FOOTER ─────────────────────────────────────────────── */
 footer {
   border-top: 1px solid var(--border);
-  padding: 3rem max(40px, env(safe-area-inset-left,0px));
+  padding: 4rem max(40px, env(safe-area-inset-left,0px)) 2rem;
+  background: linear-gradient(to bottom, var(--bg) 0%, #0d1505 60%, #162006 100%);
+}
+.footer-top {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
-  align-items: end;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
 }
 .footer-brand {}
 .footer-logo {
@@ -451,13 +480,53 @@ footer {
   border: 1px solid var(--fg);
   padding: .35rem .75rem;
   display: inline-block;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
-.footer-tagline { font-size: .8rem; color: var(--fg2) }
-.footer-links { display: flex; flex-direction: column; gap: .75rem }
+.footer-tagline { font-size: .8rem; color: var(--fg2); margin-bottom: 1.5rem; line-height: 1.6 }
+/* email signup */
+.footer-signup {
+  display: flex; gap: .5rem; max-width: 340px;
+}
+.footer-signup input {
+  flex: 1;
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--fg);
+  padding: .65rem 1rem;
+  font-size: .875rem;
+  font-family: 'Inter', sans-serif;
+  border-radius: 4px;
+  outline: none;
+  transition: border-color .2s;
+}
+.footer-signup input::placeholder { color: var(--fg2) }
+.footer-signup input:focus { border-color: rgba(192,245,61,.5) }
+.footer-signup button {
+  background: var(--fg); color: var(--bg);
+  border: none; cursor: pointer;
+  padding: .65rem 1rem;
+  font-weight: 700; font-size: .85rem;
+  border-radius: 4px;
+  transition: background .2s;
+  white-space: nowrap;
+}
+.footer-signup button:hover { background: var(--accent) }
+.footer-nav-col h4 {
+  font-size: .7rem; font-weight: 700; letter-spacing: .12em;
+  text-transform: uppercase; color: var(--fg);
+  margin-bottom: 1.25rem;
+}
+.footer-links { display: flex; flex-direction: column; gap: .6rem }
 .footer-links a { font-size: .85rem; color: var(--fg2); transition: color .2s }
 .footer-links a:hover { color: var(--fg) }
-.footer-copy { text-align: right; font-size: .75rem; color: var(--fg2) }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 1rem;
+}
+.footer-copy { font-size: .75rem; color: var(--fg2) }
+.footer-globe {
+  width: 28px; height: 28px; opacity: .35;
+}
 
 /* ── MOBILE ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
@@ -475,10 +544,10 @@ footer {
 
   #about { grid-template-columns: 1fr }
   .section-header { flex-direction: column; align-items: flex-start }
-  .service-item { grid-template-columns: 2.5rem 1fr; }
-  .service-desc { display: none }
-  footer { grid-template-columns: 1fr; text-align: left }
-  .footer-copy { text-align: left }
+  .service-grid { grid-template-columns: 1fr }
+  .footer-top { grid-template-columns: 1fr; text-align: left }
+  .footer-bottom { flex-direction: column; align-items: flex-start }
+  .footer-signup { max-width: 100% }
 }
 
 /* ── Mobile nav overlay ─────────────────────────────────── */
@@ -609,28 +678,73 @@ footer {
     <h2>Ce que nous<br>faisons <em>le mieux.</em></h2>
     <p class="label" style="max-width:24ch;text-align:right">Studio dev · SaaS · Automatisation</p>
   </div>
-  <ul class="service-list">
-    <li class="service-item">
-      <span class="service-num">01</span>
-      <span class="service-name">Développement sur mesure</span>
-      <span class="service-desc">Apps web, apps mobiles et automatisations conçues spécifiquement pour les processus métier de votre TPE-PME.</span>
-    </li>
-    <li class="service-item">
-      <span class="service-num">02</span>
-      <span class="service-name">Apps terrain SaaS</span>
-      <span class="service-desc">PIVTEK Terrain — rapports réglementaires PDF, signature client, planning et notifications automatiques.</span>
-    </li>
-    <li class="service-item">
-      <span class="service-num">03</span>
-      <span class="service-name">Automatisation & agents IA</span>
-      <span class="service-desc">Flux n8n, agents de prospection email, synchronisation Google Sheets, SMS/email automatisés.</span>
-    </li>
-    <li class="service-item">
-      <span class="service-num">04</span>
-      <span class="service-name">Intégration Supabase & API</span>
-      <span class="service-desc">Backend scalable avec architecture multi-tenant, workspace_type sectoriel et intégrations tiers (ANSES, API réglementaires).</span>
-    </li>
-  </ul>
+  <div class="service-grid">
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#FAFFF3" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="8" stroke="#FAFFF3" stroke-width="1.5"/>
+      </svg>
+      <h3>Développement<br>sur mesure</h3>
+      <p>Apps web, apps mobiles et automatisations conçues spécifiquement pour les processus métier de votre TPE-PME.</p>
+    </div>
+    <div class="service-card featured-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="4" y="6" width="24" height="18" rx="2" stroke="#C0F53D" stroke-width="1.5"/>
+        <rect x="10" y="10" width="12" height="8" rx="1" stroke="#C0F53D" stroke-width="1.2"/>
+        <path d="M28 14h8M36 14l-3-3M36 14l-3 3" stroke="#C0F53D" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <h3>Apps terrain <em>SaaS</em></h3>
+      <p>PIVTEK Terrain — rapports réglementaires PDF, signature client, planning et notifications automatiques.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8 20h6l4-8 4 14 4-10 4 4h6" stroke="#FAFFF3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>Automatisation<br>& agents IA</h3>
+      <p>Flux n8n, agents de prospection email, synchronisation Google Sheets, SMS/email automatisés.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 4v8M20 28v8M4 20h8M28 20h8" stroke="#FAFFF3" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="20" cy="20" r="8" stroke="#FAFFF3" stroke-width="1.5"/>
+        <circle cx="20" cy="20" r="3" fill="#FAFFF3"/>
+      </svg>
+      <h3>Intégration<br>Supabase & API</h3>
+      <p>Backend scalable avec architecture multi-tenant, workspace sectoriel et intégrations réglementaires (API ANSES, AMM).</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="6" y="8" width="28" height="24" rx="2" stroke="#FAFFF3" stroke-width="1.5"/>
+        <path d="M6 14h28M12 20h8M12 26h12" stroke="#FAFFF3" stroke-width="1.2" stroke-linecap="round"/>
+      </svg>
+      <h3>Rapports PDF<br>réglementaires</h3>
+      <p>Templates conformes décret 2022, arrêté 2009, NF S61-919, UE 528/2012 — signature électronique intégrée.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 6C12.27 6 6 12.27 6 20s6.27 14 14 14 14-6.27 14-14S27.73 6 20 6z" stroke="#FAFFF3" stroke-width="1.5"/>
+        <path d="M6 20h28M20 6c-4 4-6 9-6 14s2 10 6 14M20 6c4 4 6 9 6 14s-2 10-6 14" stroke="#FAFFF3" stroke-width="1.2"/>
+      </svg>
+      <h3>Landing pages<br>& sites vitrine</h3>
+      <p>Sites performants et pages de conversion pour artisans et PME — SEO, responsive, déployés sur Vercel.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 8l-6 6 6 6M28 8l6 6-6 6M22 6l-4 28" stroke="#FAFFF3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h3>SEO & performance</h3>
+      <p>Optimisation des meta, structured data, Core Web Vitals. Vos clients vous trouvent avant les concurrents.</p>
+    </div>
+    <div class="service-card">
+      <svg class="service-icon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="14" cy="14" r="6" stroke="#FAFFF3" stroke-width="1.5"/>
+        <circle cx="28" cy="28" r="6" stroke="#FAFFF3" stroke-width="1.5"/>
+        <path d="M18 18l6 6" stroke="#FAFFF3" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+      <h3>Reporting<br>& analytics</h3>
+      <p>Tableaux de bord Google Sheets, suivi KPIs, dashboards métier. Décidez sur vos vraies données.</p>
+    </div>
+  </div>
 </section>
 
 <!-- ── SECTEURS ─────────────────────────────────────────── -->
@@ -669,6 +783,14 @@ footer {
 
 <!-- ── PITCH LIME BAND ───────────────────────────────────── -->
 <section id="pitch">
+  <!-- globe badge straddling the top border -->
+  <div class="pitch-badge">
+    <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="18" cy="18" r="16" stroke="#C0F53D" stroke-width="1.5"/>
+      <ellipse cx="18" cy="18" rx="7" ry="16" stroke="#C0F53D" stroke-width="1.2"/>
+      <path d="M2 18h32M18 2c-5 4-7 9-7 16s2 12 7 16M18 2c5 4 7 9 7 16s-2 12-7 16" stroke="#C0F53D" stroke-width="1.2"/>
+    </svg>
+  </div>
   <p class="label">Le pitch PIVTEK Terrain</p>
   <h2>"L'app des techniciens indépendants qui ont des rapports obligatoires à produire et pas envie de payer <em>300€/mois.</em>"</h2>
   <a href="#pricing" class="btn-dark">Voir les tarifs →</a>
@@ -769,19 +891,43 @@ footer {
 
 <!-- ── FOOTER ───────────────────────────────────────────── -->
 <footer>
-  <div class="footer-brand">
-    <span class="footer-logo">PIVTEK®</span>
-    <p class="footer-tagline">Studio dev & SaaS métier terrain.<br>Lyon, France.</p>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <span class="footer-logo">PIVTEK®</span>
+      <p class="footer-tagline">Studio dev & SaaS métier terrain.<br>Lyon, France · France · Suisse · Belgique</p>
+      <!-- email signup -->
+      <form class="footer-signup" onsubmit="handleSignup(event)">
+        <input type="email" placeholder="Votre email" aria-label="Email" required>
+        <button type="submit">→</button>
+      </form>
+    </div>
+    <div class="footer-nav-col">
+      <h4>Services</h4>
+      <div class="footer-links">
+        <a href="#services">Développement sur mesure</a>
+        <a href="#sectors">PIVTEK Terrain</a>
+        <a href="#services">Automatisation IA</a>
+        <a href="#services">Intégrations API</a>
+      </div>
+    </div>
+    <div class="footer-nav-col">
+      <h4>Entreprise</h4>
+      <div class="footer-links">
+        <a href="#about">À propos</a>
+        <a href="#sectors">Modules métier</a>
+        <a href="#pricing">Tarifs</a>
+        <a href="#cta">Contact</a>
+      </div>
+    </div>
   </div>
-  <div class="footer-links">
-    <a href="#services">Services</a>
-    <a href="#sectors">PIVTEK Terrain</a>
-    <a href="#pricing">Tarifs</a>
-    <a href="#cta">Contact</a>
-  </div>
-  <div class="footer-copy">
-    <p>© 2026 PIVTEK</p>
-    <p style="margin-top:.5rem;font-size:.7rem">Apps métier · Rapports réglementaires<br>France · Suisse · Belgique</p>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 PIVTEK — Apps métier · Rapports réglementaires</p>
+    <!-- small globe icon -->
+    <svg class="footer-globe" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="12" stroke="#FAFFF3" stroke-width="1"/>
+      <ellipse cx="14" cy="14" rx="5" ry="12" stroke="#FAFFF3" stroke-width="1"/>
+      <path d="M2 14h24" stroke="#FAFFF3" stroke-width="1"/>
+    </svg>
   </div>
 </footer>
 
@@ -797,5 +943,12 @@ function toggleMenu() {
   document.getElementById('mobileMenu').classList.toggle('open');
 }
 
-// Ticker duplicate check (already duplicated in HTML)
+// Footer signup
+function handleSignup(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button');
+  btn.textContent = '✓';
+  btn.style.background = 'var(--accent)';
+  setTimeout(() => { btn.textContent = '→'; btn.style.background = ''; }, 2500);
+}
 </script>
