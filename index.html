@@ -461,23 +461,62 @@ footer {
 
 /* ── MOBILE ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
-  nav { padding: 1rem max(20px, env(safe-area-inset-left,0px)) 1rem max(20px, env(safe-area-inset-right,0px)) }
+  /* Nav */
+  nav { padding: 1rem max(20px, env(safe-area-inset-left,0px)) }
   .nav-links { display: none }
   .nav-cta { display: none }
   .nav-burger { display: flex }
 
-  #hero { padding: 0 max(20px, env(safe-area-inset-left,0px)) 4rem }
+  /* Hero — padding-top pour dégager la nav fixe (~64px) */
+  #hero {
+    padding: 5rem max(20px, env(safe-area-inset-left,0px)) 3.5rem;
+    min-height: 100svh;
+  }
+  .hero-headline { font-size: clamp(2.6rem, 11vw, 4rem); max-width: 100% }
+  .hero-sub { font-size: .95rem; max-width: 100% }
+  .hero-actions { flex-direction: column; align-items: flex-start }
+  .hero-actions a { width: 100%; text-align: center; justify-content: center }
+  .ticker { margin-top: 2.5rem }
+
+  /* Sections — gutters */
   #about, #services, #sectors, #pricing, #process, #cta {
     padding-left: max(20px, env(safe-area-inset-left,0px));
     padding-right: max(20px, env(safe-area-inset-right,0px));
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
-  #pitch { padding-left: max(20px, env(safe-area-inset-left,0px)); padding-right: max(20px, env(safe-area-inset-right,0px)) }
+  #pitch {
+    padding-left: max(20px, env(safe-area-inset-left,0px));
+    padding-right: max(20px, env(safe-area-inset-right,0px));
+    padding-top: 4rem; padding-bottom: 4rem;
+  }
 
+  /* About */
   #about { grid-template-columns: 1fr }
-  .section-header { flex-direction: column; align-items: flex-start }
-  .service-item { grid-template-columns: 2.5rem 1fr; }
+  .about-stats { grid-template-columns: 1fr 1fr; gap: 1.25rem }
+  .stat-num { font-size: 2.25rem }
+
+  /* Services */
+  .section-header { flex-direction: column; align-items: flex-start; gap: .75rem; margin-bottom: 2.5rem }
+  .service-item { grid-template-columns: 2.5rem 1fr }
   .service-desc { display: none }
-  footer { grid-template-columns: 1fr; text-align: left }
+
+  /* Sectors */
+  .sectors-grid { grid-template-columns: 1fr }
+
+  /* Pricing */
+  .pricing-grid { grid-template-columns: 1fr }
+
+  /* Process */
+  .process-steps { grid-template-columns: 1fr; gap: 2rem }
+
+  /* CTA */
+  #cta h2 { font-size: clamp(2rem, 8vw, 3rem) }
+  #cta .actions { flex-direction: column; align-items: center }
+  #cta .actions a { width: 100%; text-align: center; justify-content: center }
+
+  /* Footer */
+  footer { grid-template-columns: 1fr; text-align: left; align-items: start }
   .footer-copy { text-align: left }
 }
 
