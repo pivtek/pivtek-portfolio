@@ -474,8 +474,8 @@ footer {
   }
   .hero-headline { font-size: clamp(2.6rem, 11vw, 4rem); max-width: 100% }
   .hero-sub { font-size: .95rem; max-width: 100% }
-  .hero-actions { flex-direction: column; align-items: flex-start }
-  .hero-actions a { width: 100%; text-align: center; justify-content: center }
+  .hero-actions { flex-direction: column; align-items: stretch; gap: .75rem }
+  .hero-actions a { width: 100%; text-align: center; justify-content: center; display: flex }
   .ticker { margin-top: 2.5rem }
 
   /* Sections — gutters */
@@ -493,7 +493,7 @@ footer {
 
   /* About */
   #about { grid-template-columns: 1fr }
-  .about-stats { grid-template-columns: 1fr 1fr; gap: 1.25rem }
+  .about-stats { grid-template-columns: 1fr 1fr; gap: 1.25rem; overflow: hidden }
   .stat-num { font-size: 2.25rem }
 
   /* Services */
